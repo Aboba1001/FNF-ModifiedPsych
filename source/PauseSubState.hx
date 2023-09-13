@@ -20,7 +20,7 @@ class PauseSubState extends MusicBeatSubstate
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
-	var menuItemsOG:Array<String> = ['Resume', 'Restart', 'Change Difficulty' #if android, 'Chart Editor' #end, 'Exit to menu'];
+	var menuItemsOG:Array<String> = ['Resume Song', 'Restart', 'Change Difficulty' #if android, 'Chart Editor' #end, 'Exit to menu'];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
@@ -77,38 +77,38 @@ class PauseSubState extends MusicBeatSubstate
 		bg.scrollFactor.set();
 		add(bg);
 
-		var levelInfo:FlxText = new FlxText(20, 15, 0, "", 32);
+		var levelInfo:FlxText = new FlxText(20, 15, 0, "", 30);
 		levelInfo.text += PlayState.SONG.song;
 		levelInfo.scrollFactor.set();
-		levelInfo.setFormat(Paths.font("vcr.ttf"), 32);
+		levelInfo.setFormat(Paths.font("vcr.ttf"), 30);
 		levelInfo.updateHitbox();
 		add(levelInfo);
 
-		var levelDifficulty:FlxText = new FlxText(20, 15 + 32, 0, "", 32);
+		var levelDifficulty:FlxText = new FlxText(20, 15 + 32, 0, "", 30);
 		levelDifficulty.text += CoolUtil.difficultyString();
 		levelDifficulty.scrollFactor.set();
-		levelDifficulty.setFormat(Paths.font('vcr.ttf'), 32);
+		levelDifficulty.setFormat(Paths.font('vcr.ttf'), 30);
 		levelDifficulty.updateHitbox();
 		add(levelDifficulty);
 
-		var blueballedTxt:FlxText = new FlxText(20, 15 + 64, 0, "", 32);
+		var blueballedTxt:FlxText = new FlxText(20, 15 + 64, 0, "", 30);
 		blueballedTxt.text = "Blueballed: " + PlayState.deathCounter;
 		blueballedTxt.scrollFactor.set();
-		blueballedTxt.setFormat(Paths.font('vcr.ttf'), 32);
+		blueballedTxt.setFormat(Paths.font('vcr.ttf'), 30);
 		blueballedTxt.updateHitbox();
 		add(blueballedTxt);
 
-		practiceText = new FlxText(20, 15 + 101, 0, "PRACTICE MODE", 32);
+		practiceText = new FlxText(20, 15 + 101, 0, "PRACTICE MODE", 30);
 		practiceText.scrollFactor.set();
-		practiceText.setFormat(Paths.font('vcr.ttf'), 32);
+		practiceText.setFormat(Paths.font('vcr.ttf'), 30);
 		practiceText.x = FlxG.width - (practiceText.width + 20);
 		practiceText.updateHitbox();
 		practiceText.visible = PlayState.instance.practiceMode;
 		add(practiceText);
 
-		var chartingText:FlxText = new FlxText(20, 15 + 101, 0, "CHARTING MODE", 32);
+		var chartingText:FlxText = new FlxText(20, 15 + 101, 0, "CHARTING MODE", 30);
 		chartingText.scrollFactor.set();
-		chartingText.setFormat(Paths.font('vcr.ttf'), 32);
+		chartingText.setFormat(Paths.font('vcr.ttf'), 30);
 		chartingText.x = FlxG.width - (chartingText.width + 20);
 		chartingText.y = FlxG.height - (chartingText.height + 20);
 		chartingText.updateHitbox();
