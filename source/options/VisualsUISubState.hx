@@ -47,21 +47,6 @@ class VisualsUISubState extends BaseOptionsMenu
 			'bool',
 			false);
 		addOption(option);
-
-		var option:Option = new Option('Show Watermark',
-		        'if enabled, shows watermark.',
-                        'watermark',
-		        'bool',
-			false);
-		addOption(option);
-
-		var option:Option = new Option('Language',
-			"Change game language.",
-		        'language',
-			'string',
-			'English',
-			['English', 'Georgian']);
-		addOption(option);
 		
 		var option:Option = new Option('Time Bar:',
 			"What should the Time Bar display?",
@@ -71,6 +56,13 @@ class VisualsUISubState extends BaseOptionsMenu
 			['Time Left', 'Time Elapsed', 'Song Name', 'Disabled']);
 		addOption(option);
 
+		var option:Option = new Option('Watermark',
+		        " ",
+			'watermark',
+		        'bool',
+                        true);
+                addOption(option);
+			
 		var option:Option = new Option('Flashing Lights',
 			"Uncheck this if you're sensitive to flashing lights!",
 			'flashing',
