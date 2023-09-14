@@ -277,7 +277,6 @@ class PlayState extends MusicBeatState
 	public var songHits:Int = 0;
 	public var songMisses:Int = 0;
 	public var scoreTxt:FlxText;
-	public var watermarkTxt:FlxText;
 	
 	var timeTxt:FlxText;
 	var scoreTxtTween:FlxTween;
@@ -1185,13 +1184,6 @@ class PlayState extends MusicBeatState
 		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
-
-	        watermarkTxt  = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "Aughh", 32);
-	        watermarkTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		watermarkTxt.scrollFactor.set();
-	        watermarkTxt.borderSize = 1.25;
-	        watermarkTxt.visible = true;
-                add(watermark);
 								       
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "[AUTOPLAY]", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -1216,7 +1208,6 @@ class PlayState extends MusicBeatState
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
-	        watermarkTxt.cameras = [camHUD];
 
 		#if android
 		addAndroidControls();
