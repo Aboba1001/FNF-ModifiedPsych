@@ -89,6 +89,8 @@ class FPS extends TextField
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
 			text += "\nMemory: " + memoryMegas + " MB";
+			text += '\nState: " + ${Type.getClassName(Type.getClass(FlxG.state))}';
+			text += "\nSystem: " + '${lime.system.System.platformLabel} ${lime.system.System.platformVersion}';
 			#end
 
 			textColor = 0xFFFFFFFF;
