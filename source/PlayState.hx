@@ -1189,7 +1189,7 @@ class PlayState extends MusicBeatState
 	        watermarkTxt = new FlxText(12, FlxG.height - 24, 0, "", 8);
 	        watermarkTxt.setFormat(Paths.font("vcr.ttf"), 15, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 	        watermarkTxt.scrollFactor.set()
-		watermarkTxt.borderSize = 1.25
+		watermarkTxt.borderSize = 1.25;
 		watermarkTxt.text = "uhh"
 		add(botplayTxt);
 				       
