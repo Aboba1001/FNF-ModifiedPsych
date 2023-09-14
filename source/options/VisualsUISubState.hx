@@ -47,6 +47,20 @@ class VisualsUISubState extends BaseOptionsMenu
 			'bool',
 			false);
 		addOption(option);
+
+		var option:Option = new Option('Show Watermark',
+		        'if enabled, shows watermark.',
+                        'watermark',
+		        'bool',
+			false);
+		addOption(option);
+
+		var option:Option = new Option('Language',
+			"Change game language."
+		        'language',
+			'English',
+			['English - English', 'Georgian - Qartuli']);
+		addOption(option);
 		
 		var option:Option = new Option('Time Bar:',
 			"What should the Time Bar display?",
