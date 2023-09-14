@@ -222,7 +222,7 @@ class ClientPrefs {
 		if(FlxG.save.data.noReset != null) {
 			noReset = FlxG.save.data.noReset;
 		}
-	        if(FlxG.save.data.healthBarAlpha != null) {
+		if(FlxG.save.data.healthBarAlpha != null) {
 			healthBarAlpha = FlxG.save.data.healthBarAlpha;
 		}
 		if(FlxG.save.data.comboOffset != null) {
