@@ -56,9 +56,9 @@ class VisualsUISubState extends BaseOptionsMenu
 		addOption(option);
 
 		var option:Option = new Option('Language',
-			"Change game language."
+			'Change game language.'
 		        'language',
-			'English',
+			'English - English',
 			['English - English', 'Georgian - Qartuli']);
 		addOption(option);
 		
