@@ -25,8 +25,8 @@ using StringTools;
 
 class MainMenuState extends MusicBeatState
 {
-	public static var psychEngineVersion:String = '1.0.0'; //This is also used for Discord RPC
-	public static var abobaEngineVersion:String = '0.6.3'; //teehee
+	public static var psychEngineVersion:String = '0.6.3'; //This is also used for Discord RPC
+	public static var abobaEngineVersion:String = '1.0.0-Release'; //teehee
 	public static var curSelected:Int = 0;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
@@ -37,7 +37,6 @@ class MainMenuState extends MusicBeatState
 		'story_mode',
 		'freeplay',
 		#if MODS_ALLOWED 'mods', #end
-		#if ACHIEVEMENTS_ALLOWED 'awards', #end
 		'credits',
 		#if !switch 'donate', #end
 		'options'
