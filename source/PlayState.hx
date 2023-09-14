@@ -4151,7 +4151,9 @@ class PlayState extends MusicBeatState
 	}
 
 	private function popUpScore(note:Note = null):Void
-	        //trace(noteDiff, ' ' + Math.abs(note.strumTime - Conductor.songPosition));
+       {
+       
+	       //trace(noteDiff, ' ' + Math.abs(note.strumTime - Conductor.songPosition));
 
 		// boyfriend.playAnim('hey');
 		vocals.volume = 1;
