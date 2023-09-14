@@ -1186,13 +1186,13 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 
-	        watermarkTxt = new FlxText(12, FlxG.height - 24, 0, "", 8);
-	        watermarkTxt.setFormat(Paths.font("vcr.ttf"), 15, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-	        watermarkTxt.scrollFactor.set()
-		watermarkTxt.borderSize = 1.25);
-		watermarkTxt.text = "uhh");
-		add(botplayTxt);
-				       
+	        watermarkTxt  = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "Aughh", 32);
+	        watermarkTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		watermarkTxt.scrollFactor.set();
+	        watermarkTxt.borderSize = 1.25;
+	        watermarkTxt.visible = true;
+                add(watermark);
+								       
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "[AUTOPLAY]", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
