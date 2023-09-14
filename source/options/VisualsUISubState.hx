@@ -59,8 +59,8 @@ class VisualsUISubState extends BaseOptionsMenu
 			"Change game language.",
 		        'language',
 			'string',
-			'English - English'
-			['English - English', 'Georgian - Qartuli']);
+			'English',
+			['English', 'Georgian']);
 		addOption(option);
 		
 		var option:Option = new Option('Time Bar:',
