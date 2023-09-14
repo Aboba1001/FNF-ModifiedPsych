@@ -97,7 +97,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			'healthBarAlpha',
 			'percent',
 			1);
-		option.scrollSpeed = 1.6;
+		option.scrollSpeed = 1.8;
 		option.minValue = 0.0;
 		option.maxValue = 1;
 		option.changeValue = 0.1;
