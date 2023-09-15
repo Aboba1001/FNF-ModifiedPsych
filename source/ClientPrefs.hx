@@ -28,6 +28,7 @@ class ClientPrefs {
 	public static var timeBarType:String = 'Time Left';
 	public static var watermark:Bool = true; 
 	public static var language:String = 'English'; //languages yay!!!
+	public static var showMsText:Bool = true;
 	public static var scoreZoom:Bool = true;
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
@@ -119,6 +120,7 @@ class ClientPrefs {
 		FlxG.save.data.ghostTapping = ghostTapping;
 		FlxG.save.data.timeBarType = timeBarType;
 		FlxG.save.data.language = language;
+		FlxG.save.data.showMsText = showMsText;
 		FlxG.save.data.watermark = watermark;
 		FlxG.save.data.scoreZoom = scoreZoom;
 		FlxG.save.data.noReset = noReset;
