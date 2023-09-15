@@ -56,14 +56,6 @@ class VisualsUISubState extends BaseOptionsMenu
 			['Time Left', 'Time Elapsed', 'Song Name', 'Disabled']);
 		addOption(option);
 
-		var option:Option = new Option('Colorblind Filter: ',
-		        "Changes the filter used to make the game more accessible to colorblind people.",
-			'colorblindFilter',
-			'string',
-			'None', 
-		        ['None' 'Deutranopia', 'Protanopia', 'Tritanopia']);
-	       addOption(option);
-
 		var option:Option = new Option('Language: ',
 			'language'
 			'string',
