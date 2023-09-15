@@ -100,7 +100,7 @@ class MainMenuState extends MusicBeatState
 		magenta.color = 0xFFfd719b;
 		add(magenta);
 
-	        velocityBackground = new FlxBackdrop(FlxGridOverlay.createGrid(30, 30, 60, 60, true, 0x3B161932, 0x0), XY); 
+	        velocityBackground = new FlxSprite(FlxGridOverlay.createGrid(30, 30, 60, 60, true, 0x3B161932, 0x0), XY); 
                 velocityBackground.velocity.set(FlxG.random.bool(50) ? 90 : -90, FlxG.random.bool(50) ? 90 : -90); 
                 velocityBackground.visible = true; 
                 velocityBackground.alpha = 0.5; 
