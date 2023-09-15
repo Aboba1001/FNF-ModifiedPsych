@@ -55,14 +55,6 @@ class VisualsUISubState extends BaseOptionsMenu
 			'Time Left',
 			['Time Left', 'Time Elapsed', 'Song Name', 'Disabled']);
 		addOption(option);
-
-		var option:Option = new Option('Language:',
-		        " ",
-			'language'
-		        'string',
-			'English',
-			['English', 'Georgian']);
-	       addOption(option);
 		         
 		var option:Option = new Option('Watermark',
 		        " ",
