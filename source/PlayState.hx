@@ -1192,17 +1192,15 @@ class PlayState extends MusicBeatState
 		add(iconP2);
 		reloadHealthBarColors();
 
-	      if(!ClientPrefs.watermark) {
 	        var songTxt = new FlxText(12, healthBarBG.y + 50, 0, SONG.song + " - (" + CoolUtil.difficultyString() + ") | " + MainMenuState.abobaEngineVersion "", 18); 
                 songTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT); 
                 songTxt.setBorderStyle(OUTLINE, FlxColor.BLACK, 1.1); 
                 songTxt.borderSize = 1.2; 
                 songTxt.borderQuality = 1.5; 
                 songTxt.scrollFactor.set(); 
-                songTxt.visible = !ClientPrefs.hideHud; 
+                songTxt.visible = !ClientPrefs.watermark; 
                 songTxt.cameras = [camHUD]; 
                 add(songTxt); 
-	       }
 
 		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 19);
 		scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
