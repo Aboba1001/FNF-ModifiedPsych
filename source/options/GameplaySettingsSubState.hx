@@ -81,7 +81,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		addOption(option);
 
 		var option:Option = new Option('Judgement Counter',
-			"if checked, uhh"
+			"if checked, uhh",
 		        'judgementCounter',
 			'bool',
 			true);
