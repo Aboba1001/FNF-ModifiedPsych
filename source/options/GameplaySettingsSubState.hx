@@ -52,7 +52,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			false); //Default value
 		addOption(option);
 
-		var option:Option = new Option('Show MS Text',
+		var option:Option = new Option('Display MS Offset On Note Hits',
 			'If checked, a offset (in ms) will appear near notes',
 			'showMsText',
 			'bool',
