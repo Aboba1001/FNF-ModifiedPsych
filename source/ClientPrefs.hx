@@ -29,6 +29,7 @@ class ClientPrefs {
 	public static var watermark:Bool = false; 
 	public static var language:String = 'English'; //languages yay!!!
 	public static var showMsText:Bool = true;
+	public static var judgementCounter:Bool = false;
 	public static var scoreZoom:Bool = true;
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
@@ -122,6 +123,7 @@ class ClientPrefs {
 		FlxG.save.data.language = language;
 		FlxG.save.data.showMsText = showMsText;
 		FlxG.save.data.watermark = watermark;
+		FlxG.save.data.judgementCounter = judgementCounter;
 		FlxG.save.data.scoreZoom = scoreZoom;
 		FlxG.save.data.noReset = noReset;
 		FlxG.save.data.healthBarAlpha = healthBarAlpha;
