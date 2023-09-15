@@ -61,7 +61,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			'colorblindFilter',
 			'string',
 			'None', 
-		        ['None' 'Deutranopia', 'Protanopia', 'Tritanopia']
+		        ['None' 'Deutranopia', 'Protanopia', 'Tritanopia']);
 	       addOption(option);
 
 		var option:Option = new Option('Language: ',
