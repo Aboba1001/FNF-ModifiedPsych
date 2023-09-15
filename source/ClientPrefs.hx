@@ -26,7 +26,7 @@ class ClientPrefs {
 	public static var vibration:Bool = false;
 	public static var ghostTapping:Bool = true;
 	public static var timeBarType:String = 'Time Left';
-	public static var watermark:Bool = true; 
+	public static var watermark:Bool = false; 
 	public static var language:String = 'English'; //languages yay!!!
 	public static var showMsText:Bool = true;
 	public static var scoreZoom:Bool = true;
