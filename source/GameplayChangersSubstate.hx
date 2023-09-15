@@ -90,7 +90,7 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		var option:GameplayOption = new GameplayOption('Health Drain', 'healthDrain', 'bool', false);
 		optionsArray.push(option);
 
-		var option:GameplayOption = new GameplayOption('Health Drain Multiplier', 'healthDrain', 'float', 0.1)
+		var option:GameplayOption = new GameplayOption('Health Drain Multiplier', 'healthDrain', 'float', 0.1);
 		option.scrollSpeed = 2.5;
 		option.minValue = 0;
 		option.maxValue = 1;
