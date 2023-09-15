@@ -90,7 +90,7 @@ class FPS extends TextField
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
 			text += "\nMEM: " + memoryMegas + " MB";
 			text += "\nMEM Peak: " + memoryMegas + " MB";
-			text += "\nEngine Version: " + MainMenuState.engineVersion;
+			text += "\nEngine Version: " + MainMenuState.abobaEngineVersion;
 			text += "\nPsych Engine Version: " + MainMenuState.psychEngineVersion;
 			#end
 
