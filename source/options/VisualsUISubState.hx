@@ -47,6 +47,14 @@ class VisualsUISubState extends BaseOptionsMenu
 			'bool',
 			false);
 		addOption(option);
+
+		var option:Option = new Option('Colorblind Filter',
+			'You can set colorblind filter (makes the game more playable for colorblind people)',
+		        'colorblindMode',
+			'string',
+		        'None',
+			['None', 'Deuteranopia', 'Protanopia', 'Tritanopia']);
+		addOption(option);
 		
 		var option:Option = new Option('Time Bar:',
 			"What should the Time Bar display?",
