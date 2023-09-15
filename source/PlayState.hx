@@ -1192,7 +1192,7 @@ class PlayState extends MusicBeatState
 		add(iconP2);
 		reloadHealthBarColors();
 
-	        var songTxt = new FlxText(12, healthBarBG.y + 50, 0, SONG.song + " - (" + CoolUtil.difficultyString() + ") | " + MainMenuState.abobaEngineVersion "", 18); 
+	        var songTxt = new FlxText(12, healthBarBG.y + 50, 0, SONG.song + " - (" + CoolUtil.difficultyString() + ") | " + MainMenuState.abobaEngineVersion, 18); 
                 songTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT); 
                 songTxt.setBorderStyle(OUTLINE, FlxColor.BLACK, 1.1); 
                 songTxt.borderSize = 1.2; 
@@ -2378,6 +2378,7 @@ class PlayState extends MusicBeatState
 	{
 		scoreTxt.text = 'Score: ' + songScore
 		+ ' | Combo Breaks: ' + songMisses
+		+ ' | Average: ' + Math.round(averageMs) + 'ms'
 		+ ' | Rating: ' + ratingName
 		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
 
