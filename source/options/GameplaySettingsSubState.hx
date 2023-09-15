@@ -87,7 +87,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			true);
 
 		var option:Option = new Option('Hide Watermark',
-		        " ",
+		        "if checked, ...",
 			'watermark',
 		        'bool',
                         true);
