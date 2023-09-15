@@ -87,12 +87,9 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		option.displayFormat = '%vX';
 		optionsArray.push(option);
 
-		var option:GameplayOption = new GameplayOption('Health Drain', 'healthDrain', 'bool', false);
-		optionsArray.push(option);
-
 		var option:GameplayOption = new GameplayOption('Health Drain Multiplier', 'healthDrain', 'float', 0.1);
 		option.scrollSpeed = 2.5;
-		option.minValue = 0;
+		option.minValue = 0.1;
 		option.maxValue = 1;
 		option.changeValue = 0.1;
 		option.displayFormat = '%vX';
@@ -105,6 +102,9 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		optionsArray.push(option);
 
 		var option:GameplayOption = new GameplayOption('Botplay', 'botplay', 'bool', false);
+		optionsArray.push(option);
+
+		var option:GameplayOption = new GameplayOption('Health Drain', 'healthDrain', 'bool', false);
 		optionsArray.push(option);
 	}
 
