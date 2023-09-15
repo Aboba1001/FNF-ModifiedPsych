@@ -57,7 +57,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		addOption(option);
 
 		var option:Option = new Option('Language: ',
-			'language'
+			'language',
 			'string',
 			'English',
 			["English", "Georgian"]);
