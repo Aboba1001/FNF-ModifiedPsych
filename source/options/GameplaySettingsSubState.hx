@@ -81,10 +81,10 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		addOption(option);
 
 		var option:Option = new Option('Hide Judgement Counter',
-			"If checked, uhh",
+			" ",
 		        'judgementCounter',
 			'bool',
-			true);
+			false);
 
 		var option:Option = new Option('Hide Watermark',
 		        "If checked, hides watermark.",
