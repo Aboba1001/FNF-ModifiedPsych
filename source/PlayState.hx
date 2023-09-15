@@ -1192,15 +1192,13 @@ class PlayState extends MusicBeatState
 		add(iconP2);
 		reloadHealthBarColors();
 
-	        var songTxt = new FlxText(12, healthBarBG.y + 50, 0, SONG.song + " - (" + CoolUtil.difficultyString() + ") | " + MainMenuState.abobaEngineVersion, 18); 
-                songTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT); 
-                songTxt.setBorderStyle(OUTLINE, FlxColor.BLACK, 1.1); 
-                songTxt.borderSize = 1.2; 
-                songTxt.borderQuality = 1.5; 
-                songTxt.scrollFactor.set(); 
-                songTxt.visible = !ClientPrefs.watermark; 
-                songTxt.cameras = [camHUD]; 
-                add(songTxt); 
+	        versionTxt = new FlxText(0, FlxG.height - 18, 0, SONG.song + " - " +
+		CoolUtil.difficultyString() + " | XL Engine " +
+		MainMenuState.abobaEngineVersion, 16);
+		versionTxt.setFormat(Paths.font("vcr.ttf"), 15, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		versionTxt.scrollFactor.set();
+		versionTxt.visible = !ClientPrefs.watermark;
+		add(versionTxt);
 
 		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 19);
 		scoreTxt.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -1208,6 +1206,17 @@ class PlayState extends MusicBeatState
 		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
+
+	        judgementCounter = new FlxText(20, 0, 0, "", 20);
+		judgementCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		judgementCounter.borderSize = 2;
+		judgementCounter.borderQuality = 2;
+		judgementCounter.scrollFactor.set();
+		judgementCounter.cameras = [camHUD];
+		judgementCounter.screenCenter(Y);
+		judgementCounter.text = 'Perfects: ${perfects}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}';
+		judgementCounter.visible = !ClientPrefs.judgementCounter;
+		add(judgementCounter);
 								       
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "[AUTOPLAY]", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -1232,6 +1241,7 @@ class PlayState extends MusicBeatState
 		msTimeTxt.cameras = [camHUD];
 	        timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
+	        versionTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
 
 		#if android
