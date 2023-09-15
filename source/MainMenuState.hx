@@ -42,7 +42,6 @@ class MainMenuState extends MusicBeatState
 	];
 
 	var magenta:FlxSprite;
-	var velocityBackground:FlxSprite;
 	var camFollow:FlxObject;
 	var camFollowPos:FlxObject;
 	var debugKeys:Array<FlxKey>;
@@ -99,13 +98,6 @@ class MainMenuState extends MusicBeatState
 		magenta.antialiasing = ClientPrefs.globalAntialiasing;
 		magenta.color = 0xFFfd719b;
 		add(magenta);
-
-	        velocityBackground = new FlxSprite(FlxGridOverlay.createGrid(30, 30, 60, 60, true, 0x3B161932, 0x0), XY); 
-                velocityBackground.velocity.set(FlxG.random.bool(50) ? 90 : -90, FlxG.random.bool(50) ? 90 : -90); 
-                velocityBackground.visible = true; 
-                velocityBackground.alpha = 0.5; 
-                FlxTween.tween(velocityBackground, {alpha: 1}, 0.5, {ease: FlxEase.quadOut}); 
-                add(velocityBackground); 
 		
 		// magenta.scrollFactor.set();
 
