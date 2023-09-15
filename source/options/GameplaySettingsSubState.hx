@@ -80,11 +80,18 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 
-		var option:Option = new Option('Judgement Counter',
+		var option:Option = new Option('Hide Judgement Counter',
 			"if checked, uhh",
 		        'judgementCounter',
 			'bool',
 			true);
+
+		var option:Option = new Option('Hide Watermark',
+		        " ",
+			'watermark',
+		        'bool',
+                        true);
+                addOption(option);
 
 		var option:Option = new Option('Disable Reset Button',
 			"If checked, pressing Reset won't do anything.",
