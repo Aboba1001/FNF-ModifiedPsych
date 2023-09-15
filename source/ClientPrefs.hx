@@ -25,7 +25,7 @@ class ClientPrefs {
 	public static var arrowHSV:Array<Array<Int>> = [[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]];
 	public static var vibration:Bool = false;
 	public static var ghostTapping:Bool = true;
-	public static var timeBarType:String = 'Time Left';.
+	public static var timeBarType:String = 'Time Left';
 	public static var watermark:Bool = true; 
 	public static var language:String = 'English'; //languages yay!!!
 	public static var scoreZoom:Bool = true;
