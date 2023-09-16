@@ -29,6 +29,7 @@ class ClientPrefs {
 	public static var timeBarType:String = 'Time Left';
 	public static var watermark:Bool = false; 
 	public static var showMsText:Bool = true;
+	public static var rainbowFPS:Bool = false;
 	public static var hideJudgementCounter:Bool = false;
 	public static var scoreZoom:Bool = true;
 	public static var noReset:Bool = false;
@@ -121,6 +122,7 @@ class ClientPrefs {
 		FlxG.save.data.ghostTapping = ghostTapping;
 		FlxG.save.data.timeBarType = timeBarType;
 		FlxG.save.data.showMsText = showMsText;
+		FlxG.save.data.rainbowFPS = rainbowFPS;
 		FlxG.save.data.watermark = watermark;
 		FlxG.save.data.hideJudgementCounter = hideJudgementCounter;
 		FlxG.save.data.scoreZoom = scoreZoom;
