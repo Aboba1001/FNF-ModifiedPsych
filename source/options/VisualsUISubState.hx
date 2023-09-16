@@ -69,6 +69,13 @@ class VisualsUISubState extends BaseOptionsMenu
 		       false);
 		addOption(option);
 
+		var option:Option = new Option('Rainbow FPS',
+		        "Make the FPS flicker through rainbow colors."
+		        'rainbowFPS',
+			'bool',
+			false);
+                addOption(option);
+		
 		var option:Option = new Option('Colorblind Filter:',
 			"You can set colorblind filter (makes the game more playable for colorblind people)",
 		        'colorblindMode',
