@@ -52,13 +52,6 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			false); //Default value
 		addOption(option);
 
-		var option:Option = new Option('Display MS Offset On Note Hits',
-			'If checked, a offset (in ms) will appear near notes',
-			'showMsText',
-			'bool',
-			false);
-		addOption(option);
-
 		var option:Option = new Option('Middlescroll',
 			'If checked, your notes get centered.',
 			'middleScroll',
@@ -66,6 +59,21 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			false);
 		addOption(option);
 
+		var option:Option = new Option('Display MS Offset On Note Hits',
+			'If checked, a offset (in ms) will appear near notes',
+			'showMsText',
+			'bool',
+			false);
+		addOption(option);
+
+               var option:Option = new Option('Icon Bop:',
+			'What type should icon bopping be?',
+			'iconBop',
+			'string',
+		        'Vannila',
+			['Psych', 'Vannila', 'Old', 'Sonic.exe', 'OS', 'No Icon Bop']);
+		addOption(option);
+			
 		var option:Option = new Option('Opponent Notes',
 			'If unchecked, opponent notes get hidden.',
 			'opponentStrums',
