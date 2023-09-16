@@ -70,7 +70,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		addOption(option);
 
 		var option:Option = new Option('Rainbow FPS',
-		        "Make the FPS flicker through rainbow colors."
+		        "Make the FPS flicker through rainbow colors.",
 		        'rainbowFPS',
 			'bool',
 			false);
