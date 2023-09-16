@@ -186,6 +186,8 @@ class PlayState extends MusicBeatState
 	public var camZoomingDecay:Float = 1;
 	private var curSong:String = "";
 
+	public var healthPercentageDisplay:Float = 50;
+
 	public var gfSpeed:Int = 1;
 	public var health:Float = 1;
 	public var combo:Int = 0;
@@ -1200,9 +1202,9 @@ class PlayState extends MusicBeatState
 	        add(songTxt);
 
 		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 19);
-		scoreTxt.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
-		scoreTxt.borderSize = 1.25;
+		scoreTxt.borderSize = 1.00;
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 								       
@@ -2375,6 +2377,7 @@ class PlayState extends MusicBeatState
 	{
 		scoreTxt.text = 'Score: ' + songScore
 		+ ' | Combo Breaks: ' + songMisses
+		+ ' | Health: ' + FlxMath.roundDecimal(healthPercentageDisplay, 0) + '%'
 		+ ' | Average: ' + Math.round(averageMs) + 'ms'
 		+ ' | Rating: ' + ratingName
 		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
@@ -2940,6 +2943,8 @@ class PlayState extends MusicBeatState
 			iconP1.swapOldIcon();
 		}*/
 		callOnLuas('onUpdate', [elapsed]);
+
+		healthPercentageDisplay = health / 0.02;
 
 		switch (curStage)
 		{
