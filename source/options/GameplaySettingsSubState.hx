@@ -71,7 +71,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			'iconBop',
 			'string',
 		        'Vannila',
-			['Psych', 'Vannila', 'Old', 'Sonic.exe', 'OS', 'No Icon Bop']);
+			['Psych', 'Vannila', 'Old', 'OS']);
 		addOption(option);
 			
 		var option:Option = new Option('Opponent Notes',
