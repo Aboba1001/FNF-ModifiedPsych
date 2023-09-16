@@ -121,7 +121,7 @@ class ClientPrefs {
 		FlxG.save.data.timeBarType = timeBarType;
 		FlxG.save.data.showMsText = showMsText;
 		FlxG.save.data.watermark = watermark;
-		FlxG.save.data.hideJudgementCounter = judgementCounter;
+		FlxG.save.data.hideJudgementCounter = hideJudgementCounter;
 		FlxG.save.data.scoreZoom = scoreZoom;
 		FlxG.save.data.noReset = noReset;
 		FlxG.save.data.healthBarAlpha = healthBarAlpha;
