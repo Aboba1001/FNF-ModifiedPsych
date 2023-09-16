@@ -73,6 +73,14 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		        'Vannila',
 			['Psych', 'Vannila', 'Old', 'OS']);
 		addOption(option);
+
+		var option:Option = new Option('Score Text Type:',
+			'Select a type of score text.',
+			'scoreTxtType',
+			'string',
+		        'XL',
+			['XL', 'Vannila', 'OS', 'impostor']);
+	       addOption(option);
 			
 		var option:Option = new Option('Opponent Notes',
 			'If unchecked, opponent notes get hidden.',
