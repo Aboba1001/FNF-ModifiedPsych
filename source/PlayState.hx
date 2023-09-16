@@ -2396,7 +2396,7 @@ class PlayState extends MusicBeatState
 	} else if (ClientPrefs.scoreTxtType == 'Vannila') {
 		scoreTxt.text = 'Score: ' + songScore
 	}
-		if(ClientPrefs.scoreZoom && !miss && !cpuControlled)
+		if(ClientPrefs.scoreZoom && !miss && !cpuControlled);
 		{
 			if(scoreTxtTween != null) {
 				scoreTxtTween.cancel();
