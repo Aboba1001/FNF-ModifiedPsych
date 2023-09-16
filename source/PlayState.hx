@@ -1192,9 +1192,7 @@ class PlayState extends MusicBeatState
 		add(iconP2);
 		reloadHealthBarColors();
 
-	        versionTxt = new FlxText(0, FlxG.height - 18, 0, SONG.song + " - " +
-		CoolUtil.difficultyString() + " | XL Engine " +
-		MainMenuState.abobaEngineVersion, 16);
+	        versionTxt = new FlxText(0, FlxG.height - 18, 0, SONG.song + " - " + CoolUtil.difficultyString() + " | XL Engine " + MainMenuState.abobaEngineVersion, 16);
 		versionTxt.setFormat(Paths.font("vcr.ttf"), 15, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		versionTxt.scrollFactor.set();
 		versionTxt.visible = !ClientPrefs.watermark;
@@ -1206,17 +1204,6 @@ class PlayState extends MusicBeatState
 		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
-
-	        judgementCounter = new FlxText(20, 0, 0, "", 20);
-		judgementCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		judgementCounter.borderSize = 2;
-		judgementCounter.borderQuality = 2;
-		judgementCounter.scrollFactor.set();
-		judgementCounter.cameras = [camHUD];
-		judgementCounter.screenCenter(Y);
-		judgementCounter.text = 'Perfects: ${perfects}\nSicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}';
-		judgementCounter.visible = !ClientPrefs.judgementCounter;
-		add(judgementCounter);
 								       
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "[AUTOPLAY]", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
