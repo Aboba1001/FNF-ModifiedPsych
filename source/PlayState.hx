@@ -2386,13 +2386,16 @@ class PlayState extends MusicBeatState
 
 	public function updateScore(miss:Bool = false)
 	{
+	if (ClientPrefs.scoreTxtType == 'XL') {
 		scoreTxt.text = 'Score: ' + songScore
 		+ ' | Combo Breaks: ' + songMisses
 		+ ' | Health: ' + FlxMath.roundDecimal(healthPercentageDisplay, 0) + '%'
 		+ ' | Average: ' + Math.round(averageMs) + 'ms'
 		+ ' | Rating: ' + ratingName
 		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
-
+	} else if (ClientPrefs.scoreTxtType == 'Vannila') {
+		scoreTxt.text = 'Score: ' + songScore
+	}
 		if(ClientPrefs.scoreZoom && !miss && !cpuControlled)
 		{
 			if(scoreTxtTween != null) {
