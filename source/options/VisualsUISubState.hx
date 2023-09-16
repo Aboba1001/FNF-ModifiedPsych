@@ -48,13 +48,36 @@ class VisualsUISubState extends BaseOptionsMenu
 			false);
 		addOption(option);
 
-		var option:Option = new Option('Colorblind Filter',
-			'You can set colorblind filter (makes the game more playable for colorblind people)',
+		var option:Option = new Option('Hide Watermark',
+		        "If checked, hides a watermark during a song.",
+			'watermark',
+		        'bool',
+                        false);
+                addOption(option);
+
+		var option:Option = new Option('Hide Judgement Counter',
+			"If checked, hides judgement counter during a song.",
+			'hideJudgementCounter',
+			'bool',
+			false);
+	       addOption(option);
+
+		var option:Option = new Option('Striped Health Bar',
+		       "Like in OS Engine, health bar has stripes on it.",
+	 	       'stripedBar',
+		       'bool',
+		       false);
+		addOption(option);
+
+		var option:Option = new Option('Colorblind Filter:',
+			"You can set colorblind filter (makes the game more playable for colorblind people)",
 		        'colorblindMode',
 			'string',
 		        'None',
 			['None', 'Deuteranopia', 'Protanopia', 'Tritanopia']);
 		addOption(option);
+
+		
 		
 		var option:Option = new Option('Time Bar:',
 			"What should the Time Bar display?",
