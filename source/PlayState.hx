@@ -2394,7 +2394,7 @@ class PlayState extends MusicBeatState
 		+ ' | Rating: ' + ratingName
 		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
 	} else if (ClientPrefs.scoreTxtType == 'Vannila') {
-		scoreTxt.text = 'Score: ' + songScore
+		scoreTxt.text = 'Score: ' + songScore;
 	} else if (ClientPrefs.scoreTxtType == 'OS') {
 		scoreTxt.text = 'Score: ' + songScore 
 		+ ' | Combo Breaks: ' + songMisses 
