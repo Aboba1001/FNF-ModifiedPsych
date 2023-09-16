@@ -2395,8 +2395,14 @@ class PlayState extends MusicBeatState
 		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
 	} else if (ClientPrefs.scoreTxtType == 'Vannila') {
 		scoreTxt.text = 'Score: ' + songScore
+	} else if (ClientPrefs.scoreTxtType == 'OS') {
+		scoreTxt.text = 'Score: ' + songScore 
+		+ ' | Combo Breaks: ' + songMisses 
+		+ ' | Average: ' + Math.round(averageMs) + 'ms'
+		+ ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' 
+		+ ' | ' + ratingName + ' [' + ratingFC + ']';
 	}
-		if(ClientPrefs.scoreZoom && !miss && !cpuControlled);
+		if(ClientPrefs.scoreZoom && !miss && !cpuControlled)
 		{
 			if(scoreTxtTween != null) {
 				scoreTxtTween.cancel();
