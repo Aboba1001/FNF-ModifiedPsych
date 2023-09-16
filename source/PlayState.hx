@@ -1192,11 +1192,12 @@ class PlayState extends MusicBeatState
 		add(iconP2);
 		reloadHealthBarColors();
 
-	        versionTxt = new FlxText(0, FlxG.height - 18, 0, SONG.song + " - " + CoolUtil.difficultyString() + " | XL Engine " + MainMenuState.abobaEngineVersion, 16);
-		versionTxt.setFormat(Paths.font("vcr.ttf"), 15, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		versionTxt.scrollFactor.set();
-		versionTxt.visible = !ClientPrefs.watermark;
-		add(versionTxt);
+	        songTxt = new FlxText(0, FlxG.height - 18, 0, SONG.song + " - " + CoolUtil.difficultyString() + " | XL Engine " + MainMenuState.abobaEngineVersion, 16);
+		songTxt.setFormat(Paths.font("vcr.ttf"), 15, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		songTxt.scrollFactor.set();
+		songTxt.visible = !ClientPrefs.watermark;
+		songTxt.cameras = [camHUD];
+	        add(songTxt);
 
 		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 19);
 		scoreTxt.setFormat(Paths.font("vcr.ttf"), 18, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -1228,7 +1229,6 @@ class PlayState extends MusicBeatState
 		msTimeTxt.cameras = [camHUD];
 	        timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
-	        versionTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
 
 		#if android
