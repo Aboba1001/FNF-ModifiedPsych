@@ -18,6 +18,7 @@ class ClientPrefs {
 	public static var shaders:Bool = true;
 	public static var framerate:Int = 60;
 	public static var cursing:Bool = true;
+	public static var iconBop:String = 'Vannila';
 	public static var violence:Bool = true;
 	public static var camZooms:Bool = true;
 	public static var hideHud:Bool = false;
@@ -107,6 +108,7 @@ class ClientPrefs {
 		FlxG.save.data.opponentStrums = opponentStrums;
 		FlxG.save.data.showFPS = showFPS;
 		FlxG.save.data.flashing = flashing;
+		FlxG.save.data.iconBop = iconBop;
 		FlxG.save.data.globalAntialiasing = globalAntialiasing;
 		FlxG.save.data.noteSplashes = noteSplashes;
 		FlxG.save.data.lowQuality = lowQuality;
