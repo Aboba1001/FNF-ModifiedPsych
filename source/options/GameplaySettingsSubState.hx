@@ -71,7 +71,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			'iconBop',
 			'string',
 		        'Vannila',
-			['Psych', 'Vannila', 'Old', 'OS']);
+			['Psych', 'Vannila', 'Old', 'OS', 'sonicExe']);
 		addOption(option);
 
 		var option:Option = new Option('Score Text Type:',
