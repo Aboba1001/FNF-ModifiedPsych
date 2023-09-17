@@ -40,6 +40,7 @@ class ClientPrefs {
 	public static var pauseMusic:String = 'Tea Time';
 	public static var checkForUpdates:Bool = true;
 	public static var comboStacking = true;
+	public static var stripedBar = true;
 	public static var hitboxmode:String = 'New';  //starting new way to change between hitboxes yay
 	public static var hitboxalpha:Float = 0.2; //someone request this lol
 	public static var gameplaySettings:Map<String, Dynamic> = [
@@ -126,6 +127,7 @@ class ClientPrefs {
 		FlxG.save.data.showMsText = showMsText;
 		FlxG.save.data.scoreTxtType = scoreTxtType;
 		FlxG.save.data.rainbowFPS = rainbowFPS;
+		FlxG.save.data.stripedBar = stripedBar;
 		FlxG.save.data.watermark = watermark;
 		FlxG.save.data.scoreZoom = scoreZoom;
 		FlxG.save.data.noReset = noReset;
