@@ -230,7 +230,7 @@ class PauseSubState extends MusicBeatSubstate
 					menuItems = difficultyChoices;
 					deleteSkipTimeText();
 					regenMenu();
-				case 'Options';
+				case 'Options':
 					MusicBeatState.switchState(new options.OptionsState(true));
 					FlxG.sound.playMusic(Paths.music('freakyMenu'));
 				case 'Toggle Practice Mode':
