@@ -230,9 +230,6 @@ class PauseSubState extends MusicBeatSubstate
 					menuItems = difficultyChoices;
 					deleteSkipTimeText();
 					regenMenu();
-				case 'Options':
-					MusicBeatState.switchState(new options.OptionsState(true));
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
 				case 'Toggle Practice Mode':
 					PlayState.instance.practiceMode = !PlayState.instance.practiceMode;
 					PlayState.changedDifficulty = true;
@@ -266,6 +263,9 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.instance.botplayTxt.visible = PlayState.instance.cpuControlled;
 					PlayState.instance.botplayTxt.alpha = 1;
 					PlayState.instance.botplaySine = 0;
+				case 'Options':
+					MusicBeatState.switchState(new options.OptionsState(true));
+					FlxG.sound.playMusic(Paths.music('freakyMenu'));
                                 case 'Chart Editor':
 		                        MusicBeatState.switchState(new editors.ChartingState());
 		                        PlayState.chartingMode = true;
