@@ -1218,6 +1218,20 @@ class PlayState extends MusicBeatState
 			botplayTxt.y = timeBarBG.y - 78;
 		}
 
+	    var healthBarOverlay = new FlxSprite().loadGraphic(Paths.image('sexyStripes'));
+		healthBarOverlay.y = FlxG.height * 0.9;
+		healthBarOverlay.screenCenter(X);
+		healthBarOverlay.scrollFactor.set();
+		healthBarOverlay.visible = !ClientPrefs.hideHud;
+                healthBarOverlay.color = FlxColor.BLACK;
+		healthBarOverlay.blend = MULTIPLY;
+		healthBarOverlay.x = healthBarBG.x-1.9;
+	        healthBarOverlay.alpha = ClientPrefs.healthBarAlpha;
+		healthBarOverlay.antialiasing = ClientPrefs.globalAntialiasing;
+		if(ClientPrefs.stripedBar) {
+			add(healthBarOverlay); 
+		}
+
 		strumLineNotes.cameras = [camHUD];
 		grpNoteSplashes.cameras = [camHUD];
 		notes.cameras = [camHUD];
@@ -1226,7 +1240,8 @@ class PlayState extends MusicBeatState
 		iconP1.cameras = [camHUD];
 		iconP2.cameras = [camHUD];
 		scoreTxt.cameras = [camHUD];
-		botplayTxt.cameras = [camHUD];
+		healthBarOverlay.cameras = [camHUD];
+	        botplayTxt.cameras = [camHUD];
 		timeBar.cameras = [camHUD];
 		msTimeTxt.cameras = [camHUD];
 	        timeBarBG.cameras = [camHUD];
