@@ -20,7 +20,7 @@ class PauseSubState extends MusicBeatSubstate
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
-	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty' #if android, 'Chart Editor' #end, 'Exit to menu'];
+	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Change Difficulty', 'Options' #if android, 'Chart Editor' #end, 'Exit to menu'];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
@@ -230,6 +230,9 @@ class PauseSubState extends MusicBeatSubstate
 					menuItems = difficultyChoices;
 					deleteSkipTimeText();
 					regenMenu();
+				case 'Options';
+					MusicBeatState.switchState(new options.OptionsState(true));
+					FlxG.sound.playMusic(Paths.music('freakyMenu'));
 				case 'Toggle Practice Mode':
 					PlayState.instance.practiceMode = !PlayState.instance.practiceMode;
 					PlayState.changedDifficulty = true;
