@@ -66,20 +66,12 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			false);
 		addOption(option);
 
-               var option:Option = new Option('Icon Bop:',
-			'What type should icon bopping be?',
-			'iconBop',
-			'string',
-		        'Vannila',
-			['Psych', 'Vannila', 'Old', 'OS', 'sonicExe']);
-		addOption(option);
-
 		var option:Option = new Option('Score Text Type:',
 			'Select a type of score text.',
 			'scoreTxtType',
 			'string',
 		        'XL',
-			['XL', 'Vannila', 'OS', 'impostor']);
+			['XL', 'OS', 'impostor']);
 	       addOption(option);
 			
 		var option:Option = new Option('Opponent Notes',
