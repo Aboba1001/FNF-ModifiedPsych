@@ -32,7 +32,6 @@ class ClientPrefs {
 	public static var showMsText:Bool = true;
 	public static var scoreTxtType:String = 'XL';
 	public static var rainbowFPS:Bool = false;
-	public static var hideJudgementCounter:Bool = false;
 	public static var scoreZoom:Bool = true;
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
@@ -128,7 +127,6 @@ class ClientPrefs {
 		FlxG.save.data.scoreTxtType = scoreTxtType;
 		FlxG.save.data.rainbowFPS = rainbowFPS;
 		FlxG.save.data.watermark = watermark;
-		FlxG.save.data.hideJudgementCounter = hideJudgementCounter;
 		FlxG.save.data.scoreZoom = scoreZoom;
 		FlxG.save.data.noReset = noReset;
 		FlxG.save.data.healthBarAlpha = healthBarAlpha;
