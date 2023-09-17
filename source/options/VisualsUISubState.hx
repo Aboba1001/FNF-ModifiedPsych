@@ -83,8 +83,6 @@ class VisualsUISubState extends BaseOptionsMenu
 		        'None',
 			['None', 'Deuteranopia', 'Protanopia', 'Tritanopia']);
 		addOption(option);
-
-		
 		
 		var option:Option = new Option('Time Bar:',
 			"What should the Time Bar display?",
