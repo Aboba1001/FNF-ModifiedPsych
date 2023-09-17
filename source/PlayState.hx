@@ -1207,16 +1207,6 @@ class PlayState extends MusicBeatState
 		scoreTxt.borderSize = 1.00;
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
-
-	        var judgementCounter = new FlxText(20, 0, 0, "", 20);
-		judgementCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		judgementCounter.borderSize = 1.00;
-		judgementCounter.borderQuality = 2;
-		judgementCounter.scrollFactor.set();
-		judgementCounter.cameras = [camHUD];
-		judgementCounter.screenCenter(Y);
-		judgementCounter.visible = !ClientPrefs.hideJudgementCounter;
-		add(judgementCounter);
 								       
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "[AUTOPLAY]", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -3112,8 +3102,6 @@ class PlayState extends MusicBeatState
 
 		setOnLuas('curDecStep', curDecStep);
 		setOnLuas('curDecBeat', curDecBeat);
-
-		judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}';
 		
 		if(botplayTxt.visible) {
 			botplaySine += 180 * elapsed;
