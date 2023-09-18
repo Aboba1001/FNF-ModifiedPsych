@@ -3,7 +3,7 @@
 # Used and coded on: [Psych Engine](https://gamebanana.com/mods/309789)
 
 ## Credits
-* [RoboaToba](https://youtube.com/@RoboaToba
+* [RoboaToba](https://youtube.com/@RoboaToba) - Programmer of XL Engine
 
 * ## Psych Engine Credits: 
  * [Shadow Mario](https://twitter.com/Shadow_Mario_) - Programmer 
