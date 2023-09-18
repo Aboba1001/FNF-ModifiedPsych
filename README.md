@@ -1,4 +1,4 @@
-# Friday Night Funkin': XL Engine
+# Friday Night Funkin' - XL Engine
 
 # Used and coded on: [Psych Engine](https://gamebanana.com/mods/309789)
 
