@@ -139,17 +139,9 @@ class VisualsUISubState extends BaseOptionsMenu
 		option.changeValue = 0.1;
 		option.decimals = 1;
 		addOption(option);
-		
-		var option:Option = new Option('FPS Counter',
-			'If unchecked, hides FPS Counter.',
-			'showFPS',
-			'bool',
-			true);
-		addOption(option);
-		option.onChange = onChangeFPSCounter;
 
 		var option:Option = new Option('Menu Song:',
-			" "
+			"What song do you prefer for the Menu Screen?"
 			'menuMusic',
 			'string',
 			['None', 'Default', 'Old']);
