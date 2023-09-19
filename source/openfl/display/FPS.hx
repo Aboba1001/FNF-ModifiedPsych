@@ -88,9 +88,13 @@ class FPS extends TextField
 			
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
+		      if (ClientPrefs.showMemory) {
 			text += "\nMEM: " + memoryMegas + " MB";
+		      }
+		      if (ClientPrefs.showVersion) {
 			text += "\nEngine Version: " + MainMenuState.abobaEngineVersion;
 			text += "\nPsych Engine Version: " + MainMenuState.psychEngineVersion;
+		      }
 			#end
 
 			textColor = 0xFFFFFFFF;
