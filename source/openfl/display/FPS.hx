@@ -91,7 +91,7 @@ class FPS extends TextField
 		      if (ClientPrefs.showMemory) {
 			text += "\nMEM: " + memoryMegas + " MB";
 		      }
-		      if (ClientPrefs.showVersion) {
+		      if (ClientPrefs.engineVersion) {
 			text += "\nEngine Version: " + MainMenuState.abobaEngineVersion;
 			text += "\nPsych Engine Version: " + MainMenuState.psychEngineVersion;
 		      }
