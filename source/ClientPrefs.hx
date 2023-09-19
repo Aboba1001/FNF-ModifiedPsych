@@ -33,7 +33,7 @@ class ClientPrefs {
 	public static var scoreTxtType:String = 'XL';
 	public static var rainbowFPS:Bool = false;
 	public static var scoreZoom:Bool = true;
-	public static var memoryCounter:Bool = false;
+	public static var showMemory:Bool = false;
 	public static var engineVersion:Bool = false;
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
@@ -117,7 +117,7 @@ class ClientPrefs {
 		FlxG.save.data.lowQuality = lowQuality;
 		FlxG.save.data.shaders = shaders;
 		FlxG.save.data.framerate = framerate;
-		FlxG.save.data.memoryCounter = memoryCounter;
+		FlxG.save.data.showMemory = memoryCounter;
 		//FlxG.save.data.cursing = cursing;
 		//FlxG.save.data.violence = violence;
 		FlxG.save.data.camZooms = camZooms;
