@@ -54,6 +54,7 @@ class FPS extends TextField
 
 		cacheCount = 0;
 		currentTime = 0;
+		memoryTotal = 0;
 		times = [];
 
 		#if flash
@@ -89,7 +90,6 @@ class FPS extends TextField
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
 			text += "\nMEM: " + memoryMegas + " MB";
-			text += "\nMEM Peak: " + memoryMegas + " MB";
 			text += "\nEngine Version: " + MainMenuState.abobaEngineVersion;
 			text += "\nPsych Engine Version: " + MainMenuState.psychEngineVersion;
 			#end
