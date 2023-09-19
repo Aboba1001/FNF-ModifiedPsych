@@ -18,7 +18,7 @@ class ClientPrefs {
 	public static var shaders:Bool = true;
 	public static var framerate:Int = 60;
 	public static var cursing:Bool = true;
-	public static var iconBop:String = 'Vannila';
+	public static var iconBop:String = 'Psych';
 	public static var violence:Bool = true;
 	public static var camZooms:Bool = true;
 	public static var hideHud:Bool = false;
@@ -33,12 +33,15 @@ class ClientPrefs {
 	public static var scoreTxtType:String = 'XL';
 	public static var rainbowFPS:Bool = false;
 	public static var scoreZoom:Bool = true;
+	public static var memoryCounter:Bool = false;
+	public static var engineVersion:Bool = false;
+	public static var menuMusic:String = 'Default';
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
 	public static var controllerMode:Bool = #if android true #else false #end;
 	public static var hitsoundVolume:Float = 0;
-	public static var pauseMusic:String = 'Tea Time';
-	public static var checkForUpdates:Bool = true;
+	public static var pauseMusic:String = 'Tea Time';	
+        public static var checkForUpdates:Bool = true;
 	public static var comboStacking = true;
 	public static var stripedBar = true;
 	public static var hitboxmode:String = 'New';  //starting new way to change between hitboxes yay
@@ -115,6 +118,8 @@ class ClientPrefs {
 		FlxG.save.data.lowQuality = lowQuality;
 		FlxG.save.data.shaders = shaders;
 		FlxG.save.data.framerate = framerate;
+		FlxG.save.data.memoryCounter = memoryCounter;
+		FlxG.save.data.menuSong = menuSong;
 		//FlxG.save.data.cursing = cursing;
 		//FlxG.save.data.violence = violence;
 		FlxG.save.data.camZooms = camZooms;
@@ -136,6 +141,7 @@ class ClientPrefs {
 		FlxG.save.data.achievementsMap = Achievements.achievementsMap;
 		FlxG.save.data.henchmenDeath = Achievements.henchmenDeath;
                 FlxG.save.data.colorblindMode = colorblindMode;
+		FlxG.save.data.engineVersion = engineVersion;
 		
 		FlxG.save.data.ratingOffset = ratingOffset;
 		FlxG.save.data.sickWindow = sickWindow;
