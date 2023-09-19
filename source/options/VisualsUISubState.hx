@@ -62,6 +62,28 @@ class VisualsUISubState extends BaseOptionsMenu
 		       false);
 		addOption(option);
 
+		var option:Option = new Option('FPS Counter',
+			'If unchecked, hides FPS Counter.',
+			'showFPS',
+			'bool',
+			true);
+		addOption(option);
+		option.onChange = onChangeFPSCounter;
+
+		var option:Option = new Option('Memory Counter',
+			'If unchecked, hides Memory Counter.',
+			'showMemory',
+			'bool',
+			false);
+	        addOption(option);
+
+		var option:Option = new Option('Show Engine Version',
+			'If unchecked, hides XL Engine and Psych Engine version.',
+                        'showVersion',
+			'bool',
+			false);
+	        addOption(option);
+			
 		var option:Option = new Option('Rainbow FPS',
 		        "Make the FPS flicker through rainbow colors.",
 		        'rainbowFPS',
@@ -126,6 +148,13 @@ class VisualsUISubState extends BaseOptionsMenu
 		addOption(option);
 		option.onChange = onChangeFPSCounter;
 
+		var option:Option = new Option('Menu Song:',
+			" "
+			'menuMusic',
+			'string',
+			['None', 'Default', 'Old']);
+		addOption(option);
+		
 		var option:Option = new Option('Pause Screen Song:',
 			"What song do you prefer for the Pause Screen?",
 			'pauseMusic',
