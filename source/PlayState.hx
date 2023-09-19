@@ -1181,20 +1181,18 @@ class PlayState extends MusicBeatState
 		healthBar.alpha = ClientPrefs.healthBarAlpha;
 		add(healthBar);
 		healthBarBG.sprTracker = healthBar;
-
-	        healthBarOverlay = new FlxSprite().loadGraphic(Paths.image('sexyStripes'));
-		healthBarOverlay.y = FlxG.height * 0.9;
+	        
+	        healthBarOverlay = new FlxSprite().loadGraphic(Paths.image('healthBarOverlay'));
+		healthBarOverlay.y = FlxG.height * 0.89;
 		healthBarOverlay.screenCenter(X);
 		healthBarOverlay.scrollFactor.set();
 		healthBarOverlay.visible = !ClientPrefs.hideHud;
                 healthBarOverlay.color = FlxColor.BLACK;
 		healthBarOverlay.blend = MULTIPLY;
-		healthBarOverlay.x = healthBarBG.x-2.0;
+		healthBarOverlay.x = healthBarBG.x-1.9;
 	        healthBarOverlay.alpha = ClientPrefs.healthBarAlpha;
 		healthBarOverlay.antialiasing = ClientPrefs.globalAntialiasing;
-		if(ClientPrefs.stripedBar) {
-			add(healthBarOverlay); 
-		}
+		add(healthBarOverlay); healthBarOverlay.alpha = ClientPrefs.healthBarAlpha; if(ClientPrefs.downScroll) healthBarOverlay.y = 0.11 * FlxG.height;
 
 		iconP1 = new HealthIcon(boyfriend.healthIcon, true);
 		iconP1.y = healthBar.y - 75;
