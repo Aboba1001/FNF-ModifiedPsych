@@ -1189,7 +1189,7 @@ class PlayState extends MusicBeatState
 		healthBarOverlay.visible = !ClientPrefs.hideHud;
                 healthBarOverlay.color = FlxColor.BLACK;
 		healthBarOverlay.blend = MULTIPLY;
-		healthBarOverlay.x = healthBarBG.x-1.9;
+		healthBarOverlay.x = healthBarBG.x-1.7;
 	        healthBarOverlay.alpha = ClientPrefs.healthBarAlpha;
 		healthBarOverlay.antialiasing = ClientPrefs.globalAntialiasing;
 		if(ClientPrefs.stripedBar) {
