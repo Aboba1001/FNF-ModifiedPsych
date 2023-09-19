@@ -54,7 +54,6 @@ class FPS extends TextField
 
 		cacheCount = 0;
 		currentTime = 0;
-		memoryTotal = 0;
 		times = [];
 
 		#if flash
