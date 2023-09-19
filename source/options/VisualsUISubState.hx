@@ -141,7 +141,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		addOption(option);
 
 		var option:Option = new Option('Menu Song:',
-			"What song do you prefer for the Menu Screen?"
+			"What song do you prefer for the Menu Screen?",
 			'menuMusic',
 			'string',
 			['None', 'Default', 'Old']);
