@@ -35,7 +35,6 @@ class ClientPrefs {
 	public static var scoreZoom:Bool = true;
 	public static var memoryCounter:Bool = false;
 	public static var engineVersion:Bool = false;
-	public static var menuMusic:String = 'Default';
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
 	public static var controllerMode:Bool = #if android true #else false #end;
@@ -119,7 +118,6 @@ class ClientPrefs {
 		FlxG.save.data.shaders = shaders;
 		FlxG.save.data.framerate = framerate;
 		FlxG.save.data.memoryCounter = memoryCounter;
-		FlxG.save.data.menuSong = menuSong;
 		//FlxG.save.data.cursing = cursing;
 		//FlxG.save.data.violence = violence;
 		FlxG.save.data.camZooms = camZooms;
