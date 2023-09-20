@@ -47,7 +47,7 @@ class FPS extends TextField
 		currentFPS = 0;
 		selectable = false;
 		mouseEnabled = false;
-		defaultTextFormat = new TextFormat("_sans", 14, color);
+		defaultTextFormat = new TextFormat("VCR OSD Mono", 12, color);
 		autoSize = LEFT;
 		multiline = true;
 		text = "FPS: ";
@@ -88,8 +88,9 @@ class FPS extends TextField
 			
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
+		      if (ClientPrefs.showMemory) {
 			text += "\nMEM: " + memoryMegas + " MB";
-		      if (ClientPrefs.engineVersion) {
+		      } else if (ClientPrefs.engineVersion) {
 			text += "\nEngine Version: " + MainMenuState.abobaEngineVersion;
 			text += "\nPsych Engine Version: " + MainMenuState.psychEngineVersion;
 		      }
