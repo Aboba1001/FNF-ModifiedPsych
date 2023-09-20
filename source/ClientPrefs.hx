@@ -34,7 +34,7 @@ class ClientPrefs {
 	public static var rainbowFPS:Bool = false;
 	public static var scoreZoom:Bool = true;
 	public static var showMemory:Bool = false;
-	public static var engineVersion:Bool = false;
+	public static var showVersiob:Bool = false;
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
 	public static var controllerMode:Bool = #if android true #else false #end;
@@ -139,7 +139,7 @@ class ClientPrefs {
 		FlxG.save.data.achievementsMap = Achievements.achievementsMap;
 		FlxG.save.data.henchmenDeath = Achievements.henchmenDeath;
                 FlxG.save.data.colorblindMode = colorblindMode;
-		FlxG.save.data.engineVersion = engineVersion;
+		FlxG.save.data.showVersion = showVersion;
 		
 		FlxG.save.data.ratingOffset = ratingOffset;
 		FlxG.save.data.sickWindow = sickWindow;
