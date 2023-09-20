@@ -34,7 +34,7 @@ class ClientPrefs {
 	public static var rainbowFPS:Bool = false;
 	public static var scoreZoom:Bool = true;
 	public static var showMemory:Bool = false;
-	public static var showVersiob:Bool = false;
+	public static var showVersion:Bool = false;
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
 	public static var controllerMode:Bool = #if android true #else false #end;
