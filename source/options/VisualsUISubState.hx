@@ -62,30 +62,31 @@ class VisualsUISubState extends BaseOptionsMenu
 		       false);
 		addOption(option);
 
-		var option:Option = new Option('FPS Counter',
-			'If unchecked, hides FPS Counter.',
+		var option:Option = new Option('Show Framerate',
+			'If unchecked, the framerate will be in Info Display.',
 			'showFPS',
 			'bool',
 			true);
 		addOption(option);
 		option.onChange = onChangeFPSCounter;
 
-		var option:Option = new Option('Memory Counter',
-			'If unchecked, hides Memory Counter.',
+		var option:Option = new Option('Show Memory Usage',
+			'If checked, current memory usage in MB will be in the Info Display.',
 			'showMemory',
 			'bool',
 			false);
-	        addOption(option);
+                addOption(option);
+		option.onChange = onChangeFPSCounter;
 
-		var option:Option = new Option('Show Engine Version',
-			'If unchecked, hides XL Engine and Psych Engine version.',
+		var option:Option = new Option('Show XL Engine Watermark',
+		        "If checked, the XL Engine watermark and version number will be in the Info Display.",
                         'showVersion',
 			'bool',
 			false);
 	        addOption(option);
 			
 		var option:Option = new Option('Rainbow FPS',
-		        "Make the FPS flicker through rainbow colors.",
+		        'If checked, makes the Info Display cycle between a rainbow of colors.',
 		        'rainbowFPS',
 			'bool',
 			false);
