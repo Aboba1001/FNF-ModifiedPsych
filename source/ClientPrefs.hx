@@ -11,9 +11,11 @@ class ClientPrefs {
 	public static var middleScroll:Bool = false;
 	public static var opponentStrums:Bool = true;
 	public static var showFPS:Bool = true;
+	public static var showMemory:Bool = false;
 	public static var flashing:Bool = true;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
+	public static var showVersion:Bool = false;
 	public static var lowQuality:Bool = false;
 	public static var shaders:Bool = true;
 	public static var framerate:Int = 60;
@@ -108,8 +110,10 @@ class ClientPrefs {
 		FlxG.save.data.middleScroll = middleScroll;
 		FlxG.save.data.opponentStrums = opponentStrums;
 		FlxG.save.data.showFPS = showFPS;
+		FlxG.save.data.showMemory = showMemory;
 		FlxG.save.data.flashing = flashing;
 		FlxG.save.data.globalAntialiasing = globalAntialiasing;
+		FlxG.save.data.showVersion = showVersion;
 		FlxG.save.data.noteSplashes = noteSplashes;
 		FlxG.save.data.lowQuality = lowQuality;
 		FlxG.save.data.shaders = shaders;
@@ -170,6 +174,12 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.opponentStrums != null) {
 			opponentStrums = FlxG.save.data.opponentStrums;
+		}
+		if(FlxG.save.data.showMemory != null) {
+			showMemory = FlxG.save.data.showMemory;
+		}
+		if(FlxG.save.data.showVersion != null) {
+			showVersion = FlxG.save.data.showVersion;
 		}
 		if(FlxG.save.data.showFPS != null) {
 			showFPS = FlxG.save.data.showFPS;
