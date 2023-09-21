@@ -33,8 +33,6 @@ class ClientPrefs {
 	public static var scoreTxtType:String = 'XL';
 	public static var rainbowFPS:Bool = false;
 	public static var scoreZoom:Bool = true;
-	public static var showMemory:Bool = false;
-	public static var showVersion:Bool = false;
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
 	public static var controllerMode:Bool = #if android true #else false #end;
@@ -111,13 +109,11 @@ class ClientPrefs {
 		FlxG.save.data.opponentStrums = opponentStrums;
 		FlxG.save.data.showFPS = showFPS;
 		FlxG.save.data.flashing = flashing;
-		FlxG.save.data.iconBop = iconBop;
 		FlxG.save.data.globalAntialiasing = globalAntialiasing;
 		FlxG.save.data.noteSplashes = noteSplashes;
 		FlxG.save.data.lowQuality = lowQuality;
 		FlxG.save.data.shaders = shaders;
 		FlxG.save.data.framerate = framerate;
-		FlxG.save.data.showMemory = showMemory;
 		//FlxG.save.data.cursing = cursing;
 		//FlxG.save.data.violence = violence;
 		FlxG.save.data.camZooms = camZooms;
@@ -139,7 +135,6 @@ class ClientPrefs {
 		FlxG.save.data.achievementsMap = Achievements.achievementsMap;
 		FlxG.save.data.henchmenDeath = Achievements.henchmenDeath;
                 FlxG.save.data.colorblindMode = colorblindMode;
-		FlxG.save.data.showVersion = showVersion;
 		
 		FlxG.save.data.ratingOffset = ratingOffset;
 		FlxG.save.data.sickWindow = sickWindow;
