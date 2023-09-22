@@ -85,6 +85,13 @@ class VisualsUISubState extends BaseOptionsMenu
 			'bool',
 			false);
 	        addOption(option);
+
+		var option:Option = new Option('Debug Info',
+			" "
+			'debugInfo',
+			'bool',
+			false);
+		addOption(option);
 			
 		var option:Option = new Option('Rainbow FPS',
 		        'If checked, makes the Info Display cycle between a rainbow of colors.',
