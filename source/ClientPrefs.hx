@@ -10,6 +10,7 @@ class ClientPrefs {
 	public static var downScroll:Bool = false;
 	public static var middleScroll:Bool = false;
 	public static var opponentStrums:Bool = true;
+	public static var debugInfo:Bool = false;
 	public static var showFPS:Bool = true;
 	public static var showMemory:Bool = false;
 	public static var flashing:Bool = true;
@@ -125,6 +126,7 @@ class ClientPrefs {
 		FlxG.save.data.noteOffset = noteOffset;
 		FlxG.save.data.hideHud = hideHud;
 		FlxG.save.data.arrowHSV = arrowHSV;
+		FlxG.save.data.debugInfo = debugInfo;
 		FlxG.save.data.vibration = vibration;
 		FlxG.save.data.ghostTapping = ghostTapping;
 		FlxG.save.data.timeBarType = timeBarType;
@@ -182,6 +184,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.showVersion != null) {
 			showVersion = FlxG.save.data.showVersion;
+		}
+		if(FlxG.save.data.debugInfo != null) {
+			debugInfo = FlxG.save.data.debugInfo;
 		}
 		if(FlxG.save.data.showFPS != null) {
 			showFPS = FlxG.save.data.showFPS;
