@@ -97,9 +97,8 @@ class FPS extends TextField
 		      }
 
 		      if(ClientPrefs.debugInfo) {
-			text += '\nState: ${Type.getClassName(Type.getClass(FlxG.state))}';
-				if (FlxG.state.subState != null)
-					text += '\nSubstate: ${Type.getClassName(Type.getClass(FlxG.state.subState))}';
+			text += '\nState: ${Type.getClassName(Type.getClass(FlxG.state))}';	
+			text += '\nSubstate: ${Type.getClassName(Type.getClass(FlxG.state.subState))}';
 		      }
 			#end
 
