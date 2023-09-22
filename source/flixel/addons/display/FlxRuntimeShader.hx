@@ -718,7 +718,7 @@ class FlxRuntimeShader extends FlxShader
 			trace('[WARN] Shader bool[] property ${name} not found.');
 			return null;
 		}
-		return promp.value;
+		return prop.value;
 	}
 
 	public function toString():String
