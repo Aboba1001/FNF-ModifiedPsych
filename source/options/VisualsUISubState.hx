@@ -9,6 +9,7 @@ import flixel.FlxSprite;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.math.FlxMath;
+import ColorblindFilters;
 import flixel.text.FlxText;
 import flixel.util.FlxColor;
 import lime.utils.Assets;
@@ -98,6 +99,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			'string',
 		        'None',
 			['None', 'Deuteranopia', 'Protanopia', 'Tritanopia']);
+		option.onChange = ColorblindFilters.applyFiltersOnGame;
 		addOption(option);
 		
 		var option:Option = new Option('Time Bar:',
