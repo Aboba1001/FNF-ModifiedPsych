@@ -87,7 +87,7 @@ class VisualsUISubState extends BaseOptionsMenu
 	        addOption(option);
 
 		var option:Option = new Option('Debug Info',
-			" "
+			" ",
 			'debugInfo',
 			'bool',
 			false);
