@@ -83,13 +83,17 @@ class FPS extends TextField
 
 		if (currentCount != cacheCount /*&& visible*/)
 		{
-			text = "Frames Per Second: " + currentFPS;
+			text = "FPS: " + currentFPS;
 			var memoryMegas:Float = 0;
 	
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
+		      if(ClientPrefs.showMemory) {
 			text += "\nMemory: " + memoryMegas + " MB";
+		      }
+		      if(ClientPrefs.showVersion) {
 			text += "\nEngine Version: " + MainMenuState.abobaEngineVersion;
+		      }
 			#end
 
 			textColor = 0xFFFFFFFF;
