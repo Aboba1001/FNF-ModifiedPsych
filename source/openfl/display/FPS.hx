@@ -95,11 +95,6 @@ class FPS extends TextField
 		      if(ClientPrefs.showVersion) {
 			text += "\nEngine Version: " + MainMenuState.abobaEngineVersion;
 		      }
-
-		      if(ClientPrefs.debugInfo) {
-			text += '\nState: ${Type.getClassName(Type.getClass(FlxG.state))}';	
-			text += '\nSubstate: ${Type.getClassName(Type.getClass(FlxG.state.subState))}';
-		      }
 			#end
 
 			textColor = 0xFFFFFFFF;
