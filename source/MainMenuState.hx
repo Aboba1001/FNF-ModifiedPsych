@@ -4,6 +4,7 @@ package;
 import Discord.DiscordClient;
 #end
 import flixel.addons.display.FlxBackdrop;
+import flixel.addons.display.FlxGridOverlay;
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
