@@ -4,7 +4,7 @@ package;
 import Discord.DiscordClient;
 #end
 import flixel.addons.display.FlxBackdrop;
-import flixel.addons.displsy.FlxGridOverlay;
+import flixel.addons.display.FlxGridOverlay;
 import flixel.tweens.FlxEase;
 import editors.ChartingState;
 import flash.text.TextField;
