@@ -47,7 +47,7 @@ class FPS extends TextField
 		currentFPS = 0;
 		selectable = false;
 		mouseEnabled = false;
-		defaultTextFormat = new TextFormat("assets/fonts/montserrat.ttf", 15, color);
+		defaultTextFormat = new TextFormat("_sans", 15, color);
 		autoSize = LEFT;
 		multiline = true;
 		text = "FPS: ";
@@ -83,7 +83,7 @@ class FPS extends TextField
 
 		if (currentCount != cacheCount /*&& visible*/)
 		{
-			text = "FPS: " + currentFPS + " / " + ClientPrefs.data.framerate;
+			text = "FPS: " + currentFPS;
 			var memoryMegas:Float = 0;
 	
 			#if openfl
