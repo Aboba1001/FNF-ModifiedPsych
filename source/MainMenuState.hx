@@ -1,8 +1,6 @@
 package;
 
-#if desktop
 import Discord.DiscordClient;
-#end
 import flixel.addons.display.FlxBackdrop;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.FlxG;
@@ -38,7 +36,6 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
-		#if MODS_ALLOWED 'mods', #end
 		'credits',
 		'options'
 	];
@@ -58,10 +55,9 @@ class MainMenuState extends MusicBeatState
 		#end
 		WeekData.loadTheFirstEnabledMod();
 
-		#if desktop
+	
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
-		#end
 		debugKeys = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 
 		camGame = new FlxCamera();
