@@ -3,8 +3,10 @@ package;
 #if desktop
 import Discord.DiscordClient;
 #end
+
 import flixel.addons.display.FlxBackdrop;
 import flixel.addons.display.FlxGridOverlay;
+
 import flixel.FlxG;
 import flixel.FlxObject;
 import flixel.FlxSprite;
@@ -103,7 +105,7 @@ class MainMenuState extends MusicBeatState
 		var grid:FlxBackdrop = new FlxBackdrop(FlxGridOverlay.createGrid(80, 80, 160, 160, true, 0x33FFFFFF, 0x0));
 		grid.velocity.set(40, 40);
 		grid.alpha = 0;
-		FlxTween.tween(grid, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
+		FlxTween.tween(grid, {alpha: 0.5}, 1.1, {ease: FlxEase.quadOut});
 		add(grid);
 		
 		// magenta.scrollFactor.set();
@@ -171,6 +173,7 @@ class MainMenuState extends MusicBeatState
 
 		#if android
 		addVirtualPad(UP_DOWN, A_B_E);
+		virtalPad.y = -48;
 		#end
 
 		super.create();
