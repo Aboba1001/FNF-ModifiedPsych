@@ -47,7 +47,7 @@ class FPS extends TextField
 		currentFPS = 0;
 		selectable = false;
 		mouseEnabled = false;
-		defaultTextFormat = new TextFormat("VCR OSD Mono", 17, color);
+		defaultTextFormat = new TextFormat("_sans", 17, color);
 		autoSize = LEFT;
 		multiline = true;
 		text = "FPS: ";
