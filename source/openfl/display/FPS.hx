@@ -47,7 +47,7 @@ class FPS extends TextField
 		currentFPS = 0;
 		selectable = false;
 		mouseEnabled = false;
-		defaultTextFormat = new TextFormat("_sans", 17, color);
+		defaultTextFormat = new TextFormat("assets/fonts/montserrat.ttf", 15, color);
 		autoSize = LEFT;
 		multiline = true;
 		text = "FPS: ";
