@@ -1,6 +1,6 @@
 package;
 
-#if android
+#if desktop
 import Discord.DiscordClient;
 #end
 import flixel.addons.display.FlxBackdrop;
@@ -57,7 +57,7 @@ class MainMenuState extends MusicBeatState
 		#end
 		WeekData.loadTheFirstEnabledMod();
 
-	        #if android
+	        #if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
 		#end
