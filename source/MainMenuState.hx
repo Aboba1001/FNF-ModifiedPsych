@@ -1,6 +1,8 @@
 package;
 
+#if android
 import Discord.DiscordClient;
+#end
 import flixel.addons.display.FlxBackdrop;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.FlxG;
@@ -55,9 +57,10 @@ class MainMenuState extends MusicBeatState
 		#end
 		WeekData.loadTheFirstEnabledMod();
 
-	
+	        #if android
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
+		#end
 		debugKeys = ClientPrefs.copyKey(ClientPrefs.keyBinds.get('debug_1'));
 
 		camGame = new FlxCamera();
