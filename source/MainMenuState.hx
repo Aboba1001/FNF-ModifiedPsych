@@ -40,6 +40,9 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
+		#if MODS_ALLOWED
+		'mods'
+		#end
 		'credits',
 		'options'
 	];
@@ -103,9 +106,9 @@ class MainMenuState extends MusicBeatState
 		add(magenta);
 
 		var grid:FlxBackdrop = new FlxBackdrop(FlxGridOverlay.createGrid(80, 80, 160, 160, true, 0x33FFFFFF, 0x0));
-		grid.velocity.set(40, 40);
+		grid.velocity.set(60, 60);
 		grid.alpha = 0;
-		FlxTween.tween(grid, {alpha: 0.5}, 1.1, {ease: FlxEase.quadOut});
+		FlxTween.tween(grid, {alpha: 0.7}, 1.1, {ease: FlxEase.quadOut});
 		add(grid);
 		
 		// magenta.scrollFactor.set();
@@ -129,7 +132,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
-			menuItem.screenCenter(X);
+			menuItem.x = 100;
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 0;
@@ -287,7 +290,7 @@ class MainMenuState extends MusicBeatState
 
 		menuItems.forEach(function(spr:FlxSprite)
 		{
-			spr.screenCenter(X);
+	
 		});
 	}
 
