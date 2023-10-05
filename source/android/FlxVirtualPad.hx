@@ -207,7 +207,7 @@ class FlxVirtualPad extends FlxSpriteGroup {
 		return button;
 	}
 
-	public static function getFrames():FlxAtlasFrames {
+	function getFrames():FlxAtlasFrames {
 		return Paths.getPackerAtlas('androidcontrols/virtualpad');
 	}
 
