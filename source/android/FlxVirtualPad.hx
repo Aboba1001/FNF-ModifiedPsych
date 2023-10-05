@@ -72,7 +72,6 @@ class FlxVirtualPad extends FlxSpriteGroup {
 		buttonDown2 = new FlxButton(0, 0);
 
 		switch (DPad){
-			switch (DPad){
 			case UP_DOWN:
 				dPad.add(add(buttonUp = createButton(0, FlxG.height - 85 * 3, 44 * 3, 127, "up", 0x00FF00)));
 				dPad.add(add(buttonDown = createButton(0, FlxG.height - 45 * 3, 44 * 3, 127, "down", 0x00FFFF)));
