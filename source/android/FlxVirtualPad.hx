@@ -241,7 +241,6 @@ class FlxVirtualPad extends FlxSpriteGroup {
 		buttonDown2 = null;
 		buttonRight2 = null;
 	}
-}
 
 enum FlxDPadMode {
 	UP_DOWN;
