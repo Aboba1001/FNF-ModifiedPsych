@@ -63,6 +63,13 @@ class VisualsUISubState extends BaseOptionsMenu
 		       false);
 		addOption(option);
 
+		var option:Option = new Option('Show Timing Counter',
+			'If checked, a offset (in ms) will appear near notes',
+			'showMsText',
+			'bool',
+			false);
+		addOption(option);
+
 		var option:Option = new Option('Show Framerate',
 			'If unchecked, the framerate will be in Info Display.',
 			'showFPS',
