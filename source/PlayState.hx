@@ -92,6 +92,7 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
+		['Uninstall', 0.1],
 		['F', 0.2], //From 0% to 19%
 		['E', 0.4], //From 20% to 39%
 		['D', 0.5], //From 40% to 49%
@@ -2396,7 +2397,7 @@ class PlayState extends MusicBeatState
 		+ ' | Average: ' + Math.round(averageMs) + 'ms'
 		+ ' | Rating: ' + ratingName
 		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
-	} else if (ClientPrefs.scoreTxtType == 'Vannila') {
+	} else if (ClientPrefs.scoreTxtType == 'Score Only') {
 		scoreTxt.text = 'Score: ' + songScore;
 	} else if (ClientPrefs.scoreTxtType == 'OS') {
 		scoreTxt.text = 'Score: ' + songScore 
@@ -2404,7 +2405,13 @@ class PlayState extends MusicBeatState
 		+ ' | Average: ' + Math.round(averageMs) + 'ms'
 		+ ' | Accuracy: ' + Highscore.floorDecimal(ratingPercent * 100, 2) + '%' 
 		+ ' | ' + ratingName + ' [' + ratingFC + ']';
+	} else if (ClientPrefs.scoreTxtType == 'Psych') {
+		scoreTxt.text = 'Score: ' + songScore
+		+ ' | Misses: ' + songMisses
+		+ ' | Rating: ' + ratingName
+		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
 	}
+		
 		if(ClientPrefs.scoreZoom && !miss && !cpuControlled)
 		{
 			if(scoreTxtTween != null) {
