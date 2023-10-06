@@ -83,7 +83,8 @@ class FPS extends TextField
 
 		if (currentCount != cacheCount /*&& visible*/)
 		{
-			text = "FPS: " + currentFPS;
+			text = "Frames Per Second: " + currentFPS;
+			text = "Max FPS: " + !ClientPrefs.data.framerate;
 			var memoryMegas:Float = 0;
 	
 			#if openfl
