@@ -17,6 +17,8 @@ import openfl.Lib;
 import openfl.system.System;
 #end
 
+import ClientPrefs;
+
 /**
 	The FPS class provides an easy-to-use monitor to display
 	the current frame rate of an OpenFL project
@@ -84,7 +86,6 @@ class FPS extends TextField
 		if (currentCount != cacheCount /*&& visible*/)
 		{
 			text = "Frames Per Second: " + currentFPS;
-			text = "Max FPS: " + !ClientPrefs.framerate;
 			var memoryMegas:Float = 0;
 	
 			#if openfl
@@ -95,6 +96,13 @@ class FPS extends TextField
 		    
 		      if(ClientPrefs.showVersion) {
 			text += "\nEngine Version: " + MainMenuState.abobaEngineVersion;
+		      }
+
+		      if(ClientPrefs.debugInfo) {
+			text += '\nState: ${Type.getClassName(Type.getClass(FlxG.state))}';
+			if (FlxG.state.subState != null)
+	                        text += '\nSubstate: ${Type.getClassName(Type.getClass(FlxG.state.subState))}';
+			text += Math.floor(1 / currentFPS * 10000 + 0.5) / 10 + "ms";
 		      }
 			#end
 
