@@ -1211,7 +1211,7 @@ class PlayState extends MusicBeatState
 	        var songTxt = new FlxText(0, FlxG.height - 18, 0, SONG.song + " - " + CoolUtil.difficultyString() + " | XL Engine " + MainMenuState.abobaEngineVersion, 16);
 		songTxt.setFormat(Paths.font("vcr.ttf"), 15, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		songTxt.scrollFactor.set();
-		songTxt.visible = !ClientPrefs.watermark;
+		songTxt.visible = !ClientPrefs.watermark && !ClientPrefs.hideHud;
 		songTxt.cameras = [camHUD];
 	        add(songTxt);
 
