@@ -19,6 +19,7 @@ import openfl.system.System;
 #end
 
 import ClientPrefs;
+import CoolUtil;
 
 /**
 	The FPS class provides an easy-to-use monitor to display
@@ -86,13 +87,13 @@ class FPS extends TextField
 
 		if (currentCount != cacheCount /*&& visible*/)
 		{
-			text = "Frames Per Second: " + currentFPS;
+			text = "FPS: " + currentFPS + " / " + ClientPrefs.data.framerate;
 			var memoryMegas:Float = 0;
 	
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
 		      if(ClientPrefs.showMemory) {
-			text += "\nMemory: " + memoryMegas + " MB";
+			text += "\nMEM: " + memoryMegas + " MB";
 		      }
 		    
 		      if(ClientPrefs.showVersion) {
@@ -103,7 +104,10 @@ class FPS extends TextField
 			text += '\nState: ${Type.getClassName(Type.getClass(FlxG.state))}';
 			if (FlxG.state.subState != null)
 	                        text += '\nSubstate: ${Type.getClassName(Type.getClass(FlxG.state.subState))}';
-			text += Math.floor(1 / currentFPS * 10000 + 0.5) / 10 + "ms";
+			//text += Math.floor(1 / currentFPS * 10000 + 0.5) / 10 + "ms";
+			text += "\nSystem: " + '${lime.system.System.platformLabel} ${lime.system.System.platformVersion}';
+			text += "\nGL Render: " + '${getGLInfo(RENDERER)}';
+			text += "\nGL Shading version: " + '${getGLInfo(SHADING_LANGUAGE_VERSION)})';
 		      }
 			#end
 
