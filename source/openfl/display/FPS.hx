@@ -87,7 +87,7 @@ class FPS extends TextField
 
 		if (currentCount != cacheCount /*&& visible*/)
 		{
-			text = "FPS: " + currentFPS + " / " + ClientPrefs.data.framerate;
+			text = "FPS: " + currentFPS;
 			var memoryMegas:Float = 0;
 	
 			#if openfl
@@ -106,8 +106,6 @@ class FPS extends TextField
 	                        text += '\nSubstate: ${Type.getClassName(Type.getClass(FlxG.state.subState))}';
 			//text += Math.floor(1 / currentFPS * 10000 + 0.5) / 10 + "ms";
 			text += "\nSystem: " + '${lime.system.System.platformLabel} ${lime.system.System.platformVersion}';
-			text += "\nGL Render: " + '${getGLInfo(RENDERER)}';
-			text += "\nGL Shading version: " + '${getGLInfo(SHADING_LANGUAGE_VERSION)})';
 		      }
 			#end
 
