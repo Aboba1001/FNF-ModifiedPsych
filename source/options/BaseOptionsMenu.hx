@@ -1,5 +1,8 @@
 package options;
 
+import flixel.addons.display.FlxBackdrop;
+import flixel.addons.display.FlxGridOverlay;
+
 #if desktop
 import Discord.DiscordClient;
 #end
@@ -61,6 +64,12 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
+
+		var grid:FlxBackdrop = new FlxBackdrop(FlxGridOverlay.createGrid(30, 30, 60, 60, true, 0x3B161932, 0x0));
+		grid.velocity.set(FlxG.random.bool(50) ? 90 : -90, FlxG.random.bool(50) ? 90 : -90);
+		grid.alpha = 0;
+		FlxTween.tween(grid, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
+		add(grid);
 
 		// avoids lagspikes while scrolling through menus!
 		grpOptions = new FlxTypedGroup<Alphabet>();
