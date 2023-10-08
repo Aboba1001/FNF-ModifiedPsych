@@ -14,6 +14,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import flixel.FlxCamera;
 import flixel.util.FlxStringUtil;
+import option.OptionsState;
 
 class PauseSubState extends MusicBeatSubstate
 {
@@ -271,7 +272,6 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.instance.botplayTxt.alpha = 1;
 					PlayState.instance.botplaySine = 0;
 				case 'Options':
-					optionMenu = true;
 					PlayState.deathCounter = 0;
 					PlayState.seenCutscene = false;
 					PlayState.instance.vocals.volume = 0;
