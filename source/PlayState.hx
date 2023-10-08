@@ -1209,12 +1209,6 @@ class PlayState extends MusicBeatState
 		reloadHealthBarColors();
 
 	        var songTxt = new FlxText(0, FlxG.height - 18, 0, SONG.song + " - " + CoolUtil.difficultyString() + " | XL Engine " + MainMenuState.abobaEngineVersion, 16);
-		switch (ClientPrefs.scoreTxtType) {
-			case 'Psych':
-			    scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-			    scoreTxt.borderSize = 1.25;
-		}
-				
 	        songTxt.setFormat(Paths.font("vcr.ttf"), 15, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		songTxt.scrollFactor.set();
 		songTxt.visible = !ClientPrefs.watermark && !ClientPrefs.hideHud;
