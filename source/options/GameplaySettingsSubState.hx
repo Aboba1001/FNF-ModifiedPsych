@@ -98,6 +98,13 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		option.onChange = onChangeVibration;
 		#end
 
+		var option:Option = new Option('Remove Perfect! Note Judgement',
+			'If checked, removes Perfect! judgement',
+			'removePerfects',
+			'bool',
+			false);
+		addOption(option);
+
 		var option:Option = new Option('Hitsound Volume',
 			'Funny notes does \"Tick!\" when you hit them."',
 			'hitsoundVolume',
