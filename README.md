@@ -3,7 +3,7 @@
 ![Screenshot_20230919-024251_Video Player](https://github.com/Aboba1001/Aboba1001/assets/112294807/f600949c-2cbb-42d6-88d6-759bcf36ca04)
 
 * ## XL Engine Credits
-* [RoboaToba](https://youtube.com/@RoboaToba) - Programmer of XL Engine
+* [RoboaToba](https://youtube.com/@RoboaToba) - Programmer
 
 * ## Psych Engine Credits: 
  * [Shadow Mario](https://twitter.com/Shadow_Mario_) - Programmer 
