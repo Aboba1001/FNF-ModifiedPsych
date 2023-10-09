@@ -2,8 +2,6 @@
 
 ![Screenshot_20230919-024251_Video Player](https://github.com/Aboba1001/Aboba1001/assets/112294807/f600949c-2cbb-42d6-88d6-759bcf36ca04)
 ![](https://img.shields.io/github/issues/Aboba1001/XL-Engine) ![](https://img.shields.io/github/forks/Aboba1001/XL-Engine) ![](https://img.shields.io/github/stars/Aboba1001/XL-Engine)
-![]
-(https://img.shields.io/github/downloads/Aboba1001/XL-Engine) ![]
 
 * ## XL Engine Credits
 * [RoboaToba](https://youtube.com/@RoboaToba) - Programmer
