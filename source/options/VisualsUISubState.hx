@@ -56,6 +56,13 @@ class VisualsUISubState extends BaseOptionsMenu
                         false);
                 addOption(option);
 
+		var option:Option = new Option('Hide Judgement Counter',
+			'If checked, hides judgement and NPS counter during a song.',
+			'hideJudgements',
+			'bool',
+			false);
+		addOption(option);
+
 		var option:Option = new Option('Striped Health Bar',
 		       "Like in OS Engine, health bar has stripes on it.",
 	 	       'stripedBar',
