@@ -1051,13 +1051,12 @@ class PlayState extends MusicBeatState
 
 		timeBarBG = new AttachedSprite('long_TimeBar');
 		timeBarBG.x = timeTxt.x;
-		timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
-		timeBarBG.scrollFactor.set();
+	        timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
+	        timeBarBG.scrollFactor.set();
+		timeBarBG.screenCenter(X);
 		timeBarBG.alpha = 0;
 		timeBarBG.visible = showTime;
 		timeBarBG.color = FlxColor.BLACK;
-		timeBarBG.xAdd = -4;
-		timeBarBG.yAdd = -4;
 		add(timeBarBG);
 
 		timeBar = new FlxBar(timeBarBG.x + 4, timeBarBG.y + 4, LEFT_TO_RIGHT, Std.int(timeBarBG.width - 8), Std.int(timeBarBG.height - 8), this,
