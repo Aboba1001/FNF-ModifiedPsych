@@ -1065,6 +1065,8 @@ class PlayState extends MusicBeatState
 		timeBar.createFilledBar(0xFF000000, 0xFFFFFFFF);
 		timeBar.numDivisions = 800; //How much lag this causes?? Should i tone it down to idk, 400 or 200?
 		timeBar.alpha = 0;
+	        timeBar.y = timeBarBG.y;
+	        timeBar.screenCenter(X);
 		timeBar.visible = showTime;
 		add(timeBar);
 		add(timeTxt);
