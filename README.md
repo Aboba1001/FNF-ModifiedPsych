@@ -1,7 +1,7 @@
 # Friday Night Funkin' - XL Engine
 
-![Screenshot_20230919-024251_Video Player](https://github.com/Aboba1001/Aboba1001/assets/112294807/f600949c-2cbb-42d6-88d6-759bcf36ca04)
-![](https://img.shields.io/github/issues/Aboba1001/XL-Engine) ![](https://img.shields.io/github/forks/Aboba1001/XL-Engine) ![](https://img.shields.io/github/stars/Aboba1001/XL-Engine) ![](https://img.shields.io/github/license/Aboba1001/XL-Engine) ![GitHub all releases](https://img.shields.io/github/downloads/Aboba1001/XL-Engine) ![GitHub repo size](https://img.shields.io/github/repo-size/Aboba1001/XL-Engine) ![](https://img.shields.io/github/contributors/Aboba1001/XL-Engine) ![GitHub release (latest by date)](https://img.shields.io/github/downloads/Aboba1001/XL-Engine/latest/total)
+![FNF-Logo svg](https://github.com/Aboba1001/Aboba1001.github.io/assets/112294807/e56c92fa-b8cd-42aa-9190-43762f29e076)
+(https://img.shields.io/github/issues/Aboba1001/XL-Engine) ![](https://img.shields.io/github/forks/Aboba1001/XL-Engine) ![](https://img.shields.io/github/stars/Aboba1001/XL-Engine) ![](https://img.shields.io/github/license/Aboba1001/XL-Engine) ![GitHub all releases](https://img.shields.io/github/downloads/Aboba1001/XL-Engine) ![GitHub repo size](https://img.shields.io/github/repo-size/Aboba1001/XL-Engine) ![](https://img.shields.io/github/contributors/Aboba1001/XL-Engine) ![GitHub release (latest by date)](https://img.shields.io/github/downloads/Aboba1001/XL-Engine/latest/total)
 
 * ## XL Engine Credits
 * [RoboaToba](https://youtube.com/@RoboaToba) - Programmer
