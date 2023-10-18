@@ -105,7 +105,7 @@ class FPS extends TextField
 			if (FlxG.state.subState != null)
 	                        text += '\nSubstate: ${Type.getClassName(Type.getClass(FlxG.state.subState))}';
 			//text += Math.floor(1 / currentFPS * 10000 + 0.5) / 10 + "ms";
-			text += "\nSystem: " + '${lime.system.System.platformLabel} ${lime.system.System.platformVersion}';
+			text += "\nOperating System: " + '${lime.system.System.platformLabel} ${lime.system.System.platformVersion}';
 		      }
 			#end
 
