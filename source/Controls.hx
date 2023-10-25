@@ -19,9 +19,10 @@ import android.FlxVirtualPad;
 import flixel.ui.FlxButton;
 import android.flixel.FlxButton as FlxNewButton;
 #end
-	
+
 #if (haxe >= "4.0.0")
-enum abstract Action(String) to String from String {
+enum abstract Action(String) to String from String
+{
 	var UI_UP = "ui_up";
 	var UI_LEFT = "ui_left";
 	var UI_RIGHT = "ui_right";
@@ -50,13 +51,11 @@ enum abstract Action(String) to String from String {
 	var BACK = "back";
 	var PAUSE = "pause";
 	var RESET = "reset";
-	var SPACE = 'space';
-	var SPACE_P = 'space-press';
-	var SPACE_R = 'space-release';
 }
 #else
 @:enum
-abstract Action(String) to String from String {
+abstract Action(String) to String from String
+{
 	var UI_UP = "ui_up";
 	var UI_LEFT = "ui_left";
 	var UI_RIGHT = "ui_right";
@@ -85,9 +84,35 @@ abstract Action(String) to String from String {
 	var BACK = "back";
 	var PAUSE = "pause";
 	var RESET = "reset";
-	var SPACE = 'space';
 }
 #end
+
+enum Device
+{
+	Keys;
+	Gamepad(id:Int);
+}
+
+/**
+ * Since, in many cases multiple actions should use similar keys, we don't want the
+ * rebinding UI to list every action. ActionBinders are what the user percieves as
+ * an input so, for instance, they can't set jump-press and jump-release to different keys.
+ */
+enum Control
+{
+	UI_UP;
+	UI_LEFT;
+	UI_RIGHT;
+	UI_DOWN;
+	NOTE_UP;
+	NOTE_LEFT;
+	NOTE_RIGHT;
+	NOTE_DOWN;
+	RESET;
+	ACCEPT;
+	BACK;
+	PAUSE;
+}
 
 enum KeyboardScheme
 {
@@ -582,7 +607,7 @@ class Controls extends FlxActionSet
 
 	public function getDialogueNameFromToken(token:String):String
 	{
-		return getDialogueName(getActionFromControl(createByName(token.toUpperCase())));
+		return getDialogueName(getActionFromControl(Control.createByName(token.toUpperCase())));
 	}
 
 	function getActionFromControl(control:Control):FlxActionDigital
