@@ -1,4 +1,4 @@
-package android.flixel;
+package android;
 
 import android.flixel.FlxButton;
 import flixel.FlxG;
@@ -9,7 +9,7 @@ import flixel.util.FlxDestroyUtil;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.graphics.FlxGraphic;
 import openfl.utils.Assets;
-import backend.ClientPrefs;
+import ClientPrefs;
 
 class FlxVirtualPad extends FlxSpriteGroup {
 	public var buttonLeft:FlxButton = new FlxButton(0, 0);
@@ -161,7 +161,6 @@ class FlxVirtualPad extends FlxSpriteGroup {
 		button.immovable = true;
 		button.scrollFactor.set();
 		button.color = Color;
-		button.alpha = ClientPrefs.virtualPadAlpha;
 		#if FLX_DEBUG
 		button.ignoreDrawDebug = true;
 		#end
