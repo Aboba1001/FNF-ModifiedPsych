@@ -21,6 +21,7 @@ import android.flixel.FlxButton as FlxNewButton;
 #end
 	
 #if (haxe >= "4.0.0")
+{
 var UI_DOWN_R = "ui_down-release";
 	var NOTE_UP = "note_up";
 	var NOTE_LEFT = "note_left";
