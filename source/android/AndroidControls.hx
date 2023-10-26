@@ -140,12 +140,3 @@ class AndroidControls extends FlxSpriteGroup {
 		}
 	}
 }
-
-enum FlxDPadMode {
-	VIRTUALPAD_RIGHT;
-	VIRTUALPAD_LEFT;
-	VIRTUALPAD_CUSTOM;
-	DUO;
-	HITBOX;
-	KEYBOARD;
-}
