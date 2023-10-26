@@ -43,7 +43,6 @@ jobs:
 
       - name: Install Haxelib
         run: |
-          haxelib --global update haxelib
           haxelib setup ~/haxelib
           haxelib install hxcpp 4.2.1 > /dev/null
           haxelib install lime 7.9.0
