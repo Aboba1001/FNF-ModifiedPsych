@@ -7,7 +7,7 @@ import flixel.math.FlxPoint;
 
 import android.FlxVirtualPad;
 import android.FlxHitbox;
-import android.FlxNewHitbox
+import android.FlxNewHitbox;
 
 import ClientPrefs;
 
