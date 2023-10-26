@@ -151,10 +151,10 @@ class MainMenuState extends MusicBeatState
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-    var versionShit:FlxText = new FlxText(12, FlxG.height - 64, "XL Engine v"  + abobaEngineVersion, 12);
-    versionShit.scrollFactor.set();
-    versionShit.setFormat("VCR OSD Mono", 16 FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-    add(versionShit);
+                var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "XL Engine v"  + abobaEngineVersion, 12);
+                versionShit.scrollFactor.set();
+                versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+                add(versionShit);
 
 		// NG.core.calls.event.logEvent('swag').send();
 
