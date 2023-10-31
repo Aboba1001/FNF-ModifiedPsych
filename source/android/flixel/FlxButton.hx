@@ -49,7 +49,7 @@ class FlxButton extends FlxTypedButton<FlxText>
 	 * @param   Text      The text that you want to appear on the button.
 	 * @param   OnClick   The function to call whenever the button is clicked.
 	 */
-	public function new(X:Float = 0, Y:Float = 0, ?Text:String, ?OnClick:Void->Void)
+	public function new(X:Float = 0, Y:Float = 0, ?Text:String, ?OnClick:Void->Void):Void
 	{
 		super(X, Y, OnClick);
 
@@ -136,6 +136,11 @@ class FlxTypedButton<T:FlxSprite> extends FlxSprite implements IFlxInput
 	public var allowSwiping:Bool = true;
 
 	/**
+	 * Whether the button can use multiple fingers on it.
+	 */
+	public var multiTouch:Bool = false;
+
+	/**
 	 * Maximum distance a pointer can move to still trigger event handlers.
 	 * If it moves beyond this limit, onOut is triggered.
 	 * Defaults to `Math.POSITIVE_INFINITY` (i.e. no limit).
@@ -197,7 +202,7 @@ class FlxTypedButton<T:FlxSprite> extends FlxSprite implements IFlxInput
 	 * @param   Y         The y position of the button.
 	 * @param   OnClick   The function to call whenever the button is clicked.
 	 */
-	public function new(X:Float = 0, Y:Float = 0, ?OnClick:Void->Void)
+	public function new(X:Float = 0, Y:Float = 0, ?OnClick:Void->Void):Void
 	{
 		super(X, Y);
 
@@ -234,7 +239,7 @@ class FlxTypedButton<T:FlxSprite> extends FlxSprite implements IFlxInput
 	function setupAnimation(animationName:String, frameIndex:Int):Void
 	{
 		// make sure the animation doesn't contain an invalid frame
-		frameIndex = Std.int(Math.min(frameIndex, animation.frames - 1));
+		frameIndex = Std.int(Math.min(frameIndex, animation.numFrames - 1));
 		animation.add(animationName, [frameIndex]);
 	}
 
@@ -432,11 +437,10 @@ class FlxTypedButton<T:FlxSprite> extends FlxSprite implements IFlxInput
 	 */
 	function onUpHandler():Void
 	{
-		status = FlxButton.NORMAL;
+		status = multiTouch ? FlxButton.NORMAL : FlxButton.HIGHLIGHT;
 		input.release();
 		currentInput = null;
-		// Order matters here, because onUp.fire() could cause a state change and destroy this object.
-		onUp.fire();
+		onUp.fire(); // Order matters here, because onUp.fire() could cause a state change and destroy this object.
 	}
 
 	/**
@@ -446,8 +450,7 @@ class FlxTypedButton<T:FlxSprite> extends FlxSprite implements IFlxInput
 	{
 		status = FlxButton.PRESSED;
 		input.press();
-		// Order matters here, because onDown.fire() could cause a state change and destroy this object.
-		onDown.fire();
+		onDown.fire(); // Order matters here, because onDown.fire() could cause a state change and destroy this object.
 	}
 
 	/**
@@ -456,8 +459,7 @@ class FlxTypedButton<T:FlxSprite> extends FlxSprite implements IFlxInput
 	function onOverHandler():Void
 	{
 		status = FlxButton.HIGHLIGHT;
-		// Order matters here, because onOver.fire() could cause a state change and destroy this object.
-		onOver.fire();
+		onOver.fire(); // Order matters here, because onOver.fire() could cause a state change and destroy this object.
 	}
 
 	/**
@@ -467,8 +469,7 @@ class FlxTypedButton<T:FlxSprite> extends FlxSprite implements IFlxInput
 	{
 		status = FlxButton.NORMAL;
 		input.release();
-		// Order matters here, because onOut.fire() could cause a state change and destroy this object.
-		onOut.fire();
+		onOut.fire(); // Order matters here, because onOut.fire() could cause a state change and destroy this object.
 	}
 
 	function set_label(Value:T):T
@@ -550,7 +551,7 @@ private class FlxButtonEvent implements IFlxDestroyable
 	 * @param   Callback   The callback function to call when this even fires.
 	 * @param   sound      The sound to play when this event fires.
 	 */
-	public function new(?Callback:Void->Void, ?sound:FlxSound)
+	public function new(?Callback:Void->Void, ?sound:FlxSound):Void
 	{
 		callback = Callback;
 
