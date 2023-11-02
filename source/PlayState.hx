@@ -2391,7 +2391,7 @@ class PlayState extends MusicBeatState
 
 	public function updateScore(miss:Bool = false)
 	{
-	if (ClientPrefs.scoreTxtType == 'XL') {
+	if (ClientPrefs.scoreTxtType == 'RT') {
 		scoreTxt.text = 'Score: ' + songScore
 		+ ' | Combo Breaks: ' + songMisses
 		+ ' | Health: ' + Math.round(health * 50) + '%'
