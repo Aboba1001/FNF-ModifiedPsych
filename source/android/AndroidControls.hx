@@ -7,123 +7,145 @@ import flixel.math.FlxPoint;
 
 import android.FlxVirtualPad;
 import android.FlxHitbox;
-import android.FlxNewHitbox;
 
-import FlxDestroyUtil;
+class Config {
+	var save:FlxSave;
 
-import ClientPrefs;
+	public function new() {
+		save = new FlxSave();
+		save.bind("saved-controls");
+	}
+
+	public function getcontrolmode():Int {
+		if (save.data.buttonsmode != null) 
+			return save.data.buttonsmode[0];
+		return 0;
+	}
+
+	public function setcontrolmode(mode:Int = 0):Int {
+		if (save.data.buttonsmode == null) save.data.buttonsmode = new Array();
+		save.data.buttonsmode[0] = mode;
+		save.flush();
+		return save.data.buttonsmode[0];
+	}
+
+	public function savecustom(_pad:FlxVirtualPad) {
+		if (save.data.buttons == null)
+		{
+			save.data.buttons = new Array();
+			for (buttons in _pad){
+				save.data.buttons.push(FlxPoint.get(buttons.x, buttons.y));
+			}
+		}else{
+			var tempCount:Int = 0;
+			for (buttons in _pad){
+				save.data.buttons[tempCount] = FlxPoint.get(buttons.x, buttons.y);
+				tempCount++;
+			}
+		}
+		save.flush();
+	}
+
+	public function loadcustom(_pad:FlxVirtualPad):FlxVirtualPad {
+		if (save.data.buttons == null) 
+			return _pad;
+		var tempCount:Int = 0;
+		for(buttons in _pad){
+			buttons.x = save.data.buttons[tempCount].x;
+			buttons.y = save.data.buttons[tempCount].y;
+			tempCount++;
+		}	
+		return _pad;
+	}
+}
 
 class AndroidControls extends FlxSpriteGroup {
-	public var virtualPad:FlxVirtualPad;
-	public var hitbox:FlxHitbox;
-	public var newHitbox:FlxNewHitbox;
+	public var mode:ControlsGroup = HITBOX;
+
+	public var hbox:FlxHitbox;
+	public var newhbox:FlxNewHitbox;
+	public var vpad:FlxVirtualPad;
+
+	var config:Config;
 
 	public function new() {
 		super();
 
-		switch (AndroidControls.getMode()) {
-			case 0: // RIGHT_FULL
+		config = new Config();
+
+		mode = getModeFromNumber(config.getcontrolmode());
+
+		switch (mode){
+			case VIRTUALPAD_RIGHT:
 				initControler(0);
-			case 1: // LEFT_FULL
+			case VIRTUALPAD_LEFT:
 				initControler(1);
-			case 2: // CUSTOM
+			case VIRTUALPAD_CUSTOM:
 				initControler(2);
-			case 3: // BOTH_FULL
+			case DUO:
 				initControler(3);
-			case 4: // HITBOX
-				if (ClientPrefs.hitboxSelection != 'New') {
-					initControler(5);
-				} else {
-					initControler(4);
-				}
-			case 5: // KEYBOARD
+			case HITBOX:
+		    if(ClientPrefs.hitboxmode != 'New'){
+				initControler(4);
+		    }else{
+		    initControler(5);
+		    }
+			case KEYBOARD:// nothing
 		}
 	}
 
-	private function initControler(virtualPadMode:Int = 0):Void {
-		switch (virtualPadMode) {
+	function initControler(vpadMode:Int) {
+		switch (vpadMode){
 			case 0:
-				virtualPad = new FlxVirtualPad(RIGHT_FULL, NONE);
-				add(virtualPad);
+				vpad = new FlxVirtualPad(RIGHT_FULL, NONE, 0.75, ClientPrefs.globalAntialiasing);	
+				add(vpad);						
 			case 1:
-				virtualPad = new FlxVirtualPad(LEFT_FULL, NONE);
-				add(virtualPad);
+				vpad = new FlxVirtualPad(FULL, NONE, 0.75, ClientPrefs.globalAntialiasing);
+				add(vpad);			
 			case 2:
-				virtualPad = AndroidControls.getCustomMode(new FlxVirtualPad(RIGHT_FULL, NONE));
-				add(virtualPad);
+				vpad = new FlxVirtualPad(FULL, NONE, 0.75, ClientPrefs.globalAntialiasing);
+				vpad = config.loadcustom(vpad);
+				add(vpad);	
 			case 3:
-				virtualPad = new FlxVirtualPad(BOTH_FULL, NONE);
-				add(virtualPad);
+				vpad = new FlxVirtualPad(DUO, NONE, 0.75, ClientPrefs.globalAntialiasing);
+				add(vpad);		
 			case 4:
-				newHitbox = new FlxNewHitbox();
-				add(newHitbox);
+				hbox = new FlxHitbox(0.75, ClientPrefs.globalAntialiasing);
+				add(hbox);
 			case 5:
-				hitbox = new FlxHitbox();
-				add(hitbox);
+			  newhbox = new FlxNewHitbox();
+			  add(newhbox);
+			default:
+				vpad = new FlxVirtualPad(RIGHT_FULL, NONE, 0.75, ClientPrefs.globalAntialiasing);	
+				add(vpad);					
 		}
 	}
 
-	override public function destroy():Void {
-		super.destroy();
-
-		if (virtualPad != null) {
-			virtualPad = FlxDestroyUtil.destroy(virtualPad);
-			virtualPad = null;
-		}
-
-		if (newHitbox != null) {
-			newHitbox = FlxDestroyUtil.destroy(newHitbox);
-			newHitbox = null;
-		}
-
-		if (hitbox != null) {
-			hitbox = FlxDestroyUtil.destroy(hitbox);
-			hitbox = null;
+	public static function getModeFromNumber(modeNum:Int):ControlsGroup {
+		return switch (modeNum){
+			case 0: 
+				VIRTUALPAD_RIGHT;
+			case 1: 
+				VIRTUALPAD_LEFT;
+			case 2: 
+				VIRTUALPAD_CUSTOM;
+			case 3: 
+				DUO;
+			case 4:	
+				HITBOX;
+			case 5: 
+				KEYBOARD;
+			default: 
+				VIRTUALPAD_RIGHT;
 		}
 	}
+}
 
-	public static function setMode(mode:Int = 0):Void {
-		FlxG.save.data.androidControlsMode = mode;
-		FlxG.save.flush();
-	}
-
-	public static function getMode():Int {
-		if (FlxG.save.data.androidControlsMode == null) {
-			FlxG.save.data.androidControlsMode = 0;
-			FlxG.save.flush();
-		}
-
-		return FlxG.save.data.androidControlsMode;
-	}
-
-	public static function setCustomMode(virtualPad:FlxVirtualPad):Void {
-		if (FlxG.save.data.buttons == null) {
-			FlxG.save.data.buttons = new Array();
-			for (buttons in virtualPad)
-				FlxG.save.data.buttons.push(FlxPoint.get(buttons.x, buttons.y));
-		} else {
-			var tempCount:Int = 0;
-			for (buttons in virtualPad) {
-				FlxG.save.data.buttons[tempCount] = FlxPoint.get(buttons.x, buttons.y);
-				tempCount++;
-			}
-		}
-
-		FlxG.save.flush();
-	}
-
-	public static function getCustomMode(virtualPad:FlxVirtualPad):FlxVirtualPad {
-		var tempCount:Int = 0;
-
-		if (FlxG.save.data.buttons == null)
-			return virtualPad;
-
-		for (buttons in virtualPad) {
-			buttons.x = FlxG.save.data.buttons[tempCount].x;
-			buttons.y = FlxG.save.data.buttons[tempCount].y;
-			tempCount++;
-		}
-
-		return virtualPad;
-	}
+enum ControlsGroup {
+	VIRTUALPAD_RIGHT;
+	VIRTUALPAD_LEFT;
+	VIRTUALPAD_CUSTOM;
+	DUO;
+	HITBOX;
+	KEYBOARD;
 }
