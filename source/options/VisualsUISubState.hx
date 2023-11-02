@@ -93,8 +93,8 @@ class VisualsUISubState extends BaseOptionsMenu
                 addOption(option);
 		option.onChange = onChangeFPSCounter;
 
-		var option:Option = new Option('Show XL Engine Watermark',
-		        "If checked, the XL Engine watermark and version number will be in the Info Display.",
+		var option:Option = new Option('Show RT Engine Watermark',
+		        "If checked, the RT Engine watermark and version number will be in the Info Display.",
                         'showVersion',
 			'bool',
 			false);
