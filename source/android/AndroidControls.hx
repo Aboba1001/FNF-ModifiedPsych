@@ -9,6 +9,8 @@ import android.FlxVirtualPad;
 import android.FlxHitbox;
 import android.FlxNewHitbox;
 
+import FlxDestroyUtil;
+
 import ClientPrefs;
 
 class AndroidControls extends FlxSpriteGroup {
