@@ -33,7 +33,7 @@ class ClientPrefs {
 	public static var timeBarType:String = 'Time Left';
 	public static var watermark:Bool = false; 
 	public static var showMsText:Bool = true;
-	public static var scoreTxtType:String = 'XL';
+	public static var scoreTxtType:String = 'RT';
 	public static var rainbowFPS:Bool = false;
 	public static var scoreZoom:Bool = true;
 	public static var noReset:Bool = false;
@@ -175,6 +175,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.middleScroll != null) {
 			middleScroll = FlxG.save.data.middleScroll;
+		}
+		if(FlxG.save.data.scoreTxtType != null) {
+			scoreTxtType = FlxG.save.data.scoreTxtType;
 		}
 		if(FlxG.save.data.opponentStrums != null) {
 			opponentStrums = FlxG.save.data.opponentStrums;
