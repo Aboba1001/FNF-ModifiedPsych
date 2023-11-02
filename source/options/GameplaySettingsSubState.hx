@@ -63,8 +63,8 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			'Select a type of score text.',
 			'scoreTxtType',
 			'string',
-		        'XL',
-			['XL', 'Psych', 'OS']);
+		        'RT',
+			['RT', 'Psych']);
 	       addOption(option);
 			
 		var option:Option = new Option('Opponent Notes',
