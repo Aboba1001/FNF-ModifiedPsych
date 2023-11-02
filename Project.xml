@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin': XL Engine" file="XL Engine" packageName="com.aboba10102.abobaengine" package="com.roboatoba.xlengine" main="Main" version="0.2.8" company="RoboaToba" />
+	<app title="Friday Night Funkin': RT Engine" file="RT Engine" packageName="com.roboatoba.roboatobaengine" package="com.roboatoba.rtengine" main="Main" version="0.2.8" company="RoboaToba" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 
