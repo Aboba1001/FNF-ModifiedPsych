@@ -45,7 +45,6 @@ class FreeplayState extends MusicBeatState
 	var lerpRating:Float = 0;
 	var intendedScore:Int = 0;
 	var intendedRating:Float = 0;
-	var intendedMisses:Int = 0;
 
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
@@ -282,7 +281,7 @@ class FreeplayState extends MusicBeatState
 			ratingSplit[1] += '0';
 		}
 
-		scoreText.text = 'Personal Best\nSCORE: ' + lerpScore + '\nACCURACY: ' + ratingSplit.join('.') + '%' + '\nMISSES: ' + intendedMisses + '\n';
+		scoreText.text = 'Personal Best\nSCORE: ' + lerpScore + '\nACCURACY: ' + ratingSplit.join('.') + '%' + '\n';
 		positionHighscore();
 
 		var upP = controls.UI_UP_P;
@@ -447,7 +446,6 @@ class FreeplayState extends MusicBeatState
 		#if !switch
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
 		intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
-		intendedMisses = Highscore.getMiss(songs[currentlySelected].songName, currentlyDifficulty);
 		#end
 
 		PlayState.storyDifficulty = curDifficulty;
@@ -484,7 +482,6 @@ class FreeplayState extends MusicBeatState
 		#if !switch
 		intendedScore = Highscore.getScore(songs[curSelected].songName, curDifficulty);
 		intendedRating = Highscore.getRating(songs[curSelected].songName, curDifficulty);
-		intendedMisses = Highscore.getMiss(songs[currentlySelected].songName, currentlyDifficulty);
 		#end
 
 		var bullShit:Int = 0;
