@@ -90,6 +90,8 @@ class VisualsUISubState extends BaseOptionsMenu
 			'showTotalFPS',
 			'bool',
 			false);
+		addOption(option);
+		
 
 		var option:Option = new Option('Show Memory Usage',
 			'If checked, current memory usage in MB will be in the Info Display.',
@@ -104,6 +106,7 @@ class VisualsUISubState extends BaseOptionsMenu
 		        'showTotalMemory',
 			'bool',
 			false);
+		addOption(option);
 
 		var option:Option = new Option('Show RT Engine Watermark',
 		        "If checked, the RT Engine watermark and version number will be in the Info Display.",
