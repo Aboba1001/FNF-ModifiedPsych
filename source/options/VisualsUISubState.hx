@@ -85,6 +85,12 @@ class VisualsUISubState extends BaseOptionsMenu
 		addOption(option);
 		option.onChange = onChangeFPSCounter;
 
+		var option:Option = new Option('Show Total Framerate',
+			'If checked, shows Total FPS in Info Display.',
+			'showTotalFPS',
+			'bool',
+			false);
+
 		var option:Option = new Option('Show Memory Usage',
 			'If checked, current memory usage in MB will be in the Info Display.',
 			'showMemory',
@@ -92,6 +98,12 @@ class VisualsUISubState extends BaseOptionsMenu
 			false);
                 addOption(option);
 		option.onChange = onChangeFPSCounter;
+
+		var option:Option = new Option('Show Total Memory',
+			'If Checked, shows total memory in Info Display.',
+		        'showTotalMemory',
+			'bool',
+			false);
 
 		var option:Option = new Option('Show RT Engine Watermark',
 		        "If checked, the RT Engine watermark and version number will be in the Info Display.",
