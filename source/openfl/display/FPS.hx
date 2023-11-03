@@ -100,7 +100,7 @@ class FPS extends TextField
 			text += "\nMEM: " + memoryMegas + " MB";
 		      }
 		      if(ClientPrefs.showTotalMemory) {
-			text += "\nMEM Peak" + CoolUtil.formatMemory(Std.int(maximumMemory) + " MB";
+			text += "\nMEM Peak" + CoolUtil.formatMemory(Std.int(maximumMemory)) + " MB";
 		      }
 		      if(ClientPrefs.showVersion) {
 			text += "\nEngine Version: " + MainMenuState.abobaEngineVersion;
