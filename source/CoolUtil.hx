@@ -100,6 +100,25 @@ class CoolUtil
 		var formatSize:String = formatAccuracy(size);
 		return formatSize + " " + dataTexts[data];
 	}
+	public static function formatAccuracy(value:Float) {
+		var conversion:Map<String, String> = [
+			'0' => '0.00',
+			'0.0' => '0.00',
+			'0.00' => '0.00',
+			'00' => '00.00',
+			'00.0' => '00.00',
+			'00.00' => '00.00', // gotta do these as well because lazy
+			'000' => '000.00'
+		]; // these are to ensure you're getting the right values, instead of using complex if statements depending on string length
+
+		var stringVal:String = Std.string(value);
+		var converVal:String = '';
+		for (i in 0...stringVal.length) {
+			if (stringVal.charAt(i) == '.')
+				converVal += '.';
+			else
+				converVal += '0';
+		}
 	public static function dominantColor(sprite:flixel.FlxSprite):Int{
 		var countByColor:Map<Int, Int> = [];
 		for(col in 0...sprite.frameWidth){
