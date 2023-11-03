@@ -10,6 +10,8 @@ class ClientPrefs {
 	public static var downScroll:Bool = false;
 	public static var middleScroll:Bool = false;
 	public static var opponentStrums:Bool = true;
+	public static var showTotalFPS:Bool = false;
+	public static var showTotalMemory:Bool = false;
 	public static var debugInfo:Bool = false;
 	public static var showFPS:Bool = true;
 	public static var showMemory:Bool = false;
@@ -111,6 +113,8 @@ class ClientPrefs {
 		FlxG.save.data.downScroll = downScroll;
 		FlxG.save.data.middleScroll = middleScroll;
 		FlxG.save.data.opponentStrums = opponentStrums;
+		FlxG.save.data.showTotalFPS = showTotalFPS;
+		FlxG.save.data.showTotalMemory = showTotalMemory;
 		FlxG.save.data.showFPS = showFPS;
 		FlxG.save.data.showMemory = showMemory;
 		FlxG.save.data.flashing = flashing;
@@ -175,6 +179,12 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.middleScroll != null) {
 			middleScroll = FlxG.save.data.middleScroll;
+		}
+		if(FlxG.save.data.showTotalFPS != null) {
+			showTotalFPS = FlxG.save.data.showTotalFPS;
+		}
+		if(FlxG.save.data.showTotalMemory != null) {
+		        showTotalMemory = FlxG.save.data.showTotalMemory;
 		}
 		if(FlxG.save.data.scoreTxtType != null) {
 			scoreTxtType = FlxG.save.data.scoreTxtType;
