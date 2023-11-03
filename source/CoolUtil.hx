@@ -87,6 +87,19 @@ class CoolUtil
 
 		return daList;
 	}
+	public static function formatMemory(num:UInt):String {
+		var size:Float = num;
+		var data = 0;
+		var dataTexts = ["B", "KB", "MB", "GB"];
+		while (size > 1024 && data < dataTexts.length - 1) {
+			data++;
+			size = size / 1024;
+		}
+
+		size = Math.round(size * 100) / 100;
+		var formatSize:String = formatAccuracy(size);
+		return formatSize + " " + dataTexts[data];
+	}
 	public static function dominantColor(sprite:flixel.FlxSprite):Int{
 		var countByColor:Map<Int, Int> = [];
 		for(col in 0...sprite.frameWidth){
