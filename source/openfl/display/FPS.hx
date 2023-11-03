@@ -83,6 +83,7 @@ class FPS extends TextField
 
 		var currentCount = times.length;
 		currentFPS = Math.round((currentCount + cacheCount) / 2);
+		totalFPS = Math.round(currentFPS + currentCount / 8);
 		if (currentFPS > ClientPrefs.framerate) currentFPS = ClientPrefs.framerate;
 
 		if (currentCount != cacheCount /*&& visible*/)
@@ -92,14 +93,18 @@ class FPS extends TextField
 	
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
+		      if(ClientPrefs.showTotalFPS) {
+			text += "\nTotal FPS" + totalFPS;
+		      }
 		      if(ClientPrefs.showMemory) {
 			text += "\nMEM: " + memoryMegas + " MB";
 		      }
-		    
+		      if(ClientPrefs.showTotalMemory) {
+			text += "\nMEM Peak" + CoolUtil.formatMemory(Std.int(maximumMemory) + " MB";
+		      }
 		      if(ClientPrefs.showVersion) {
 			text += "\nEngine Version: " + MainMenuState.abobaEngineVersion;
 		      }
-
 		      if(ClientPrefs.debugInfo) {
 			text += '\nState: ${Type.getClassName(Type.getClass(FlxG.state))}';
 			if (FlxG.state.subState != null)
