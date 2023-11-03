@@ -101,7 +101,7 @@ class PlayState extends MusicBeatState
 		['A', 0.7], //69%
 		['AA', 0.8], //From 70% to 79%
 		['AAA', 0.9], //From 80% to 89%
-		['AAAA', 1], //From 90% to 99%
+		['PERFECT!!!', 1], //From 90% to 99%
 		['AAAAA', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 
@@ -1223,7 +1223,7 @@ class PlayState extends MusicBeatState
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 								       
-		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "[AUTOPLAY]", 32);
+		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
 		botplayTxt.borderSize = 1.25;
