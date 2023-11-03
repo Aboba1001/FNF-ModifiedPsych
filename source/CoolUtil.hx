@@ -110,7 +110,7 @@ class CoolUtil
 			'00.00' => '00.00', // gotta do these as well because lazy
 			'000' => '000.00'
 		]; // these are to ensure you're getting the right values, instead of using complex if statements depending on string length
-
+	}
 		var stringVal:String = Std.string(value);
 		var converVal:String = '';
 		for (i in 0...stringVal.length) {
