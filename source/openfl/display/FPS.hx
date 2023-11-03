@@ -37,6 +37,9 @@ class FPS extends TextField
 	**/
 	public var currentFPS(default, null):Int;
         public var totalFPS(default, null):Int;
+
+	public var currentMem:Float;
+	public var maxMem:Float;
 	
 	@:noCompletion private var cacheCount:Int;
 	@:noCompletion private var currentTime:Float;
@@ -93,14 +96,21 @@ class FPS extends TextField
 		{
 			text = "FPS: " + currentFPS;
 			var memoryMegas:Float = 0;
-	
+			
+	              currentlyMemory = obtainMemory();
+			if (currentMem >= maxMem)
+				maxMem = currentMem;
+			
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
 		      if(ClientPrefs.showTotalFPS) {
-			text += "\nTotal FPS" + totalFPS;
+			text += "\nTotal FPS: " + totalFPS;
 		      }
 		      if(ClientPrefs.showMemory) {
-			text += "\nMEM: " + memoryMegas + " MB";
+			text += "\nMEM: " + currentMem + " MB";
+		      }
+		      if(ClientPrefs.showTotalMemory) {
+			text += "\nMEM Peak: " + CoolUtil.formatMemory(Std.int(maxMem));
 		      }
 		      if(ClientPrefs.showVersion) {
 			text += "\nEngine Version: " + MainMenuState.abobaEngineVersion;
