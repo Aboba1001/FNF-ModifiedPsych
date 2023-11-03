@@ -97,7 +97,7 @@ class FPS extends TextField
 			text = "FPS: " + currentFPS;
 			var memoryMegas:Float = 0;
 			
-	              currentMem = obtainMemory();
+	              currentMem = memoryMegas;
 			if (currentMem >= maxMem)
 				maxMem = currentMem;
 			
@@ -110,7 +110,7 @@ class FPS extends TextField
 			text += "\nMEM: " + currentMem + " MB";
 		      }
 		      if(ClientPrefs.showTotalMemory) {
-			text += "\nMEM Peak: " + CoolUtil.formatMemory(Std.int(maxMem));
+			text += "\nMEM Peak: " + maxMem + " MB";
 		      }
 		      if(ClientPrefs.showVersion) {
 			text += "\nEngine Version: " + MainMenuState.abobaEngineVersion;
