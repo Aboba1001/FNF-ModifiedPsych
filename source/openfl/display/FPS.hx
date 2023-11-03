@@ -36,7 +36,8 @@ class FPS extends TextField
 		The current frame rate, expressed using frames-per-second
 	**/
 	public var currentFPS(default, null):Int;
-
+        public var totalFPS(default, null):Int;
+	
 	@:noCompletion private var cacheCount:Int;
 	@:noCompletion private var currentTime:Float;
 	@:noCompletion private var times:Array<Float>;
@@ -85,7 +86,9 @@ class FPS extends TextField
 		currentFPS = Math.round((currentCount + cacheCount) / 2);
 		totalFPS = Math.round(currentFPS + currentCount / 8);
 		if (currentFPS > ClientPrefs.framerate) currentFPS = ClientPrefs.framerate;
-
+                if (totalFPS < 10)
+			totalFPS = 0;
+		
 		if (currentCount != cacheCount /*&& visible*/)
 		{
 			text = "FPS: " + currentFPS;
@@ -98,9 +101,6 @@ class FPS extends TextField
 		      }
 		      if(ClientPrefs.showMemory) {
 			text += "\nMEM: " + memoryMegas + " MB";
-		      }
-		      if(ClientPrefs.showTotalMemory) {
-			text += "\nMEM Peak" + CoolUtil.formatMemory(Std.int(maximumMemory)) + " MB";
 		      }
 		      if(ClientPrefs.showVersion) {
 			text += "\nEngine Version: " + MainMenuState.abobaEngineVersion;
