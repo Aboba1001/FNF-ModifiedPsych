@@ -97,7 +97,7 @@ class FPS extends TextField
 			text = "FPS: " + currentFPS;
 			var memoryMegas:Float = 0;
 			
-	              currentlyMemory = obtainMemory();
+	              currentMem = obtainMemory();
 			if (currentMem >= maxMem)
 				maxMem = currentMem;
 			
