@@ -93,11 +93,6 @@ class FPS extends TextField
 		{
 			text = "FPS: " + currentFPS;
 			var memoryMegas:Float = 0;
-			
-	              currentMem = memoryMegas;
-			if (currentMem >= maxMem)
-				maxMem = currentMem;
-			
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
 		      if(ClientPrefs.showTotalFPS) {
