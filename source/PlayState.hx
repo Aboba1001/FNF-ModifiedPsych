@@ -92,17 +92,16 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
-		['Uninstall', 0.1],
-		['F', 0.2], //From 0% to 19%
-		['E', 0.4], //From 20% to 39%
-		['D', 0.5], //From 40% to 49%
-		['C', 0.6], //From 50% to 59%
-		['B', 0.69], //From 60% to 68%
-		['A', 0.7], //69%
-		['AA', 0.8], //From 70% to 79%
-		['AAA', 0.9], //From 80% to 89%
-		['PERFECT!!!', 1], //From 90% to 99%
-		['AAAAA', 1] //The value on this one isn't used actually, since Perfect is always "1"
+		['F [You Suck!]', 0.2], //From 0% to 19%
+		['E [Shit]', 0.4], //From 20% to 39%
+		['D [Bad]', 0.5], //From 40% to 49%
+		['C [Bruh]', 0.6], //From 50% to 59%
+		['B [Meh]', 0.69], //From 60% to 68%
+		['A [Nice]', 0.7], //69%
+		['AA [Good]', 0.8], //From 70% to 79%
+		['AAA [Great]', 0.9], //From 80% to 89%
+		['AAAA [Sick!]', 1], //From 90% to 99%
+		['AAAAA [Perfect!!]', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 
 	//event variables
@@ -184,7 +183,7 @@ class PlayState extends MusicBeatState
 
 	public var camZooming:Bool = false;
 	public var camZoomingMult:Float = 1;
-	public var camZoomingDecay:Float = 1;
+	public var camZoomingDecay:Float = 2;
 	private var curSong:String = "";
 
 	public var healthPercentageDisplay:Float = 50;
@@ -1216,10 +1215,10 @@ class PlayState extends MusicBeatState
 		songTxt.cameras = [camHUD];
 	        add(songTxt);
 
-		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 19);
-		scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 20);
+		scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
-		scoreTxt.borderSize = 1.00;
+		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 								       
