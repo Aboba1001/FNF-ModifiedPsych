@@ -46,6 +46,7 @@ class ClientPrefs {
         public static var checkForUpdates:Bool = true;
 	public static var comboStacking = true;
 	public static var stripedBar = true;
+	public static var hideJudgements = false;
 	public static var hitboxmode:String = 'New';  //starting new way to change between hitboxes yay
 	public static var hitboxalpha:Float = 0.2; //someone request this lol
 	public static var gameplaySettings:Map<String, Dynamic> = [
@@ -114,8 +115,8 @@ class ClientPrefs {
 		FlxG.save.data.middleScroll = middleScroll;
 		FlxG.save.data.opponentStrums = opponentStrums;
 		FlxG.save.data.showTotalFPS = showTotalFPS;
-		FlxG.save.data.showTotalMemory = showTotalMemory;
 		FlxG.save.data.showFPS = showFPS;
+		FlxG.save.data.hideJudgements = hideJudgements;
 		FlxG.save.data.showMemory = showMemory;
 		FlxG.save.data.flashing = flashing;
 		FlxG.save.data.globalAntialiasing = globalAntialiasing;
@@ -183,9 +184,6 @@ class ClientPrefs {
 		if(FlxG.save.data.showTotalFPS != null) {
 			showTotalFPS = FlxG.save.data.showTotalFPS;
 		}
-		if(FlxG.save.data.showTotalMemory != null) {
-		        showTotalMemory = FlxG.save.data.showTotalMemory;
-		}
 		if(FlxG.save.data.scoreTxtType != null) {
 			scoreTxtType = FlxG.save.data.scoreTxtType;
 		}
@@ -194,6 +192,9 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.showMemory != null) {
 			showMemory = FlxG.save.data.showMemory;
+		}
+		if(FlxG.save.data.hideJudgements != null) {
+			hideJudgements = FlxG.save.data.hideJudgements;
 		}
 		if(FlxG.save.data.showVersion != null) {
 			showVersion = FlxG.save.data.showVersion;
