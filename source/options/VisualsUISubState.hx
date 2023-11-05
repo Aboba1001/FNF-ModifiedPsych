@@ -123,7 +123,7 @@ class VisualsUISubState extends BaseOptionsMenu
                 addOption(option);
 
 		var option:Option = new Option('Long Time Bar',
-			'...'
+			'...',
 		        'longTimeBar',
 			'bool',
 			false);
