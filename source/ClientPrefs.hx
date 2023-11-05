@@ -189,7 +189,7 @@ class ClientPrefs {
 		if(FlxG.save.data.scoreTxtType != null) {
 			scoreTxtType = FlxG.save.data.scoreTxtType;
 		}
-		if(FlxG.save.data.longTimeBar != null)
+		if(FlxG.save.data.longTimeBar != null) {
 			longTimeBar = FlxG.save.data.longTimeBar;
 	        }
 		if(FlxG.save.data.opponentStrums != null) {
