@@ -46,7 +46,7 @@ class ClientPrefs {
 	public static var pauseMusic:String = 'Tea Time';	
         public static var checkForUpdates:Bool = true;
 	public static var comboStacking = true;
-	public static var stripedBar = true;
+	public static var stripedBar = false;
 	public static var hideJudgements = false;
 	public static var hitboxmode:String = 'New';  //starting new way to change between hitboxes yay
 	public static var hitboxalpha:Float = 0.2; //someone request this lol
