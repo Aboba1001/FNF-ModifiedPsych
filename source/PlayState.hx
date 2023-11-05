@@ -1047,19 +1047,27 @@ class PlayState extends MusicBeatState
 			timeTxt.text = SONG.song;
 		}
 		updateTime = showTime;
-			
-		timeBarBG = new AttachedSprite('long_TimeBar');
-		timeBarBG.x = timeTxt.x;
-	        timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
-	        timeBarBG.scrollFactor.set();
-		timeBarBG.screenCenter(X);
+                if(ClientPrefs.longTimeBar == false) {
+		   timeBarBG = new AttachedSprite('timeBar');
+		   timeBarBG.x = timeTxt.x;
+		   timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
+		   timeBarBG.scrollFactor.set();
+		} else if(ClientPrefs.longTimeBar == true) {
+		   timeBarBG = new AttachedSprite('long_TimeBar');
+		   timeBarBG.x = timeTxt.x;
+	           timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
+		   timeBarBG.scrollFactor.set();
+		   timeBarBG.screenCenter(X);
+		}
 		timeBarBG.alpha = 0;
 		timeBarBG.visible = showTime;
 		timeBarBG.color = FlxColor.BLACK;
+		timeBarBG.xAdd = -4;
+		timeBarBG.yAdd = -4;
 		add(timeBarBG);
 
 		timeBar = new FlxBar(timeBarBG.x + 4, timeBarBG.y + 4, LEFT_TO_RIGHT, Std.int(timeBarBG.width - 8), Std.int(timeBarBG.height - 8), this,
-			'songPercent', 0, 1);
+		'songPercent', 0, 1);
 		timeBar.scrollFactor.set();
 		timeBar.createFilledBar(0xFF000000, 0xFFFFFFFF);
 		timeBar.numDivisions = 800; //How much lag this causes?? Should i tone it down to idk, 400 or 200?
