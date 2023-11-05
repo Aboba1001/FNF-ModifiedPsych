@@ -16,6 +16,7 @@ class ClientPrefs {
 	public static var showFPS:Bool = true;
 	public static var showMemory:Bool = false;
 	public static var flashing:Bool = true;
+	public static var longTimeBar:Bool = true;
 	public static var globalAntialiasing:Bool = true;
 	public static var noteSplashes:Bool = true;
 	public static var showVersion:Bool = false;
@@ -124,6 +125,7 @@ class ClientPrefs {
 		FlxG.save.data.noteSplashes = noteSplashes;
 		FlxG.save.data.lowQuality = lowQuality;
 		FlxG.save.data.shaders = shaders;
+		FlxG.save.data.longTimeBar = longTimeBar;
 		FlxG.save.data.framerate = framerate;
 		//FlxG.save.data.cursing = cursing;
 		//FlxG.save.data.violence = violence;
@@ -187,6 +189,9 @@ class ClientPrefs {
 		if(FlxG.save.data.scoreTxtType != null) {
 			scoreTxtType = FlxG.save.data.scoreTxtType;
 		}
+		if(FlxG.save.data.longTimeBar != null)
+			longTimeBar = FlxG.save.data.longTimeBar;
+	        }
 		if(FlxG.save.data.opponentStrums != null) {
 			opponentStrums = FlxG.save.data.opponentStrums;
 		}
