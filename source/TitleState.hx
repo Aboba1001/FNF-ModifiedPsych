@@ -634,7 +634,7 @@ class TitleState extends MusicBeatState
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				case 2:
 					#if PSYCH_WATERMARKS
-					createCoolText(['XL Engine by'], 15);
+					createCoolText(['RT Engine by'], 15);
 					#else
 					createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
 					#end
@@ -701,6 +701,14 @@ class TitleState extends MusicBeatState
 	{
 		if (!skippedIntro)
 		{
+			new FlxTimer().start(0.01, function(tmr:FlxTimer)
+			{
+				if (logoBl.angle == -4)
+					FlxTween.angle(logoBl, logoBl.angle, 4, 4, {ease: FlxEase.quartInOut});
+				if (logoBl.angle == 4)
+					FlxTween.angle(logoBl, logoBl.angle, -4, 4, {ease: FlxEase.quartInOut});
+			}, 0);
+
 			if (playJingle) //Ignore deez
 			{
 				var easteregg:String = FlxG.save.data.psychDevsEasterEgg;
