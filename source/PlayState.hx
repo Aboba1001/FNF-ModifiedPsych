@@ -1082,7 +1082,7 @@ class PlayState extends MusicBeatState
 	        msTimeTxt = new FlxText(0, 0, 400, "", 32); 
                 msTimeTxt.setFormat(Paths.font('vcr.ttf'), 32, 0xFFAC75FF, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK); 
                 msTimeTxt.scrollFactor.set(); 
-                msTimeTxt.alpha = 0; 
+                msTimeTxt.alpha = 0.1; 
                 msTimeTxt.visible = true; 
                 msTimeTxt.borderSize = 2; 
                 add(msTimeTxt);
@@ -2400,10 +2400,10 @@ class PlayState extends MusicBeatState
 	{
 	if (ClientPrefs.scoreTxtType == 'RT') {
 		scoreTxt.text = 'Score: ' + songScore
-		+ ' | Combo Breaks: ' + songMisses
+		+ ' | Misses: ' + songMisses
 		+ ' | Health: ' + Math.round(health * 50) + '%'
 		+ ' | Note Hits: ' + songHits
-		+ ' | Rating: ' + ratingName
+		+ ' | Rank: ' + ratingName
 		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
 	} else if (ClientPrefs.scoreTxtType == 'Psych') {
 		scoreTxt.text = 'Score: ' + songScore
@@ -2417,8 +2417,8 @@ class PlayState extends MusicBeatState
 			if(scoreTxtTween != null) {
 				scoreTxtTween.cancel();
 			}
-			scoreTxt.scale.x = 1.085;
-			scoreTxt.scale.y = 1.085;
+			scoreTxt.scale.x = 1.095;
+			scoreTxt.scale.y = 1.095;
 			scoreTxtTween = FlxTween.tween(scoreTxt.scale, {x: 1, y: 1}, 0.2, {
 				onComplete: function(twn:FlxTween) {
 					scoreTxtTween = null;
