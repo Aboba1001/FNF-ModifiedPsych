@@ -25,13 +25,13 @@ class OutdatedState extends MusicBeatState
 
 		warnText = new FlxText(0, 0, FlxG.width,
 			"Yo kid, looks like you're running an   \n
-			outdated version of Psych Engine (" + MainMenuState.psychEngineVersion + "),\n
+			outdated version of RT Engine (" + MainMenuState.abobaEngineVersion + "),\n
 			update it to " + TitleState.updateVersion + " because it's past your bedtime!\n
 			Press B to proceed anyway.\n
 			\n
 			Press A to update the port.",
 			32);
-		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
+		warnText.setFormat("VCR OSD Mono", 30, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);
 		add(warnText);
 
@@ -45,7 +45,7 @@ class OutdatedState extends MusicBeatState
 		if(!leftState) {
 			if (controls.ACCEPT) {
 				leftState = true;
-				CoolUtil.browserLoad("https://github.com/ShadowMario/FNF-PsychEngine/releases");
+				CoolUtil.browserLoad("https://github.com/Aboba1001/RT-Engine/releases");
 			}
 			else if(controls.BACK) {
 				leftState = true;
