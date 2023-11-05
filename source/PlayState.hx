@@ -182,8 +182,8 @@ class PlayState extends MusicBeatState
 	public var grpNoteSplashes:FlxTypedGroup<NoteSplash>;
 
 	public var camZooming:Bool = false;
-	public var camZoomingMult:Float = 1;
-	public var camZoomingDecay:Float = 2;
+	public var camZoomingMult:Float = 1.1;
+	public var camZoomingDecay:Float = 1.5;
 	private var curSong:String = "";
 
 	public var healthPercentageDisplay:Float = 50;
@@ -1187,7 +1187,7 @@ class PlayState extends MusicBeatState
 		healthBarOverlay.y = FlxG.height * 0.89;
 		healthBarOverlay.screenCenter(X);
 		healthBarOverlay.scrollFactor.set();
-		healthBarOverlay.visible = !ClientPrefs.hideHud;
+		healthBarOverlay.visible = !ClientPrefs.hideHud && !ClientPrefs.stripedBar;
                 healthBarOverlay.color = FlxColor.BLACK;
 		healthBarOverlay.blend = MULTIPLY;
 		healthBarOverlay.x = healthBarBG.x-1.9;
