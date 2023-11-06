@@ -56,8 +56,17 @@ class VisualsUISubState extends BaseOptionsMenu
                         false);
                 addOption(option);
 
+		var option:Option = new Option('Colorblind Filter:',
+			"You can set colorblind filter (makes the game more playable for colorblind people)",
+		        'colorblindMode',
+			'string',
+		        'None',
+			['None', 'Deuteranopia', 'Protanopia', 'Tritanopia']);
+		option.onChange = ColorblindFilters.applyFiltersOnGame;
+		addOption(option);
+
 		var option:Option = new Option('Hide Judgement Counter',
-			'If checked, hides judgement and NPS counter during a song.',
+			'If checked, hides judgement during a song.',
 			'hideJudgements',
 			'bool',
 			false);
@@ -76,6 +85,20 @@ class VisualsUISubState extends BaseOptionsMenu
 			'bool',
 			false);
 		addOption(option);
+
+		var option:Option = new Option('Longer Time Bar',
+			' ',
+		        'longTimeBar',
+			'bool',
+			false);
+		addOption(option);
+
+		var option:Option = new Option('Rainbow FPS',
+		        'If checked, makes the Info Display cycle between a rainbow of colors.',
+		        'rainbowFPS',
+			'bool',
+			false);
+                addOption(option);
 
 		var option:Option = new Option('Show Framerate',
 			'If unchecked, the framerate will be in Info Display.',
@@ -113,29 +136,6 @@ class VisualsUISubState extends BaseOptionsMenu
 			'debugInfo',
 			'bool',
 			false);
-		addOption(option);
-			
-		var option:Option = new Option('Rainbow FPS',
-		        'If checked, makes the Info Display cycle between a rainbow of colors.',
-		        'rainbowFPS',
-			'bool',
-			false);
-                addOption(option);
-
-		var option:Option = new Option('Long Time Bar',
-			'...',
-		        'longTimeBar',
-			'bool',
-			false);
-		addOption(option);
-		
-		var option:Option = new Option('Colorblind Filter:',
-			"You can set colorblind filter (makes the game more playable for colorblind people)",
-		        'colorblindMode',
-			'string',
-		        'None',
-			['None', 'Deuteranopia', 'Protanopia', 'Tritanopia']);
-		option.onChange = ColorblindFilters.applyFiltersOnGame;
 		addOption(option);
 		
 		var option:Option = new Option('Time Bar:',
