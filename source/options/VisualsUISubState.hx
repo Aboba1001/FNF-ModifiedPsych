@@ -124,6 +124,14 @@ class VisualsUISubState extends BaseOptionsMenu
                 addOption(option);
 		option.onChange = onChangeFPSCounter;
 
+		var option:Option = new Option('Time Bar:',
+			"What should the Time Bar display?",
+			'timeBarType',
+			'string',
+			'Time Left',
+			['Time Left', 'Time Elapsed', 'Song Name', 'Disabled']);
+		addOption(option);
+
 		var option:Option = new Option('Show RT Engine Watermark',
 		        "If checked, the RT Engine watermark and version number will be in the Info Display.",
                         'showVersion',
@@ -136,14 +144,6 @@ class VisualsUISubState extends BaseOptionsMenu
 			'debugInfo',
 			'bool',
 			false);
-		addOption(option);
-		
-		var option:Option = new Option('Time Bar:',
-			"What should the Time Bar display?",
-			'timeBarType',
-			'string',
-			'Time Left',
-			['Time Left', 'Time Elapsed', 'Song Name', 'Disabled']);
 		addOption(option);
 			
 		var option:Option = new Option('Flashing Lights',
