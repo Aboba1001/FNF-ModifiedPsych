@@ -95,10 +95,10 @@ class CreditsState extends MusicBeatState
 			['Nuno Filipe Studios',	'nuno',				'Android Porter',							'https://www.youtube.com/channel/UCq7G3p4msVN5SX2CpJ86tTw',	'989c99'],
 			['M.A. Jigsaw', 		'saw',				'AndroidTools Creator/Vpad Designer',		'https://www.youtube.com/channel/UC2Sk7vtPzOvbVzdVTWrribQ', '444444'],
 			['MarioMaster',		    'mariomaster',		    'hi its a me',	 'https://www.youtube.com/c/MarioMaster1997',	'D10616'],
-			['']
+			[''],
 			['RT Engine Team'],
 			['RoboaToba', 'roboatoba', 'Creator of RT Engine', 'https://youtube.com/@RoboaToba', 'E9490F']
-			['']
+			[''],
 			['Special Thanks'],
 			['Stefan2008', 'stefan', 'Creator of SB Engine.\nSome code taken from SB Engine.', 'https://www.youtube.com/channel/UC9Nwf21GbaEm_h0Ka9gxZjQ', '800080'],
 			['Leather128', 'leather128', 'Creator of Leather.\nSome code taken from Leather Engine.', 'https://youtube.com/@Leather128?si=jFd3x0k5R1xJtzlh', '009CF1'],
