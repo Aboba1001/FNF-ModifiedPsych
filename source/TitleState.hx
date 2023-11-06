@@ -703,9 +703,9 @@ class TitleState extends MusicBeatState
 		{
 			new FlxTimer().start(0.01, function(tmr:FlxTimer)
 			{
-				if (logoBl.angle == -4)
+				if (logoBl.angle == -9)
 					FlxTween.angle(logoBl, logoBl.angle, 4, 4, {ease: FlxEase.quartInOut});
-				if (logoBl.angle == 4)
+				if (logoBl.angle == 9)
 					FlxTween.angle(logoBl, logoBl.angle, -4, 4, {ease: FlxEase.quartInOut});
 			}, 0);
 
