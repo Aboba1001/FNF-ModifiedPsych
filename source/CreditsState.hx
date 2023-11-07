@@ -100,7 +100,7 @@ class CreditsState extends MusicBeatState
 			['RoboaToba', 'roboatoba', 'Main Programmer of RT Engine', 'https://youtube.com/@RoboaToba', 'E9490F'],
 			['Special Thanks'],
 			['Stefan2008', 'stefan', 'Creator of SB Engine.\nSome code taken from SB Engine.', 'https://www.youtube.com/channel/UC9Nwf21GbaEm_h0Ka9gxZjQ', '800080'],
-			['Leather128', 'leather128', 'Creator of Leather.\nSome code taken from Leather Engine.', 'https://youtube.com/@Leather128?si=jFd3x0k5R1xJtzlh', '009CF1'],
+			['Leather128', 'leather128', 'Creator of Leather Engine.\nSome code taken from Leather Engine.', 'https://youtube.com/@Leather128?si=jFd3x0k5R1xJtzlh', '009CF1'],
 			['notweuz', 'notweuz', 'Creator of OS Engine.\nSome codes taken from OS Engine', 'https://www.youtube.com/@notweuz', 'E91F0F'],
 			[''],
 			['Psych Engine Team'],
