@@ -35,18 +35,18 @@ class VisualsUISubState extends BaseOptionsMenu
 		title = 'Visuals and UI';
 		rpcTitle = 'Visuals & UI Settings Menu'; //for Discord Rich Presence
 
-		var option:Option = new Option('Note Splashes',
-			"If unchecked, hitting \"Sick!\" notes won't show particles.",
-			'noteSplashes',
-			'bool',
-			true);
-		addOption(option);
-
 		var option:Option = new Option('Hide HUD',
 			'If checked, hides most HUD elements.',
 			'hideHud',
 			'bool',
 			false);
+		addOption(option);
+
+		var option:Option = new Option('Note Splashes',
+			"If unchecked, hitting \"Sick!\" notes won't show particles.",
+			'noteSplashes',
+			'bool',
+			true);
 		addOption(option);
 
 		var option:Option = new Option('Hide Watermark',
@@ -83,14 +83,14 @@ class VisualsUISubState extends BaseOptionsMenu
 			'If checked, a offset (in ms) will appear near notes',
 			'showMsText',
 			'bool',
-			false);
+			true);
 		addOption(option);
 
 		var option:Option = new Option('Longer Time Bar',
 			' ',
 		        'longTimeBar',
 			'bool',
-			false);
+			true);
 		addOption(option);
 
 		var option:Option = new Option('Rainbow FPS',
