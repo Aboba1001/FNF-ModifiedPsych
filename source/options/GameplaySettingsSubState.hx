@@ -74,6 +74,18 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 
+		var option:Option = new Option('Lane Underlay',
+		    "If checked, this options is gonna make to show black background to make your game to focus on notes when are you playing a song.", 'laneUnderlay', 'bool', false);
+		addOption(option);
+
+		var option:Option = new Option('Lane Underlay Transparency', 'How much transparent should the lane underlay be?', 'laneUnderlayAlpha', 'percent', 1);
+		option.scrollSpeed = 1.6;
+		option.minValue = 0.0;
+		option.maxValue = 1;
+		option.changeValue = 0.1;
+		option.decimals = 1;
+		addOption(option);
+		
 		var option:Option = new Option('Ghost Tapping',
 			"If checked, you won't get misses from pressing keys\nwhile there are no notes able to be hit.",
 			'ghostTapping',
