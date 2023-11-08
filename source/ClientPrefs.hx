@@ -13,6 +13,8 @@ class ClientPrefs {
 	public static var showTotalFPS:Bool = false;
 	public static var showTotalMemory:Bool = false;
 	public static var debugInfo:Bool = false;
+	public static var laneUnderlayAlpha:Float = 0.1;
+	public static var laneUnderlay:Bool = false;
 	public static var showFPS:Bool = true;
 	public static var showMemory:Bool = false;
 	public static var flashing:Bool = true;
@@ -133,6 +135,8 @@ class ClientPrefs {
 		FlxG.save.data.noteOffset = noteOffset;
 		FlxG.save.data.hideHud = hideHud;
 		FlxG.save.data.arrowHSV = arrowHSV;
+		FlxG.save.data.laneUnderlay = laneUnderlay;
+		FlxG.save.data.laneUnderlayAlpha = laneUnderlayAlpha;
 		FlxG.save.data.debugInfo = debugInfo;
 		FlxG.save.data.vibration = vibration;
 		FlxG.save.data.ghostTapping = ghostTapping;
@@ -218,6 +222,12 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.globalAntialiasing != null) {
 			globalAntialiasing = FlxG.save.data.globalAntialiasing;
+		}
+		if(FlxG.save.data.laneUnderlay != null) {
+			laneUnderlay = FlxG.save.data.laneUnderlay;
+		}
+		if(FlxG.save.data.laneUnderlayAlpha != null) {
+			laneUnderlayAlpha = FlxG.save.data.laneUnderlayAlpha;
 		}
 		if(FlxG.save.data.colorblindMode != null) {
 			colorblindMode = FlxG.save.data.colorblindMode;
