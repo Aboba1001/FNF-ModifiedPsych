@@ -175,6 +175,7 @@ class MainMenuState extends MusicBeatState
 
 		#if android
 		addVirtualPad(UP_DOWN, A_B_E);
+		_virtualPad.y = -48;
 		#end
 
 		super.create();
