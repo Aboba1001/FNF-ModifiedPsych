@@ -1082,7 +1082,7 @@ class PlayState extends MusicBeatState
 	        msTimeTxt = new FlxText(0, 0, 400, "", 32); 
                 msTimeTxt.setFormat(Paths.font('vcr.ttf'), 32, 0xFFAC75FF, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK); 
                 msTimeTxt.scrollFactor.set(); 
-                msTimeTxt.alpha = 0.1; 
+                msTimeTxt.alpha = 0.2; 
                 msTimeTxt.visible = true; 
                 msTimeTxt.borderSize = 2; 
                 add(msTimeTxt);
@@ -2416,8 +2416,8 @@ class PlayState extends MusicBeatState
 			if(scoreTxtTween != null) {
 				scoreTxtTween.cancel();
 			}
-			scoreTxt.scale.x = 1.095;
-			scoreTxt.scale.y = 1.095;
+			scoreTxt.scale.x = 1.115;
+			scoreTxt.scale.y = 1.115;
 			scoreTxtTween = FlxTween.tween(scoreTxt.scale, {x: 1, y: 1}, 0.2, {
 				onComplete: function(twn:FlxTween) {
 					scoreTxtTween = null;
