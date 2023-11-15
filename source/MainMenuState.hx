@@ -18,6 +18,7 @@ import flixel.tweens.FlxTween;
 import flixel.util.FlxColor;
 import lime.app.Application;
 import Achievements;
+import MusicBeatState;
 import editors.MasterEditorMenu;
 import flixel.input.keyboard.FlxKey;
 
@@ -175,7 +176,7 @@ class MainMenuState extends MusicBeatState
 
 		#if android
 		addVirtualPad(UP_DOWN, A_B_E);
-		_virtualPad.y = -48;
+		_virtualpad.y = -48;
 		#end
 
 		super.create();
