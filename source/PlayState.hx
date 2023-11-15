@@ -92,16 +92,16 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
-		['F [You Suck!]', 0.2], //From 0% to 19%
-		['E [Shit]', 0.4], //From 20% to 39%
-		['D [Bad]', 0.5], //From 40% to 49%
-		['C [Bruh]', 0.6], //From 50% to 59%
-		['B [Meh]', 0.69], //From 60% to 68%
-		['A [Nice]', 0.7], //69%
-		['AA [Good]', 0.8], //From 70% to 79%
-		['AAA [Great]', 0.9], //From 80% to 89%
-		['AAAA [Sick!]', 1], //From 90% to 99%
-		['AAAAA [Perfect!!]', 1] //The value on this one isn't used actually, since Perfect is always "1"
+		['You Suck! [F]', 0.2], //From 0% to 19%
+		['Shit [E]', 0.4], //From 20% to 39%
+		['Bad [D]', 0.5], //From 40% to 49%
+		['Bruh [C]', 0.6], //From 50% to 59%
+		['Meh [B]', 0.69], //From 60% to 68%
+		['Nice [A]', 0.7], //69%
+		['Good [AA]', 0.8], //From 70% to 79%
+		['Great [AAA]', 0.9], //From 80% to 89%
+		['Sick! [AAAA]', 1], //From 90% to 99%
+		['[Perfect!! [AAAAA]', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 
 	//event variables
@@ -1069,7 +1069,7 @@ class PlayState extends MusicBeatState
 		timeBar = new FlxBar(timeBarBG.x + 4, timeBarBG.y + 4, LEFT_TO_RIGHT, Std.int(timeBarBG.width - 8), Std.int(timeBarBG.height - 8), this,
 		'songPercent', 0, 1);
 		timeBar.scrollFactor.set();
-		timeBar.createFilledBar(0xFF000000, 0xFFFFFFFF);
+		timeBar.createFilledBar(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]), 0xFFFFFFFF);
 		timeBar.numDivisions = 800; //How much lag this causes?? Should i tone it down to idk, 400 or 200?
 		timeBar.alpha = 0;
 	        timeBar.y = timeBarBG.y;
@@ -2402,8 +2402,7 @@ class PlayState extends MusicBeatState
 		scoreTxt.text = 'Score: ' + songScore
 		+ ' | Misses: ' + songMisses
 		+ ' | Health: ' + Math.round(health * 50) + '%'
-		+ ' | Note Hits: ' + songHits
-		+ ' | Rank: ' + ratingName
+		+ ' | Rating & ACC: ' + ratingName
 		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
 	} else if (ClientPrefs.scoreTxtType == 'Psych') {
 		scoreTxt.text = 'Score: ' + songScore
