@@ -157,6 +157,13 @@ class MainMenuState extends MusicBeatState
                 versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
                 add(versionShit);
 
+		txtBackground = new FlxSprite();
+		txtBackground.scrollFactor.set();
+		txtBackground.alpha = 0.7;
+		txtBackground.visible = true;
+		txtBackground.makeGraphic(FlxG.width, Std.int((versionShit * 2) + versionShit.height), FlxColor.BLACK);
+		add(txtBackground);
+
 		// NG.core.calls.event.logEvent('swag').send();
 
 		changeItem();
@@ -176,7 +183,7 @@ class MainMenuState extends MusicBeatState
 
 		#if android
 		addVirtualPad(UP_DOWN, A_B_E);
-		_virtualpad.y = -48;
+		_virtualpad.y = -50;
 		#end
 
 		super.create();
