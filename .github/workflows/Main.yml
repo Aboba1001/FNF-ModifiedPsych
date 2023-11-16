@@ -1,4 +1,4 @@
-name: androidBuild
+name: Android Build
 
 # Controls when the action will run.
 on:
