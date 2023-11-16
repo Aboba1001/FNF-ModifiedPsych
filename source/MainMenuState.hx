@@ -162,7 +162,7 @@ class MainMenuState extends MusicBeatState
 		txtBackground.scrollFactor.set();
 		txtBackground.alpha = 0.7;
 		txtBackground.visible = true;
-		txtBackground.makeGraphic(FlxG.width, Std.int((versionShit * 2) + versionShit.height), FlxColor.BLACK);
+		txtBackground.makeGraphic(FlxG.width, Std.int((64) + 0), FlxColor.BLACK);
 		add(txtBackground);
 
 		// NG.core.calls.event.logEvent('swag').send();
