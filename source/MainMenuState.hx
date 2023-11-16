@@ -29,7 +29,7 @@ using StringTools;
 
 class MainMenuState extends MusicBeatState
 {
-	public static var psychEngineVersion:String = '0.6.3'; //This is also used for Discord RPC
+	public static var psychEngineVersion:String = '0.6.3';
         public static var abobaEngineVersion:String = '1.0.0';
 	public static var curSelected:Int = 0;
 
@@ -47,6 +47,7 @@ class MainMenuState extends MusicBeatState
 		'options'
 	];
 
+	var grid:FlxBackDrop;
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 	var txtBackground:FlxSprite;
@@ -91,7 +92,7 @@ class MainMenuState extends MusicBeatState
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
-    var grid:FlxBackdrop = new FlxBackdrop(FlxGridOverlay.createGrid(30, 30, 60, 60, true, 0x3B161932, 0x0));
+                grid:FlxBackdrop = new FlxBackdrop(FlxGridOverlay.createGrid(30, 30, 60, 60, true, 0x3B161932, 0x0));
 		grid.velocity.set(FlxG.random.bool(50) ? 90 : -90, FlxG.random.bool(50) ? 90 : -90);
 		grid.alpha = 0;
 		FlxTween.tween(grid, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
