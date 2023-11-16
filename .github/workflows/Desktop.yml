@@ -44,6 +44,7 @@ jobs:
           haxelib install lime
           haxelib install openfl
           haxelib install flixel
+          haxelib --global update haxelib
           haxelib run lime setup flixel
           haxelib run lime setup
           haxelib install flixel-tools
@@ -99,6 +100,7 @@ jobs:
           sudo apt-get install libvlc-dev
           sudo apt-get install libvlccore-dev
           haxelib setup ~/haxelib
+          haxelib --global update haxelib
           haxelib install hxcpp 4.2.1 > /dev/null
           haxelib install lime
           haxelib install openfl
@@ -143,6 +145,7 @@ jobs:
           haxelib install lime
           haxelib install openfl
           haxelib install flixel
+          haxelib --global update haxelib
           haxelib run lime setup flixel
           haxelib run lime setup
           haxelib install flixel-tools
