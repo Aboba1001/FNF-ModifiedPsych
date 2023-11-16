@@ -47,7 +47,6 @@ class MainMenuState extends MusicBeatState
 		'options'
 	];
 
-	var grid:FlxBackDrop;
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 	var txtBackground:FlxSprite;
@@ -92,7 +91,7 @@ class MainMenuState extends MusicBeatState
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
 
-                grid = new FlxBackdrop(FlxGridOverlay.createGrid(30, 30, 60, 60, true, 0x3B161932, 0x0));
+                var grid:FlxBackDrop = new FlxBackdrop(FlxGridOverlay.createGrid(30, 30, 60, 60, true, 0x3B161932, 0x0));
 		grid.velocity.set(FlxG.random.bool(50) ? 90 : -90, FlxG.random.bool(50) ? 90 : -90);
 		grid.alpha = 0;
 		FlxTween.tween(grid, {alpha: 1}, 0.5, {ease: FlxEase.quadOut});
