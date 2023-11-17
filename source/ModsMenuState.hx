@@ -389,6 +389,7 @@ class ModsMenuState extends MusicBeatState
 
                 #if android
                 addVirtualPad(UP_DOWN, B);
+		_virtualpad.y = -15;
                 #end
 
 		super.create();
