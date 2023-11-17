@@ -101,7 +101,7 @@ class PlayState extends MusicBeatState
 		['Good [AA]', 0.8], //From 70% to 79%
 		['Great [AAA]', 0.9], //From 80% to 89%
 		['Sick! [AAAA]', 1], //From 90% to 99%
-		['[Perfect!! [AAAAA]', 1] //The value on this one isn't used actually, since Perfect is always "1"
+		['Perfect!! [AAAAA]', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 
 	//event variables
@@ -1187,7 +1187,6 @@ class PlayState extends MusicBeatState
 		healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
 			'health', 0, 2);
 		healthBar.scrollFactor.set();
-		// healthBar
 		healthBar.visible = !ClientPrefs.hideHud;
 		healthBar.alpha = ClientPrefs.healthBarAlpha;
 		add(healthBar);
