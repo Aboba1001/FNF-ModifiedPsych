@@ -84,6 +84,7 @@ class AchievementsMenuState extends MusicBeatState
 
                 #if android
                 addVirtualPad(UP_DOWN, A_B);
+		_virtualpad.y = -15;
                 #end
 
 		super.create();
