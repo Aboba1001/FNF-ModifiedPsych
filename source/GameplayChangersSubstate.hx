@@ -163,6 +163,7 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 
 		#if android
 		addVirtualPad(FULL, A_B_C);
+		_virtualpad.y = -15;
 		addPadCamera();
 		#end
 	}
