@@ -158,7 +158,7 @@ class MainMenuState extends MusicBeatState
                 versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
                 add(versionShit);
 
-		txtBackground = new FlxSprite(64);
+		txtBackground = new FlxSprite(0, 65);
 		txtBackground.scrollFactor.set();
 		txtBackground.alpha = 0.7;
 		txtBackground.visible = true;
