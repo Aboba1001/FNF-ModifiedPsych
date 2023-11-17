@@ -37,6 +37,7 @@ class OutdatedState extends MusicBeatState
 
 		#if android
 		addVirtualPad(NONE, A_B);
+		_virtualpad.y = -15;
 		#end
 	}
 
