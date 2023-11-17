@@ -155,10 +155,12 @@ class PauseSubState extends MusicBeatSubstate
 		if (PlayState.chartingMode)
 		{
 		        addVirtualPad(FULL, A);
+			_virtualpad.y = -15;
 		}
 		else
 		{
 		        addVirtualPad(UP_DOWN, A);
+			_virtualpad.y = -15;
 		}
 		addPadCamera();
 		#end
