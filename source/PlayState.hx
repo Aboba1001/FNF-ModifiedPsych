@@ -1047,12 +1047,14 @@ class PlayState extends MusicBeatState
 			timeTxt.text = SONG.song;
 		}
 		updateTime = showTime;
-                if(ClientPrefs.longTimeBar == false) {
+                if(ClientPrefs.longTimeBar == false) 
+		{
 		   timeBarBG = new AttachedSprite('timeBar');
 		   timeBarBG.x = timeTxt.x;
 		   timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
 		   timeBarBG.scrollFactor.set();
-		} else if(ClientPrefs.longTimeBar == true) {
+		} else if(ClientPrefs.longTimeBar == true) 
+		{
 		   timeBarBG = new AttachedSprite('long_TimeBar');
 		   timeBarBG.x = timeTxt.x;
 	           timeBarBG.y = timeTxt.y + (timeTxt.height / 4);
@@ -4377,7 +4379,7 @@ class PlayState extends MusicBeatState
 			if(showComboNum)
 				insert(members.indexOf(strumLineNotes), numScore);
 
-			FlxTween.tween(numScore, {alpha: 0}, 1.8 / playbackRate, {
+			FlxTween.tween(numScore, {alpha: 0}, 3 / playbackRate, {
 				onComplete: function(tween:FlxTween)
 				{
 					numScore.destroy();
@@ -4397,11 +4399,11 @@ class PlayState extends MusicBeatState
 		coolText.text = Std.string(seperatedScore);
 		// add(coolText);
 
-		FlxTween.tween(rating, {alpha: 0}, 1.8 / playbackRate, {
+		FlxTween.tween(rating, {alpha: 0}, 3 / playbackRate, {
 			startDelay: Conductor.crochet * 0.001 / playbackRate
 		});
 
-		FlxTween.tween(comboSpr, {alpha: 0}, 1.8 / playbackRate, {
+		FlxTween.tween(comboSpr, {alpha: 0}, 3 / playbackRate, {
 			onComplete: function(tween:FlxTween)
 			{
 				coolText.destroy();
