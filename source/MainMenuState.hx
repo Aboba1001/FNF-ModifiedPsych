@@ -145,6 +145,17 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
+		txtBackground = new FlxSprite(0, 625);
+		txtBackground.scrollFactor.set();
+		txtBackground.alpha = 0.7;
+		txtBackground.visible = true;
+		txtBackground.makeGraphic(FlxG.width, Std.int((85) + 0), FlxColor.BLACK);
+		add(txtBackground);
+
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "RT Engine v"  + abobaEngineVersion, 12);
+                versionShit.scrollFactor.set();
+                versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+                add(versionShit);
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
@@ -153,17 +164,6 @@ class MainMenuState extends MusicBeatState
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-                var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "RT Engine v"  + abobaEngineVersion, 12);
-                versionShit.scrollFactor.set();
-                versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-                add(versionShit);
-
-		txtBackground = new FlxSprite(0, 595);
-		txtBackground.scrollFactor.set();
-		txtBackground.alpha = 0.7;
-		txtBackground.visible = true;
-		txtBackground.makeGraphic(FlxG.width, Std.int((80) + 0), FlxColor.BLACK);
-		add(txtBackground);
 
 		// NG.core.calls.event.logEvent('swag').send();
 
