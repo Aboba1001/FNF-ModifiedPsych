@@ -158,11 +158,11 @@ class MainMenuState extends MusicBeatState
                 versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
                 add(versionShit);
 
-		txtBackground = new FlxSprite(0, 65);
+		txtBackground = new FlxSprite(0, 595);
 		txtBackground.scrollFactor.set();
 		txtBackground.alpha = 0.7;
 		txtBackground.visible = true;
-		txtBackground.makeGraphic(FlxG.width, Std.int((75) + 0), FlxColor.BLACK);
+		txtBackground.makeGraphic(FlxG.width, Std.int((80) + 0), FlxColor.BLACK);
 		add(txtBackground);
 
 		// NG.core.calls.event.logEvent('swag').send();
