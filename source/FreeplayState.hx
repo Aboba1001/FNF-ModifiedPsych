@@ -217,6 +217,7 @@ class FreeplayState extends MusicBeatState
 
                 #if android
                 addVirtualPad(FULL, A_B_C_X_Y_Z);
+		_virtualpad.y = -15;
                 #end
 
 		super.create();
