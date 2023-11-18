@@ -183,7 +183,7 @@ class ClientPrefs {
 	}
 
 	public static function loadPrefs() {
-		if(FlxG.save.data.smJudges ! = null) {
+		if(FlxG.save.data.smJudges != null) {
 			smJudges = FlxG.save.data.smJudges;
 		}
 		if(FlxG.save.data.downScroll != null) {
