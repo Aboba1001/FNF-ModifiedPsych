@@ -35,6 +35,13 @@ class VisualsUISubState extends BaseOptionsMenu
 		title = 'Visuals and UI';
 		rpcTitle = 'Visuals & UI Settings Menu'; //for Discord Rich Presence
 
+		var option:Option = new Option('StepMania Style Judgements', //Name
+			'If checked, StepMania style judgement animations will be used.', //Description
+			'smJudges',
+			'bool',
+			false);
+		addOption(option);
+		
 		var option:Option = new Option('Hide HUD',
 			'If checked, hides most HUD elements.',
 			'hideHud',
