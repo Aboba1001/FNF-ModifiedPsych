@@ -2399,19 +2399,21 @@ class PlayState extends MusicBeatState
 
 	public function updateScore(miss:Bool = false)
 	{
-	if (ClientPrefs.scoreTxtType == 'RT') {
+	if (ClientPrefs.scoreTxtType == 'RT') 
+	{
 		scoreTxt.text = 'Score: ' + songScore
 		+ ' | Misses: ' + songMisses
 		+ ' | Health: ' + Math.round(health * 50) + '%'
 		+ ' | Rating & ACC: ' + ratingName
 		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
-	} else if (ClientPrefs.scoreTxtType == 'Psych') {
+	} else if (ClientPrefs.scoreTxtType == 'Psych') 
+	{
 		scoreTxt.text = 'Score: ' + songScore
 		+ ' | Misses: ' + songMisses
 		+ ' | Rating: ' + ratingName
 		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
 	}
-		
+	
 		if(ClientPrefs.scoreZoom && !miss && !cpuControlled)
 		{
 			if(scoreTxtTween != null) {
