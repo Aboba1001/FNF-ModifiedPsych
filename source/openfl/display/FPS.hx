@@ -107,8 +107,7 @@ class FPS extends TextField
 		      if(ClientPrefs.debugInfo) {
 			text += '\nState: ${Type.getClassName(Type.getClass(FlxG.state))}';
 			if (FlxG.state.subState != null)
-	                        text += '\nSubstate: ${Type.getClassName(Type.getClass(FlxG.state.subState))}';
-			//text += Math.floor(1 / currentFPS * 10000 + 0.5) / 10 + "ms";
+	                text += '\nSubstate: ${Type.getClassName(Type.getClass(FlxG.state.subState))}';
 			text += "\nOperating System: " + '${lime.system.System.platformLabel} ${lime.system.System.platformVersion}';
 		      }
 			#end
@@ -116,7 +115,7 @@ class FPS extends TextField
 			textColor = 0xFFFFFFFF;
 			if (memoryMegas > 3000 || currentFPS <= ClientPrefs.framerate / 2)
 			{
-				textColor = 0xFFFF0000;
+				textColor = 0xFFFFFF00;
 			}
 
 			#if (gl_stats && !disable_cffi && (!html5 || !canvas))
