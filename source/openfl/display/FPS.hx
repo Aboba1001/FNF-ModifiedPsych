@@ -95,16 +95,20 @@ class FPS extends TextField
 			var memoryMegas:Float = 0;
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
-		      if(ClientPrefs.showTotalFPS) {
+		      if(ClientPrefs.showTotalFPS) 
+		      {
 			text += "\nTotal FPS: " + totalFPS;
 		      }
-		      if(ClientPrefs.showMemory) {
-			text += "\nMEM: " + memoryMegas + " MB";
+		      if(ClientPrefs.showMemory) 
+		      {
+			text += "\nMemory: " + memoryMegas + " MB";
 		      }
-		      if(ClientPrefs.showVersion) {
+		      if(ClientPrefs.showVersion) 
+		      {
 			text += "\nEngine Version: " + MainMenuState.abobaEngineVersion;
 		      }
-		      if(ClientPrefs.debugInfo) {
+		      if(ClientPrefs.debugInfo) 
+		      {
 			text += '\nState: ${Type.getClassName(Type.getClass(FlxG.state))}';
 			if (FlxG.state.subState != null)
 	                text += '\nSubstate: ${Type.getClassName(Type.getClass(FlxG.state.subState))}';
