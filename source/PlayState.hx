@@ -92,16 +92,16 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
 	public static var ratingStuff:Array<Dynamic> = [
-		['You Suck! [F]', 0.2], //From 0% to 19%
-		['Shit [E]', 0.4], //From 20% to 39%
-		['Bad [D]', 0.5], //From 40% to 49%
-		['Bruh [C]', 0.6], //From 50% to 59%
-		['Meh [B]', 0.69], //From 60% to 68%
-		['Nice [A]', 0.7], //69%
-		['Good [AA]', 0.8], //From 70% to 79%
-		['Great [AAA]', 0.9], //From 80% to 89%
-		['Sick! [AAAA]', 1], //From 90% to 99%
-		['Perfect!! [AAAAA]', 1] //The value on this one isn't used actually, since Perfect is always "1"
+		['You Suck! [F]', 0.2], // From 0% to 19%
+		['Shit [E]', 0.4], // From 20% to 39%
+		['Bad [D]', 0.5], // From 40% to 49%
+		['Bruh [C]', 0.6], // From 50% to 59%
+		['Meh [B]', 0.69], // From 60% to 68%
+		['Nice [A]', 0.7], // 69%
+		['Good [AA]', 0.8], // From 70% to 79%
+		['Great [AAA]', 0.9], // From 80% to 89%
+		['Sick! [AAAA]', 1], // From 90% to 99%
+		['Perfect!! [AAAAA]', 1] // The value on this one isn't used actually, since Perfect is always "1"
 	];
 
 	//event variables
@@ -480,7 +480,7 @@ class PlayState extends MusicBeatState
 		SONG.stage = curStage;
 
 		var stageData:StageFile = StageData.getStageFile(curStage);
-		if(stageData == null) { //Stage couldn't be found, create a dummy stage for preventing a crash
+		if(stageData == null) { // Stage couldn't be found, create a dummy stage for preventing a crash
 			stageData = {
 				directory: "",
 				defaultZoom: 0.9,
@@ -528,7 +528,7 @@ class PlayState extends MusicBeatState
 
 		switch (curStage)
 		{
-			case 'stage': //Week 1
+			case 'stage': // Week 1
 				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
 				add(bg);
 
@@ -554,7 +554,7 @@ class PlayState extends MusicBeatState
 				}
 				dadbattleSmokes = new FlxSpriteGroup(); //troll'd
 
-			case 'spooky': //Week 2
+			case 'spooky': // Week 2
 				if(!ClientPrefs.lowQuality) {
 					halloweenBG = new BGSprite('halloween_bg', -200, -100, ['halloweem bg0', 'halloweem bg lightning strike']);
 				} else {
@@ -652,7 +652,7 @@ class PlayState extends MusicBeatState
 				fastCar.active = true;
 				limoKillingState = 0;
 
-			case 'mall': //Week 5 - Cocoa, Eggnog
+			case 'mall': // Week 5 - Cocoa, Eggnog
 				var bg:BGSprite = new BGSprite('christmas/bgWalls', -1000, -500, 0.2, 0.2);
 				bg.setGraphicSize(Std.int(bg.width * 0.8));
 				bg.updateHitbox();
@@ -686,7 +686,7 @@ class PlayState extends MusicBeatState
 				add(santa);
 				precacheList.set('Lights_Shut_off', 'sound');
 
-			case 'mallEvil': //Week 5 - Winter Horrorland
+			case 'mallEvil': // Week 5 - Winter Horrorland
 				var bg:BGSprite = new BGSprite('christmas/evilBG', -400, -500, 0.2, 0.2);
 				bg.setGraphicSize(Std.int(bg.width * 0.8));
 				bg.updateHitbox();
@@ -762,7 +762,8 @@ class PlayState extends MusicBeatState
 					add(bgGirls);
 				}
 
-			case 'schoolEvil': //Week 6 - Thorns
+			case 'schoolEvil': // 
+				Week 6 - Thorns
 				GameOverSubstate.deathSoundName = 'fnf_loss_sfx-pixel';
 				GameOverSubstate.loopSoundName = 'gameOver-pixel';
 				GameOverSubstate.endSoundName = 'gameOverEnd-pixel';
@@ -793,7 +794,7 @@ class PlayState extends MusicBeatState
 					add(bg);
 				}
 
-			case 'tank': //Week 7 - Ugh, Guns, Stress
+			case 'tank': // Week 7 - Ugh, Guns, Stress
 				var sky:BGSprite = new BGSprite('tankSky', -400, -400, 0, 0);
 				add(sky);
 
@@ -1224,10 +1225,19 @@ class PlayState extends MusicBeatState
 		songTxt.cameras = [camHUD];
 	        add(songTxt);
 
+	        if(ClientPrefs.scoreTxtType == 'Psych')
+		{
+			scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+                        scoreTxt.borderSize = 1.25;
+		} 
+	        else if(ClientPrefs.scoreTxtType == 'RT')
+		{
+			scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			scoreTxt.borderSize = 1.00;
+		}
+
 		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 20);
-		scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		scoreTxt.scrollFactor.set();
-		scoreTxt.borderSize = 1.25;
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
 								       
