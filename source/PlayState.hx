@@ -1226,7 +1226,7 @@ class PlayState extends MusicBeatState
 
 	        // Grahhhh
 		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 20);
-	        switch (ClientPrefs.scoreTxtStyle) {
+	        switch (ClientPrefs.scoreTxtType) {
 		       case 'Psych':
 		         scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
                          scoreTxt.borderSize = 1.25;
