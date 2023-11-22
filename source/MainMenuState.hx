@@ -144,7 +144,7 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
-		txtBackground = new FlxSprite(0, 640);
+		txtBackground = new FlxSprite(0, 637);
 		txtBackground.scrollFactor.set();
 		txtBackground.alpha = 0.7;
 		txtBackground.visible = true;
@@ -183,7 +183,7 @@ class MainMenuState extends MusicBeatState
 
 		#if android
 		addVirtualPad(UP_DOWN, A_B_E);
-		_virtualpad.y = -55;
+		_virtualpad.y = -58;
 		#end
 
 		super.create();
