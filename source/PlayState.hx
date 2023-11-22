@@ -91,18 +91,7 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X = 48.5;
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
-	public static var ratingStuff:Array<Dynamic> = [
-		['You Suck! [F]', 0.2], // From 0% to 19%
-		['Shit [E]', 0.4], // From 20% to 39%
-		['Bad [D]', 0.5], // From 40% to 49%
-		['Bruh [C]', 0.6], // From 50% to 59%
-		['Meh [B]', 0.69], // From 60% to 68%
-		['Nice [A]', 0.7], // 69%
-		['Good [AA]', 0.8], // From 70% to 79%
-		['Great [AAA]', 0.9], // From 80% to 89%
-		['Sick! [AAAA]', 1], // From 90% to 99%
-		['Perfect!! [AAAAA]', 1] // The value on this one isn't used actually, since Perfect is always "1"
-	];
+	public static var ratingStuff:Array<Dynamic> = [];
 
 	//event variables
 	private var isCameraOnForcedPos:Bool = false;
@@ -392,6 +381,35 @@ class PlayState extends MusicBeatState
 		rating.noteSplash = false;
 		ratingsData.push(rating);
 
+		switch (ClientPrefs.scoreTxtType) {
+			case 'RT':
+		  ratingStuff = [
+			['You Suck! [F]', 0.2],
+		        ['Shit [E]', 0.4],
+		        ['Bad [D]', 0.5],
+		        ['Bruh [C]', 0.6],
+		        ['Meh [B]', 0.69], 
+			['Nice [A]', 0.7],
+		        ['Good [AA]', 0.8],
+		        ['Great [AAA]', 0.9],
+		        ['Sick! [AAAA]', 1],
+		        ['Perfect!! [AAAAA]', 1]
+		  ];
+			case 'Psych':
+		  ratingStuff = [
+			['You Suck!', 0.2],
+			['Shit', 0.4],
+			['Bad', 0.5],
+			['Bruh', 0.6],
+			['Meh', 0.69],
+			['Nice', 0.7],
+			['Good', 0.8],
+			['Great', 0.9],
+			['Sick!', 1],
+			['Perfect!!', 1]
+                  ];
+		}
+			
 		// For the "Just the Two of Us" achievement
 		for (i in 0...keysArray.length)
 		{
