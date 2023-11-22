@@ -1224,18 +1224,17 @@ class PlayState extends MusicBeatState
 		songTxt.cameras = [camHUD];
 	        add(songTxt);
 
-	        if(ClientPrefs.scoreTxtType == 'Psych')
-		{
-			scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-                        scoreTxt.borderSize = 1.25;
-		} 
-	        else if(ClientPrefs.scoreTxtType == 'RT')
-		{
-			scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-			scoreTxt.borderSize = 1.00;
-		}
-
+	        // Grahhhh
 		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 20);
+	        switch (ClientPrefs.scoreTxtStyle) {
+		       case 'Psych':
+		         scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+                         scoreTxt.borderSize = 1.25;
+		
+			case 'RT':
+			 scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+			 scoreTxt.borderSize = 1.00;
+		}
 		scoreTxt.scrollFactor.set();
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
