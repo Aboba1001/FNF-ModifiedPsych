@@ -862,7 +862,7 @@ class PlayState extends MusicBeatState
 			introSoundsSuffix = '-pixel';
 		}
 
-		add(gfGroup); //Needed for blammed lights
+		add(gfGroup); // Needed for blammed lights
 
 		// Shitty layering but whatev it works LOL
 		if (curStage == 'limo')
@@ -2411,9 +2411,9 @@ class PlayState extends MusicBeatState
 	if (ClientPrefs.scoreTxtType == 'RT') 
 	{
 		scoreTxt.text = 'Score: ' + songScore
-		+ ' | Misses: ' + songMisses
-		+ ' | Health: ' + Math.round(health * 50) + '%'
-		+ ' | Rating & ACC: ' + ratingName
+		+ ' / Misses: ' + songMisses
+		+ ' / Health: ' + Math.round(health * 50) + '%'
+		+ ' / Rating & ACC: ' + ratingName
 		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
 	} else if (ClientPrefs.scoreTxtType == 'Psych') 
 	{
@@ -2428,8 +2428,8 @@ class PlayState extends MusicBeatState
 			if(scoreTxtTween != null) {
 				scoreTxtTween.cancel();
 			}
-			scoreTxt.scale.x = 1.115;
-			scoreTxt.scale.y = 1.115;
+			scoreTxt.scale.x = 1.111;
+			scoreTxt.scale.y = 1.111;
 			scoreTxtTween = FlxTween.tween(scoreTxt.scale, {x: 1, y: 1}, 0.2, {
 				onComplete: function(twn:FlxTween) {
 					scoreTxtTween = null;
