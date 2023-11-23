@@ -408,7 +408,7 @@ class PlayState extends MusicBeatState
 			['Sick!', 1],
 			['Perfect!!', 1]
                   ];
-		}
+	 }
 			
 		// For the "Just the Two of Us" achievement
 		for (i in 0...keysArray.length)
@@ -2423,23 +2423,17 @@ class PlayState extends MusicBeatState
 		}
 	}
 
-	public function updateScore(miss:Bool = false)
-	{
-	if (ClientPrefs.scoreTxtType == 'RT') 
-	{
-		scoreTxt.text = 'Score: ' + songScore
-		+ ' / Misses: ' + songMisses
-		+ ' / Health: ' + Math.round(health * 50) + '%'
-		+ ' / Rating & ACC: ' + ratingName
-		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
-	} else if (ClientPrefs.scoreTxtType == 'Psych') 
-	{
-		scoreTxt.text = 'Score: ' + songScore
-		+ ' | Misses: ' + songMisses
-		+ ' | Rating: ' + ratingName
-		+ (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
+	public function updateScore(miss:Bool = false) {
+	       switch (ClientPrefs.scoreTxtType)
+		       case 'RT':
+		             scoreTxt.text = 'Score: ' + songScore + ' / Misses: ' + songMisses + ' / Health: ' + Math.round(health * 50) + '%' + ' / Rating & ACC: ' + ratingName + (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
+			   
+	               case 'Psych':
+		              scoreTxt.text = 'Score: ' + songScore 
+			      + ' | Misses: ' + songMisses 
+			      + ' | Rating: ' + ratingName 
+			      + (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
 	}
-	
 		if(ClientPrefs.scoreZoom && !miss && !cpuControlled)
 		{
 			if(scoreTxtTween != null) {
