@@ -961,7 +961,7 @@ class PlayState extends MusicBeatState
 				case 'stress':
 					gfVersion = 'pico-speaker';
 			}
-			SONG.gfVersion = gfVersion; //Fix for the Chart Editor
+			SONG.gfVersion = gfVersion; // Fix for the Chart Editor
 		}
 
 		if (!stageData.hide_girlfriend)
