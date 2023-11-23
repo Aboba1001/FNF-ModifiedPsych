@@ -421,8 +421,7 @@ class FreeplayState extends MusicBeatState
 			{
 			    goToPlayState();
 			});
-		}
-			
+		   }
 			if (FlxG.keys.pressed.SHIFT #if android || _virtualpad.buttonZ.pressed #end){
 				LoadingState.loadAndSwitchState(new ChartingState());
 			}else{
@@ -432,7 +431,7 @@ class FreeplayState extends MusicBeatState
 			FlxG.sound.music.volume = 0;
 					
 			destroyFreeplayVocals();
-		}
+	
 		else if(controls.RESET #if android || _virtualpad.buttonY.justPressed #end)
 		{
 			#if android
@@ -443,8 +442,8 @@ class FreeplayState extends MusicBeatState
 			FlxG.sound.play(Paths.sound('scrollMenu'));
 		}
 		super.update(elapsed);
-	}
-
+     }
+	     
 	public static function destroyFreeplayVocals() {
 		if(vocals != null) {
 			vocals.stop();
