@@ -403,25 +403,6 @@ class FreeplayState extends MusicBeatState
 				colorTween.cancel();
 			}
 
-			for (item in groupSongs.members) // Code from SB Engine
-				if (item.targetY == 0)
-					FlxFlicker.flicker(item, 1.05, 0.06, false, false);
-				    FlxFlicker.flicker(iconArray[currentlySelected], 1.05, 0.06, false, false);
-				    FlxG.sound.play(Paths.sound('confirmMenu'));
-					if (FlxG.sound.music != null)
-				    FlxTween.tween(FlxG.sound.music, {pitch: 0, volume: 0}, 2.5, {ease: FlxEase.cubeOut});
-				    destroyFreeplayVocals();
-					FlxTween.tween(scoreText, {alpha: 0}, 0.5, {ease: FlxEase.quartInOut});
-					FlxTween.tween(scoreBackground, {alpha: 0}, 0.5, {ease: FlxEase.quartInOut});
-					FlxTween.tween(difficultyText, {alpha: 0}, 0.5, {ease: FlxEase.quartInOut});
-					FlxTween.tween(textBackground, {alpha: 0}, 0.5, {ease: FlxEase.quartInOut});
-					FlxTween.tween(text, {alpha: 0}, 0.5, {ease: FlxEase.quartInOut});
-	
-			new FlxTimer().start(3, function(tmr:FlxTimer) 
-			{
-			    goToPlayState();
-			});
-		   }
 			if (FlxG.keys.pressed.SHIFT #if android || _virtualpad.buttonZ.pressed #end){
 				LoadingState.loadAndSwitchState(new ChartingState());
 			}else{
@@ -442,18 +423,13 @@ class FreeplayState extends MusicBeatState
 			FlxG.sound.play(Paths.sound('scrollMenu'));
 		}
 		super.update(elapsed);
-	     
+}
 	public static function destroyFreeplayVocals() {
 		if(vocals != null) {
 			vocals.stop();
 			vocals.destroy();
 		}
 		vocals = null;
-	}
-
-        function goToPlayState()
-	{
-		LoadingState.loadAndSwitchState(new PlayState());
 	}
 
 	function changeDiff(change:Int = 0)
