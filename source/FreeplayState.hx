@@ -442,7 +442,6 @@ class FreeplayState extends MusicBeatState
 			FlxG.sound.play(Paths.sound('scrollMenu'));
 		}
 		super.update(elapsed);
-     }
 	     
 	public static function destroyFreeplayVocals() {
 		if(vocals != null) {
