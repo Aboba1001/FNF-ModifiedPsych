@@ -60,7 +60,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		#end
 		
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
-		bg.color = 0xFFea71fd;
+		bg.color = FlxColor.fromHSB(FlxG.random.int(0, 359), FlxG.random.float(0, 0.8), FlxG.random.float(0.3, 1));
 		bg.screenCenter();
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
 		add(bg);
@@ -136,6 +136,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 
                 #if android
                 addVirtualPad(FULL, A_B_C);
+		_virtualpad.y = 15;
                 #end
 
 	}
