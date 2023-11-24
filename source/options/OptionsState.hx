@@ -35,7 +35,7 @@ using StringTools;
 
 class OptionsState extends MusicBeatState
 {
-	var options:Array<String> = ['Controls', 'Graphics', 'Visuals and UI', 'Note Colors', 'Gameplay', 'Adjust Delay and Combo'];
+	var options:Array<String> = ['Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Note Colors', 'Gameplay'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
@@ -134,7 +134,7 @@ class OptionsState extends MusicBeatState
 
 		#if android
 		addVirtualPad(UP_DOWN, A_B_X_Y);
-		_virtualpad.y = -45;
+		_virtualpad.y = -15;
 		#end
 
 		super.create();
