@@ -270,6 +270,8 @@ class PlayState extends MusicBeatState
 	public var songMisses:Int = 0;
 	public var scoreTxt:FlxText;
 
+	var judgementCounter:FlxText;
+
 	var allNotesMs:Float = 0;
         var averageMs:Float = 0;
 	    
@@ -1256,7 +1258,18 @@ class PlayState extends MusicBeatState
 		scoreTxt.scrollFactor.set();
 		scoreTxt.visible = !ClientPrefs.hideHud;
 		add(scoreTxt);
-								       
+
+	        judgementCounter = new FlxText(20, 0, 0, "", 20);
+		judgementCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		judgementCounter.borderSize = 2;
+		judgementCounter.borderQuality = 2;
+		judgementCounter.scrollFactor.set();
+		judgementCounter.cameras = [camHUD];
+		judgementCounter.screenCenter(Y);
+		judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}';
+		judgementCounter.visible = !ClientPrefs.hideJudgements;
+		add(judgementCounter);
+	
 		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
@@ -2424,6 +2437,7 @@ class PlayState extends MusicBeatState
 	}
 
 	public function updateScore(miss:Bool = false) {
+	    judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}';
 	       switch (ClientPrefs.scoreTxtType) {
 		       case 'RT':
 		             scoreTxt.text = 'Score: ' + songScore + ' / Misses: ' + songMisses + ' / Health: ' + Math.round(health * 50) + '%' + ' / Rating & ACC: ' + ratingName + (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
