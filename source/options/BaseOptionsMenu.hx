@@ -136,7 +136,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 
                 #if android
                 addVirtualPad(FULL, A_B_C);
-		_virtualpad.y = 15;
+		_virtualpad.y = -15;
                 #end
 
 	}
