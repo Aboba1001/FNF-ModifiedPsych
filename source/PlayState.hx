@@ -2442,11 +2442,11 @@ class PlayState extends MusicBeatState
 		       case 'RT':
 		             scoreTxt.text = 'Score: ' + songScore + ' / Misses: ' + songMisses + ' / Health: ' + Math.round(health * 50) + '%' + ' / Rating & ACC: ' + ratingName + (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
 			   
-	               case 'Psych':
-		              scoreTxt.text = 'Score: ' + songScore 
-			      + ' | Misses: ' + songMisses 
-			      + ' | Rating: ' + ratingName 
-			      + (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
+	                case 'Psych':
+		               scoreTxt.text = 'Score: ' + songScore 
+			       + ' | Misses: ' + songMisses 
+			       + ' | Rating: ' + ratingName 
+			       + (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
 	}
 		if(ClientPrefs.scoreZoom && !miss && !cpuControlled)
 		{
