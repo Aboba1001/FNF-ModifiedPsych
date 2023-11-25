@@ -48,7 +48,7 @@ class HitboxSettingsSubState extends BaseOptionsMenu
 		  addOption(option);
 		  
 		var option:Option = new Option('Hitbox Opacity', //mariomaster was here again
-			'Changes opacity -omg',
+			'Changes Hitbox opacity. -omg',
 			'hitboxalpha',
 			'float',
 			0.2);
@@ -58,17 +58,7 @@ class HitboxSettingsSubState extends BaseOptionsMenu
 		option.changeValue = 0.1;
 		option.decimals = 1;
 		addOption(option);
-
-		var option:Option = new Option('VirtualPad Alpha:', //mariomaster was here again
-			'Changes VirtualPad Alpha',
-			'VirtualPadAlpha',
-			'float');
-		option.scrollSpeed = 1.6;
-		option.minValue = 0.1;
-		option.maxValue = 1;
-		option.changeValue = 0.01;
-		option.decimals = 2;
-		addOption(option);
+		
 		super();
 	}
 
