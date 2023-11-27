@@ -1094,7 +1094,8 @@ class PlayState extends MusicBeatState
 	        if(ClientPrefs.charBasedTimeBarColors == true)
 		{
 		timeBar.createFilledBar(0xFF000000, FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]));
-		} else if(ClientPrefs.charBasedTimeBarColors == false)
+		} 
+	        if(ClientPrefs.charBasedTimeBarColors == false)
 		{
 		timeBar.createFilledBar(0xFF000000, 0xFFFFFFFF);
 		}
@@ -1108,7 +1109,7 @@ class PlayState extends MusicBeatState
 		timeBarBG.sprTracker = timeBar;
 
 	        msTimeTxt = new FlxText(0, 0, 400, "", 32); 
-                msTimeTxt.setFormat(Paths.font('vcr.ttf'), 32, 0xFFAC75FF, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK); 
+                msTimeTxt.setFormat(Paths.font('vcr.ttf'), 32, 0xFF000000, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK); 
                 msTimeTxt.scrollFactor.set(); 
                 msTimeTxt.alpha = 0.2; 
                 msTimeTxt.visible = true; 
@@ -1267,7 +1268,7 @@ class PlayState extends MusicBeatState
 
 	        judgementCounter = new FlxText(20, 0, 0, "", 20);
 		judgementCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-		judgementCounter.borderSize = 2;
+		judgementCounter.borderSize = 1.25;
 		judgementCounter.borderQuality = 2;
 		judgementCounter.scrollFactor.set();
 		judgementCounter.cameras = [camHUD];
