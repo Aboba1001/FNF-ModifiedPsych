@@ -234,6 +234,19 @@ class MainMenuState extends MusicBeatState
 
 			if (controls.ACCEPT)
 			{
+				menuItems.forEach(function(spr:FlxSprite)
+					{
+						if (currentlySelected != spr.ID)
+						{
+							FlxTween.tween(cameraGame, {zoom: 10}, 1.6, {ease: FlxEase.expoIn});
+						    FlxTween.tween(menuBackground, {angle: 90}, 1.6, {ease: FlxEase.expoIn});
+						    FlxTween.tween(spr, {x: -600}, 0.6, {
+							ease: FlxEase.backIn,
+							onComplete: function(twn:FlxTween)
+							{
+								spr.kill();
+							}
+						});
 				if (optionShit[curSelected] == 'donate')
 				{
 					CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
