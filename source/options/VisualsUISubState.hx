@@ -100,13 +100,6 @@ class VisualsUISubState extends BaseOptionsMenu
 			true);
 		addOption(option);
 
-		var option:Option = new Option('Rainbow FPS',
-		        'If checked, makes the Info Display cycle between a rainbow of colors.',
-		        'rainbowFPS',
-			'bool',
-			false);
-                addOption(option);
-
 		var option:Option = new Option('Show Framerate',
 			'If unchecked, the framerate will be in Info Display.',
 			'showFPS',
