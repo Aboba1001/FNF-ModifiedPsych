@@ -40,7 +40,6 @@ class ClientPrefs {
 	public static var watermark:Bool = false; 
 	public static var showMsText:Bool = true;
 	public static var scoreTxtType:String = 'RT';
-	public static var rainbowFPS:Bool = false;
 	public static var scoreZoom:Bool = true;
 	public static var noReset:Bool = false;
 	public static var healthBarAlpha:Float = 1;
@@ -145,7 +144,6 @@ class ClientPrefs {
 		FlxG.save.data.timeBarType = timeBarType;
 		FlxG.save.data.showMsText = showMsText;
 		FlxG.save.data.scoreTxtType = scoreTxtType;
-		FlxG.save.data.rainbowFPS = rainbowFPS;
 		FlxG.save.data.stripedBar = stripedBar;
 		FlxG.save.data.watermark = watermark;
 		FlxG.save.data.scoreZoom = scoreZoom;
