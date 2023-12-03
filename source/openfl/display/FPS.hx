@@ -133,3 +133,4 @@ class FPS extends TextField
 
 		cacheCount = currentCount;
 	}
+}
