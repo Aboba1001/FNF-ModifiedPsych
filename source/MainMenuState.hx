@@ -143,7 +143,7 @@ class MainMenuState extends MusicBeatState
 
 		FlxG.camera.follow(camFollowPos, null, 1);
 
-		txtBackground = new FlxSprite(0, 643);
+		txtBackground = new FlxSprite(0, 646);
 		txtBackground.scrollFactor.set();
 		txtBackground.alpha = 0.8;
 		txtBackground.visible = true;
