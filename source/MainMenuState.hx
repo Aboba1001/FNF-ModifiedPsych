@@ -145,9 +145,9 @@ class MainMenuState extends MusicBeatState
 
 		txtBackground = new FlxSprite(0, 646);
 		txtBackground.scrollFactor.set();
-		txtBackground.alpha = 0.8;
+		txtBackground.alpha = 0.7;
 		txtBackground.visible = true;
-		txtBackground.makeGraphic(FlxG.width, Std.int((85) + 0), FlxColor.BLACK);
+		txtBackground.makeGraphic(FlxG.width, Std.int((85) + 0), FlxColor.fromRGB('808080'));
 		add(txtBackground);
 
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "RT Engine v"  + abobaEngineVersion, 12);
@@ -182,7 +182,7 @@ class MainMenuState extends MusicBeatState
 
 		#if android
 		addVirtualPad(UP_DOWN, A_B_E);
-		_virtualpad.y = -60;
+		_virtualpad.y = -63;
 		#end
 
 		super.create();
