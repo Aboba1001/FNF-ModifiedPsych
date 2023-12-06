@@ -146,7 +146,7 @@ class MainMenuState extends MusicBeatState
 		txtBackground.scrollFactor.set();
 		txtBackground.alpha = 0.7;
 		txtBackground.visible = true;
-		txtBackground.makeGraphic(FlxG.width, Std.int((85) + 0), FlxColor.fromRGB('808080'));
+		txtBackground.makeGraphic(FlxG.width, Std.int((85) + 0), FlxColor.GRAY);
 		add(txtBackground);
 
 		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "RT Engine v"  + abobaEngineVersion, 12);
