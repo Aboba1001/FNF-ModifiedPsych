@@ -1109,7 +1109,7 @@ class PlayState extends MusicBeatState
 		timeBarBG.sprTracker = timeBar;
 
 	        msTimeTxt = new FlxText(0, 0, 400, "", 32); 
-                msTimeTxt.setFormat(Paths.font('vcr.ttf'), 32, 0xFF000000, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK); 
+                msTimeTxt.setFormat(Paths.font('vcr.ttf'), 32, 0xFFFFFFFF, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK); 
                 msTimeTxt.scrollFactor.set(); 
                 msTimeTxt.alpha = 0.2; 
                 msTimeTxt.visible = true; 
