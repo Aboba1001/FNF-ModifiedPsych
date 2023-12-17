@@ -110,7 +110,7 @@ class Main extends Sprite
 		watermark.alpha = 0.4;
 		watermark.x = Lib.application.window.width - 10 - watermark.width;
 		watermark.y = Lib.application.window.height - 10 - watermark.height;
-		addChild(watermark)
+		addChild(watermark);
 
 		#if html5
 		FlxG.autoPause = false;
