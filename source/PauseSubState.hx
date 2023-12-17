@@ -26,7 +26,7 @@ class PauseSubState extends MusicBeatSubstate
 	var menuItems:Array<String> = [];
 	var menuItemsOG:Array<String> = [
 		'Resume',
-		'Restart Song',
+		'Restart',
 		'Change Difficulty',
 		'Chart Editor',
                 'Options',
@@ -247,7 +247,7 @@ class PauseSubState extends MusicBeatSubstate
 					PlayState.instance.practiceMode = !PlayState.instance.practiceMode;
 					PlayState.changedDifficulty = true;
 					practiceText.visible = PlayState.instance.practiceMode;
-				case "Restart Song":
+				case "Restart":
 					restartSong();
 				case "Leave Charting Mode":
 					restartSong();
