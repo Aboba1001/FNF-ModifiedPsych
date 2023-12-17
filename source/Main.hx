@@ -41,6 +41,7 @@ class Main extends Sprite
 	};
 
 	public static var fpsVar:FPS;
+	public static var watermark:Sprite;
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
@@ -101,6 +102,16 @@ class Main extends Sprite
 			fpsVar.visible = ClientPrefs.showFPS;
 		}
 
+		// From Mic'd Up Engine Source Code
+		var bitmapData = Assets.getBitmapData("assets/images/watermark.png");
+
+		watermark = new Sprite();
+		watermark.addChild(new Bitmap(bitmapData)); // Sets the graphic of the sprite to a Bitmap object, which uses our embedded BitmapData class.
+		watermark.alpha = 0.4;
+		watermark.x = Lib.application.window.width - 10 - watermark.width;
+		watermark.y = Lib.application.window.height - 10 - watermark.height;
+		addChild(watermark
+
 		#if html5
 		FlxG.autoPause = false;
 		FlxG.mouse.visible = false;
@@ -133,7 +144,7 @@ class Main extends Sprite
 		dateNow = dateNow.replace(" ", "_");
 		dateNow = dateNow.replace(":", "'");
 
-		path = "./crash/" + "PsychEngine_" + dateNow + ".txt";
+		path = "./crash/" + "RTEngine_" + dateNow + ".txt";
 
 		for (stackItem in callStack)
 		{
@@ -146,7 +157,7 @@ class Main extends Sprite
 			}
 		}
 
-		errMsg += "\nUncaught Error: " + e.error + "\nPlease report this error to the GitHub page: https://github.com/ShadowMario/FNF-PsychEngine\n\n> Crash Handler written by: sqirra-rng";
+		errMsg += "\nUncaught Error: " + e.error + "\nPlease report this error to the GitHub page: https://github.com/Aboba1001/RT-Engine\n\n> Crash Handler written by: sqirra-rng";
 
 		if (!FileSystem.exists("./crash/"))
 			FileSystem.createDirectory("./crash/");
