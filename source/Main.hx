@@ -41,7 +41,7 @@ class Main extends Sprite
 	};
 
 	public static var fpsVar:FPS;
-	public static var watermark:Sprite;
+	// public static var watermark:Sprite;
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
@@ -103,12 +103,14 @@ class Main extends Sprite
 		}
 
 		// From Mic'd Up Engine Source Code
-		watermark = new Sprite();
+		/* 
+                watermark = new Sprite();
 		watermark.addChild(FlxSprite(0).loadGraphic(Paths.image('watermark')); // Sets the graphic of the sprite to a Bitmap object, which uses our embedded BitmapData class.
 		watermark.alpha = 0.4;
 		watermark.x = Lib.application.window.width - 10 - watermark.width;
 		watermark.y = Lib.application.window.height - 10 - watermark.height;
 		addChild(watermark);
+                */
 
 		#if html5
 		FlxG.autoPause = false;
