@@ -1260,7 +1260,7 @@ class PlayState extends MusicBeatState
 		
 			case 'RT':
 			 scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-			 scoreTxt.borderSize = 1.00;
+			 scoreTxt.borderSize = 1.25;
 		}
 		scoreTxt.scrollFactor.set();
 		scoreTxt.visible = !ClientPrefs.hideHud;
