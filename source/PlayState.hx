@@ -1251,7 +1251,6 @@ class PlayState extends MusicBeatState
 		songTxt.cameras = [camHUD];
 	        add(songTxt);
 
-	        // Grahhhh
 		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 20);
 	        switch (ClientPrefs.scoreTxtType) {
 		       case 'Psych':
