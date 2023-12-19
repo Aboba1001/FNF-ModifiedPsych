@@ -130,7 +130,7 @@ class MainMenuState extends MusicBeatState
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " white", 24);
 			menuItem.animation.play('idle');
 			menuItem.ID = i;
-			menuItem.x = 100;
+			menuItem.x = -100;
 			menuItems.add(menuItem);
 			var scr:Float = (optionShit.length - 4) * 0.135;
 			if(optionShit.length < 6) scr = 0;
@@ -146,18 +146,18 @@ class MainMenuState extends MusicBeatState
 		txtBackground.scrollFactor.set();
 		txtBackground.alpha = 0.7;
 		txtBackground.visible = true;
-		txtBackground.makeGraphic(FlxG.width, Std.int((85) + 0), FlxColor.GRAY);
+		txtBackground.makeGraphic(FlxG.width, Std.int((85) + 0), FlxColor.BLACK);
 		add(txtBackground);
 
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "RT Engine v"  + abobaEngineVersion, 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "RT Engine v"  + abobaEngineVersion, 13);
                 versionShit.scrollFactor.set();
                 versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
                 add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 13);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 13);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
@@ -181,7 +181,7 @@ class MainMenuState extends MusicBeatState
 
 		#if android
 		addVirtualPad(UP_DOWN, A_B_E);
-		_virtualpad.y = -63;
+		_virtualpad.y = -65;
 		#end
 
 		super.create();
