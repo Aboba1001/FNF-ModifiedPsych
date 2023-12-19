@@ -22,7 +22,9 @@ class FlashingState extends MusicBeatState
 	{
 		super.create();
 
-		var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image("menuDesat"));
+		bg.color = FlxColor.fromHSB(FlxG.random.int(0, 359), FlxG.random.float(0, 0.8), FlxG.random.float(0.3, 1));
+		bg.screenCenter();
 		add(bg);
 
 		#if android
@@ -32,7 +34,7 @@ class FlashingState extends MusicBeatState
 			Press A to disable them now or go to Options Menu.\n
 			Press B to ignore this message.\n
 			You've been warned!",
-			30);
+			34);
 		#else
 		warnText = new FlxText(0, 0, FlxG.width,
 			"Hey, watch out!\n
@@ -40,7 +42,7 @@ class FlashingState extends MusicBeatState
 			Press ENTER to disable them now or go to Options Menu.\n
 			Press ESCAPE to ignore this message.\n
 			You've been warned!",
-			32);
+			34);
 		#end
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);
