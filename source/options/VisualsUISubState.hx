@@ -129,7 +129,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			'timeBarType',
 			'string',
 			'Time Left',
-			['Time Left', 'Time Elapsed', 'Song Name', 'Disabled']);
+			['Time Left', 'Elapsed / Length', 'Time Elapsed', 'Song Name', 'Disabled']);
 		addOption(option);
 
 		var option:Option = new Option('Show RT Engine Watermark',
