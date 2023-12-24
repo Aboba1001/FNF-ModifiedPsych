@@ -2444,10 +2444,11 @@ class PlayState extends MusicBeatState
 	}
 
 	public function updateScore(miss:Bool = false) {
+	    // Laggy
 	    judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}';
 	       switch (ClientPrefs.scoreTxtType) {
 		       case 'RT':
-		             scoreTxt.text = 'Score: ' + songScore + ' / Misses: ' + songMisses + ' / Health: ' + Math.round(health * 50) + '%' + ' / Rating & ACC: ' + ratingName + (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
+		             scoreTxt.text = 'Score: ' + songScore + ' / Misses: ' + songMisses + ' / Health: ' + Math.round(health * 50) + '%' + ' / Rating: ' + ratingName + (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - [$ratingFC]' : '');
 			   
 	                case 'Psych':
 		               scoreTxt.text = 'Score: ' + songScore 
@@ -4320,8 +4321,9 @@ class PlayState extends MusicBeatState
 		rating.screenCenter();
 		rating.x = coolText.x - 40;
 		rating.y -= 60;
-		rating.velocity.y -= FlxG.random.int(30, 60) * playbackRate;
-		rating.velocity.x -= FlxG.random.int(-10, 10) * playbackRate;
+		rating.acceleration.y = 550 * playbackRate * playbackRate;
+		rating.velocity.y -= FlxG.random.int(140, 175) * playbackRate;
+		rating.velocity.x -= FlxG.random.int(0, 10) * playbackRate;
 		rating.visible = (!ClientPrefs.hideHud && showRating);
 		rating.x += ClientPrefs.comboOffset[0];
 		rating.y -= ClientPrefs.comboOffset[1];
@@ -4330,12 +4332,13 @@ class PlayState extends MusicBeatState
 		comboSpr.cameras = [camHUD];
 		comboSpr.screenCenter();
 		comboSpr.x = coolText.x;
+		comboSpr.acceleration.y = FlxG.random.int(200, 300) * playbackRate * playbackRate;
 		comboSpr.velocity.y -= FlxG.random.int(140, 160) * playbackRate;
 		comboSpr.visible = (!ClientPrefs.hideHud && showCombo);
 		comboSpr.x += ClientPrefs.comboOffset[0];
 		comboSpr.y -= ClientPrefs.comboOffset[1];
 		comboSpr.y += 60;
-		comboSpr.velocity.x += FlxG.random.int(1, 10) * playbackRate;
+		comboSpr.velocity.x += FlxG.random.int(1, 10) * playbackRate;!
 
 		insert(members.indexOf(strumLineNotes), rating);
 		
@@ -4413,7 +4416,8 @@ class PlayState extends MusicBeatState
 				numScore.setGraphicSize(Std.int(numScore.width * daPixelZoom));
 			}
 			numScore.updateHitbox();
-			numScore.velocity.y -= FlxG.random.int(30, 60) * playbackRate;
+			numScore.acceleration.y = FlxG.random.int(200, 300) * playbackRate * playbackRate;
+			numScore.velocity.y -= FlxG.random.int(140, 160) * playbackRate;
 			numScore.velocity.x = FlxG.random.float(-5, 5) * playbackRate;
 			numScore.visible = !ClientPrefs.hideHud;
 
@@ -4421,7 +4425,7 @@ class PlayState extends MusicBeatState
 			if(showComboNum)
 				insert(members.indexOf(strumLineNotes), numScore);
 
-			FlxTween.tween(numScore, {alpha: 0}, 3 / playbackRate, {
+			FlxTween.tween(numScore, {alpha: 0}, 0.2 / playbackRate, {
 				onComplete: function(tween:FlxTween)
 				{
 					numScore.destroy();
