@@ -1244,7 +1244,7 @@ class PlayState extends MusicBeatState
 		add(iconP2);
 		reloadHealthBarColors();
 
-	        var songTxt = new FlxText(0, FlxG.height - 18, 0, SONG.song + " - " + CoolUtil.difficultyString() + " | RTE " + MainMenuState.abobaEngineVersion, 16);
+	        var songTxt = new FlxText(0, FlxG.height - 18, 0, SONG.song + " - " + CoolUtil.difficultyString(), 16);
 	        songTxt.setFormat(Paths.font("vcr.ttf"), 15, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		songTxt.scrollFactor.set();
 	        songTxt.borderSize = 1.25;
@@ -2448,7 +2448,7 @@ class PlayState extends MusicBeatState
 	    judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}';
 	       switch (ClientPrefs.scoreTxtType) {
 		       case 'RT':
-		             scoreTxt.text = 'Score: ' + songScore + ' / Misses: ' + songMisses + ' / Health: ' + Math.round(health * 50) + '%' + ' / Rating: ' + ratingName + (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - [$ratingFC]' : '');
+		             scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Health: ' + Math.round(health * 50) + '%' + ' | Rating: ' + ratingName + (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - [$ratingFC]' : '');
 			   
 	                case 'Psych':
 		               scoreTxt.text = 'Score: ' + songScore 
