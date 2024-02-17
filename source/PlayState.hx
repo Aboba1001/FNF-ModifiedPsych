@@ -386,16 +386,16 @@ class PlayState extends MusicBeatState
 		switch (ClientPrefs.scoreTxtType) {
 			case 'RT':
 		  ratingStuff = [
-			['You Suck! [F]', 0.2],
-		        ['Shit [E]', 0.4],
-		        ['Bad [D]', 0.5],
-		        ['Bruh [C]', 0.6],
-		        ['Meh [B]', 0.69], 
-			['Nice [A]', 0.7],
-		        ['Good [AA]', 0.8],
-		        ['Great [AAA]', 0.9],
-		        ['Sick! [AAAA]', 1],
-		        ['Perfect!! [AAAAA]', 1]
+			['You Suck! • [F]', 0.2],
+		        ['Shit • [E]', 0.4],
+		        ['Bad • [D]', 0.5],
+		        ['Bruh • [C]', 0.6],
+		        ['Meh • [B]', 0.69], 
+			['Nice • [A]', 0.7],
+		        ['Good • [AA]', 0.8],
+		        ['Great • [AAA]', 0.9],
+		        ['Sick! • [AAAA]', 1],
+		        ['Perfect!! • [AAAAA]', 1]
 		  ];
 			case 'Psych':
 		  ratingStuff = [
@@ -1277,7 +1277,7 @@ class PlayState extends MusicBeatState
 		judgementCounter.visible = !ClientPrefs.hideJudgements;
 		add(judgementCounter);
 	
-		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
+		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "/!\ BOTPLAY", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
 		botplayTxt.borderSize = 1.25;
