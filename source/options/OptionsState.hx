@@ -35,7 +35,7 @@ using StringTools;
 
 class OptionsState extends MusicBeatState
 {
-	var options:Array<String> = ['Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Note Colors', 'Gameplay', 'Optimization'];
+	var options:Array<String> = ['Controls', 'Adjust Delay and Combo', 'Graphics', 'Visuals and UI', 'Note Colors', 'Gameplay', 'Experimental'];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
@@ -64,11 +64,16 @@ class OptionsState extends MusicBeatState
 				openSubState(new options.VisualsUISubState());
 			case 'Gameplay':
 				#if android
-				removeVirtualPad();
+				removeVi okirtualPad();
 				#end
 				openSubState(new options.GameplaySettingsSubState());
 			case 'Adjust Delay and Combo':
 				LoadingState.loadAndSwitchState(new options.NoteOffsetState());
+			case 'Experimental':
+			    openSubState(new options.ExperimentalSettingsSubState());
+				#if android
+				removeVirtualPad();
+				#end
 		}
 	}
 

@@ -1277,7 +1277,7 @@ class PlayState extends MusicBeatState
 		judgementCounter.visible = !ClientPrefs.hideJudgements;
 		add(judgementCounter);
 	
-		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "/!\ BOTPLAY", 32);
+		botplayTxt = new FlxText(400, timeBarBG.y + 55, FlxG.width - 800, "BOTPLAY", 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
 		botplayTxt.borderSize = 1.25;
@@ -1287,9 +1287,9 @@ class PlayState extends MusicBeatState
 			botplayTxt.y = timeBarBG.y - 78;
 		}
 
-		strumLineNotes.cameras = [camHUD];
-		grpNoteSplashes.cameras = [camHUD];
-		notes.cameras = [camHUD];
+		strumLineNotes.cameras = [camGame];
+		grpNoteSplashes.cameras = [camGame];
+		notes.cameras = [camGame];
 		healthBar.cameras = [camHUD];
 		healthBarBG.cameras = [camHUD];
 		iconP1.cameras = [camHUD];
