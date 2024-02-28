@@ -101,7 +101,7 @@ class FPS extends TextField
 		      }
 		      if(ClientPrefs.showMemory) 
 		      {
-			text += "\nMemory: " + memoryMegas + " MB";
+			text += "\nMemory Usage: " + memoryMegas + " MB";
 		      }
 		      if(ClientPrefs.showVersion) 
 		      {
@@ -112,7 +112,7 @@ class FPS extends TextField
 			text += '\nState: ${Type.getClassName(Type.getClass(FlxG.state))}';
 			if (FlxG.state.subState != null)
 	                text += '\nSubstate: ${Type.getClassName(Type.getClass(FlxG.state.subState))}';
-			text += "\nOS: " + '${lime.system.System.platformLabel} ${lime.system.System.platformVersion}';
+			text += "\nSystem: " + '${lime.system.System.platformLabel} ${lime.system.System.platformVersion}';
 		      }
 			#end
 			
