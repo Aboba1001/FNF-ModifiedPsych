@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin': RT Engine" file="RT Engine" packageName="com.roboatoba.roboatobaengine" package="com.roboatoba.rtengine" main="Main" version="0.2.8" company="RoboaToba" />
+	<app title="Friday Night Funkin': Modified" file="Psych Engine Modified" packageName="com.giogithub.modifiedpsychengine" package="com.giogithub.modifiedpsychengine" main="Main" version="0.6.3 (Modified)" company="GioGitHub" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 
