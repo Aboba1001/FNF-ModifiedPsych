@@ -20,6 +20,7 @@ import lime.app.Application;
 import Achievements;
 import editors.MasterEditorMenu;
 import flixel.input.keyboard.FlxKey;
+import openfl.text.TextFormat;
 
 import flixel.addons.display.FlxBackdrop;
 import flixel.addons.display.FlxGridOverlay;
@@ -149,15 +150,15 @@ class MainMenuState extends MusicBeatState
 		txtBackground.makeGraphic(FlxG.width, Std.int((85) + 0), FlxColor.BLACK);
 		add(txtBackground);
 
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "RT Engine v"  + abobaEngineVersion, 13);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 64, 0, "> Modified Psych Engine v"  + abobaEngineVersion, 13);
                 versionShit.scrollFactor.set();
                 versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
                 add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 13);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 44, 0, "> Psych Engine v" + psychEngineVersion, 13);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
-		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 13);
+		var versionShit:FlxText = new FlxText(12, FlxG.height - 24, 0, "> Friday Night Funkin' v" + Application.current.meta.get('version'), 13);
 		versionShit.scrollFactor.set();
 		versionShit.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(versionShit);
