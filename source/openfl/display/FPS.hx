@@ -55,7 +55,7 @@ class FPS extends TextField
 		defaultTextFormat = new TextFormat("_sans", 15, color);
 		autoSize = LEFT;
 		multiline = true;
-		text = "FPS: ";
+		text = "FPS: ?";
 
 		cacheCount = 0;
 		currentTime = 0;
@@ -93,15 +93,19 @@ class FPS extends TextField
 		{
 			text = "FPS: " + currentFPS;
 			var memoryMegas:Float = 0;
+			if (memoryPeak < memoryMegas)
+			{
+			 memoryPeak = memoryMegas;
+			}
 			#if openfl
 			memoryMegas = Math.abs(FlxMath.roundDecimal(System.totalMemory / 1000000, 1));
 		      if(ClientPrefs.showTotalFPS) 
 		      {
-			text += "\nTotal FPS: " + totalFPS;
+			text += " / Total FPS: " + totalFPS;
 		      }
 		      if(ClientPrefs.showMemory) 
 		      {
-			text += "\nMemory Usage: " + memoryMegas + " MB";
+			text += "\nMEM Usage: " + memoryMegas + " MB / " + memoryPeak + " MB";
 		      }
 		      if(ClientPrefs.showVersion) 
 		      {
