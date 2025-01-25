@@ -387,15 +387,25 @@ class PlayState extends MusicBeatState
 			case 'RT':
 		  ratingStuff = [
 			['You Suck! / [F]', 0.2],
-		        ['Shit / [E]', 0.4],
-		        ['Bad / [D]', 0.5],
-		        ['Bruh / [C]', 0.6],
-		        ['Meh / [B]', 0.69], 
+			['Shit / [E]', 0.4],
+			['Bad / [D]', 0.5],
+			['Bruh / [C]', 0.6],
+			['Meh / [B]', 0.69], 
 			['Nice / [A]', 0.7],
-		        ['Good / [AA]', 0.8],
-		        ['Great / [AAA]', 0.9],
-		        ['Sick! / [AAAA]', 1],
-		        ['Perfect!! / [AAAAA]', 1]
+			['Good / [AA]', 0.8],
+			['Great / [AAA]', 0.9],
+			['Sick! / [AAAA]', 1],
+			['Perfect!! / [AAAAA]', 1]
+		  ];
+		  case 'Kade':
+		  ratingStuff = [
+		  ['S+', 0.95],
+		  ['S', 0.90],
+		  ['A+', 0.90],
+		  ['A', 0.85],
+		  ['B', 0.70],
+		  ['C', 0.50],
+		  ['D', 0.45]
 		  ];
 			case 'Psych':
 		  ratingStuff = [
@@ -409,7 +419,7 @@ class PlayState extends MusicBeatState
 			['Great', 0.9],
 			['Sick!', 1],
 			['Perfect!!', 1]
-                  ];
+			];
 	 }
 			
 		// For the "Just the Two of Us" achievement
@@ -1253,14 +1263,17 @@ class PlayState extends MusicBeatState
 	        add(songTxt);
 
 		scoreTxt = new FlxText(0, healthBarBG.y + 36, FlxG.width, "", 20);
-	        switch (ClientPrefs.scoreTxtType) {
-		       case 'Psych':
-		         scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-                         scoreTxt.borderSize = 1.25;
-		
-			case 'RT':
-			 scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-			 scoreTxt.borderSize = 1.25;
+		switch (ClientPrefs.scoreTxtType) {
+		  case 'Psych':
+		  scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		  scoreTxt.borderSize = 1.25;
+		  case 'RT'
+		  scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		  scoreTxt.borderSize = 1.25;
+		  case 'Kade'
+		  scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		  scoreTxt.x = FlxG.width / 2 - 235;
+		  scoreTxt.y = healthBarBG.y + 50;
 		}
 		scoreTxt.scrollFactor.set();
 		scoreTxt.visible = !ClientPrefs.hideHud;
@@ -2243,21 +2256,25 @@ class PlayState extends MusicBeatState
 			callOnLuas('onCountdownStarted', []);
 
 			var swagCounter:Int = 0;
-
-			 if (ClientPrefs.showMsText) { 
-                                 if (ClientPrefs.downScroll) { 
-                                         msTimeTxt.x = playerStrums.members[1].x-100; 
-                                         msTimeTxt.y = playerStrums.members[1].y+100; 
-                                 } else { 
-                                         msTimeTxt.x = playerStrums.members[1].x-100; 
-                                         msTimeTxt.y = playerStrums.members[1].y-50; 
-                                 } 
-  
-                                 if (ClientPrefs.middleScroll) { 
-                                         msTimeTxt.x = playerStrums.members[0].x-250; 
-                                         msTimeTxt.y = playerStrums.members[1].y+30; 
-                                 } 
-						}
+			
+			if (ClientPrefs.showMsText) { 
+			  if (ClientPrefs.downScroll) { 
+			    msTimeTxt.x = playerStrums.members[1].x-100; 
+			    msTimeTxt.y = playerStrums.members[1].y+100; 
+			    
+			  }
+			  else { 
+			    msTimeTxt.x = playerStrums.members[1].x-100;
+			    msTimeTxt.y = playerStrums.members[1].y-50; 
+			    
+			  }
+			  if (ClientPrefs.middleScroll) {
+			    msTimeTxt.x = playerStrums.members[0].x-250;
+			    msTimeTxt.y = playerStrums.members[1].y+30;
+			    
+			  }
+			  
+			}
 
 			if(startOnTime < 0) startOnTime = 0;
 
@@ -2445,17 +2462,22 @@ class PlayState extends MusicBeatState
 
 	public function updateScore(miss:Bool = false) {
 	    // Laggy
-	    judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}\nMisses: ${songMisses}';
-	       switch (ClientPrefs.scoreTxtType) {
-		       case 'RT':
-		             scoreTxt.text = 'Score: ' + songScore + ' | Misses: ' + songMisses + ' | Health: ' + Math.round(health * 50) + '%' + ' | Rating: ' + ratingName + (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - [$ratingFC]' : '');
-			   
-	                case 'Psych':
-		               scoreTxt.text = 'Score: ' + songScore 
-			       + ' | Misses: ' + songMisses 
-			       + ' | Rating: ' + ratingName 
-			       + (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
-	}
+	    judgementCounter.text = 'Sicks: ${sicks}\nGoods: ${goods}\nBads: ${bads}\nShits: ${shits}';
+	    switch (ClientPrefs.scoreTxtType) {
+	      case 'RT':
+	      scoreTxt.text = 'Score: ' + songScore 
+	      + ' | Misses: ' + songMisses 
+	      + ' | Health: ' + Math.round(health * 50) + '%' 
+	      + ' | Rating: ' + ratingName + (ratingName != '?' ? ' (${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - [$ratingFC]' : '');
+	      case 'Kade':
+	      scoreTxt.text = 'Score: ' + songScore + ' | Combo Breaks: ' + songMisses + (ratingName != 'N/A' ? ' | ' + Highscore.floorDecimal(ratingPercent * 100, 2) + ' % | (' + ratingFC + ') ' + ratingName : '');
+	      case 'Psych':
+	      scoreTxt.text = 'Score: ' + songScore 
+	      + ' | Misses: ' + songMisses 
+			  + ' | Rating: ' + ratingName 
+			  + (ratingName != '?' ? ' ${Highscore.floorDecimal(ratingPercent * 100, 2)}%) - $ratingFC' : '');
+	      
+	    }
 		if(ClientPrefs.scoreZoom && !miss && !cpuControlled)
 		{
 			if(scoreTxtTween != null) {
