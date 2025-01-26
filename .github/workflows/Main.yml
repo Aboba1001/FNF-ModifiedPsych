@@ -9,41 +9,38 @@ on:
 
 jobs:
   buildAndroid:
-    name: buildAndroid
+    name: Build Android
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@main
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
       - name: Setup Android NDK
-        uses: nttld/setup-ndk@main
+        uses: nttld/setup-ndk@v1
         id: setup-ndk
         with:
           ndk-version: r21e
 
       - name: Setup Java JDK
-        uses: actions/setup-java@main
+        uses: actions/setup-java@v3
         with:
-          distribution: 'zulu'
-          java-version: '11'
+          distribution: zulu
+          java-version: 11
 
       - name: Setup Haxe
         uses: krdlab/setup-haxe@master
         with:
           haxe-version: 4.2.5
 
-      - name: Ensure Haxelib Directory Exists
+      - name: Set Haxelib Repository and Install Dependencies
         run: |
-          mkdir -p $HOME/.haxelib
-          haxelib setup $HOME/.haxelib
-
-      - name: Install Haxelib Libraries
-        run: |
-          haxelib install hxcpp 4.2.1
-          haxelib install lime 7.9.0
-          haxelib install openfl 9.2.0
-          haxelib install flixel 5.2.2
+          haxelib setup ~/.haxelib
+          haxelib install hxcpp 4.2.1 --verbose
+          haxelib install lime 7.9.0 --verbose
+          haxelib install openfl 9.2.0 --verbose
+          haxelib --never install flixel 5.2.2
           haxelib run lime setup flixel
+          haxelib --global update haxelib
           haxelib install flixel-tools 1.5.1
           haxelib install flixel-ui
           haxelib install flixel-addons 3.0.2
@@ -57,44 +54,21 @@ jobs:
           haxelib install hxcpp-debug-server
           haxelib git androiddialogs https://github.com/beihu235/AndroidDialogs
           haxelib git devicelanguage https://github.com/beihu235/devicelanguage
-          haxelib list
+        env:
+          HAXELIB_PATH: ~/.haxelib
 
-      - name: Create Version Tag
-        run: echo "${{ github.run_id }}" > VERSION
-
-      - name: Configure Android
+      - name: Configure Android Environment
         run: |
           haxelib run lime setup -alias -y
           haxelib run lime config ANDROID_SDK $ANDROID_HOME
           haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_HOME
           haxelib run lime config JAVA_HOME $JAVA_HOME
           haxelib run lime config ANDROID_SETUP true
-          haxelib set openfl 9.2.0
-          haxelib set lime 7.9.0
-          haxelib set flixel 5.2.2
-          haxelib set flixel-addons 3.0.2
-          haxelib set hxcpp 4.2.1
-          haxelib list
         env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
-      - name: Building
+      - name: Build Android APK
         run: haxelib run lime build android -release
         env:
           cert_pass: nullfunni
           cert_alias_pass: nullfunni
-
-      - name: Cache Haxelib and Build Files
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.haxelib
-            ~/.gradle
-            export/release/android
-          key: cache-android-${{ github.sha }}
-
-      - name: Upload Build Artifacts
-        uses: actions/upload-artifact@main
-        with:
-          name: androidBuild
-          path: export/release/android/bin/app/build/outputs/apk/debug
