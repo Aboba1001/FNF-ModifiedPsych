@@ -32,6 +32,22 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Install Haxelib
         run: |
+          mkdir -p ~/haxelib_repo
+          haxelib setup ~/haxelib_repo
+          haxelib install lime --always --quiet
+          haxelib install openfl --always --quiet
+          haxelib install hxcpp --always --quiet
+          haxelib install flixel --always --quiet
+          haxelib run lime setup flixel
+          haxelib install flixel-tools --always --quiet
+          haxelib install flixel-ui --always --quiet
+          haxelib install flixel-addons --always --quiet
+          haxelib install tjson --always --quiet
+          haxelib install hxjsonast --always --quiet
+          haxelib git hxCodec https://github.com/polybiusproxy/hxCodec
+          haxelib git linc_luajit https://github.com/Sirox228/linc_luajit
+          haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
+          haxelib list
           sudo apt-get install libvlc-dev
           sudo apt-get install libvlccore-dev
           haxelib setup ~/haxelib
@@ -62,6 +78,22 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Install Haxelib
         run: |
+          mkdir -p ~/haxelib_repo
+          haxelib setup ~/haxelib_repo
+          haxelib install lime --always --quiet
+          haxelib install openfl --always --quiet
+          haxelib install hxcpp --always --quiet
+          haxelib install flixel --always --quiet
+          haxelib run lime setup flixel
+          haxelib install flixel-tools --always --quiet
+          haxelib install flixel-ui --always --quiet
+          haxelib install flixel-addons --always --quiet
+          haxelib install tjson --always --quiet
+          haxelib install hxjsonast --always --quiet
+          haxelib git hxCodec https://github.com/polybiusproxy/hxCodec
+          haxelib git linc_luajit https://github.com/Sirox228/linc_luajit
+          haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
+          haxelib list
           haxelib setup C:/haxelib
           haxelib install hxcpp > /dev/null --quiet
           .\"setup/windows.bat"
@@ -91,6 +123,22 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Install Haxelib
         run: |
+          mkdir -p ~/haxelib_repo
+          haxelib setup ~/haxelib_repo
+          haxelib install lime --always --quiet
+          haxelib install openfl --always --quiet
+          haxelib install hxcpp --always --quiet
+          haxelib install flixel --always --quiet
+          haxelib run lime setup flixel
+          haxelib install flixel-tools --always --quiet
+          haxelib install flixel-ui --always --quiet
+          haxelib install flixel-addons --always --quiet
+          haxelib install tjson --always --quiet
+          haxelib install hxjsonast --always --quiet
+          haxelib git hxCodec https://github.com/polybiusproxy/hxCodec
+          haxelib git linc_luajit https://github.com/Sirox228/linc_luajit
+          haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
+          haxelib list
           haxelib setup ~/haxelib
           haxelib install hxcpp > /dev/null --quiet
           chmod +x ./setup/unix.sh
