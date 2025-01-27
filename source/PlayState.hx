@@ -1270,7 +1270,7 @@ class PlayState extends MusicBeatState
 		  case 'RT':
 		  scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		  scoreTxt.borderSize = 1.25;
-		  case 'Kade'
+		  case 'Kade':
 		  scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, FlxTextAlign.CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		  scoreTxt.x = FlxG.width / 2 - 235;
 		  scoreTxt.y = healthBarBG.y + 50;
