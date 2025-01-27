@@ -1,73 +1,92 @@
+
+# This is a basic workflow to help you get started with Actions
+
 name: Build
 
+# Controls when the action will run. 
 on:
-  workflow_call:
-    inputs:
-      name:
-        required: true
-        type: string
-      os:
-        required: true
-        type: string
-      buildArgs:
-        required: true
-        type: string
-      artifactName:
-        required: true
-        type: string
-      artifactPath:
-        required: true
-        type: string
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
-env:
-  HAXE_VERSION: 4.3.6
-  PROJECT_NAME: ModdedPsych
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  build:
-    name: Build
-    runs-on: ${{ inputs.os }}
+  # This workflow contains a single job called "build"
+
+  buildAndroid:
+    name: buildAndroid
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@main
 
-      - name: Setup Haxe
-        uses: krdlab/setup-haxe@master
+      - name: Setup Android NDK
+        uses: nttld/setup-ndk@main
+        id: setup-ndk
         with:
-          haxe-version: ${{ env.HAXE_VERSION }}
+          ndk-version: r15c
 
-      - name: Install libVLC
-        if: inputs.name == 'Linux'
-        run: sudo apt install libvlc-dev libvlccore-dev
+      - name: Setup Java JDK
+        uses: actions/setup-java@main
+        with:
+          distribution: 'zulu'
+          java-version: 11
 
-      - name: Install Libraries
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@main
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@v1.2.0
+        with:
+          haxe-version: 4.3.6
+
+      - name: Install Haxelib
         run: |
           haxelib setup ~/haxelib
-          haxelib install hmm 
-          haxelib run hmm install
-          
-      - name: Configure Android
-        if: inputs.name == 'Android'
+          haxelib install hxcpp 4.2.1 > /dev/null
+          haxelib install lime 7.9.0
+          haxelib install openfl 9.1.0
+          haxelib --never install flixel 4.11.0
+          haxelib run lime setup flixel
+          haxelib install flixel-tools
+          haxelib install flixel-ui
+          haxelib install flixel-addons 2.11.0
+          haxelib install tjson
+          haxelib install hxjsonast
+          haxelib install hscript
+          haxelib git hxCodec https://github.com/SPLCoding/hxCodec-but-it-works-xd.git
+          haxelib git linc_luajit https://github.com/Sirox228/linc_luajit
+          haxelib git extension-androidtools https://github.com/MaysLastPlay77/extension-androidtools
+          haxelib install hxcpp-debug-server
+          haxelib list
+      - name: Create Version Tag
+        run: echo "${{github.run_id}}" > VERSION
+
+      - name: Setup Lime
         run: |
+          haxelib run lime setup -alias -y
           haxelib run lime config ANDROID_SDK $ANDROID_HOME
-          haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_LATEST_HOME
-          haxelib run lime config JAVA_HOME $JAVA_HOME_17_arm64
+          haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_HOME
+          haxelib run lime config JAVA_HOME $JAVA_HOME
           haxelib run lime config ANDROID_SETUP true
+          haxelib set lime 7.9.0
+          haxelib set openfl 9.1.0
+          haxelib set flixel 4.11.0
+          haxelib set flixel-addons 2.11.0
+          haxelib set hxcpp 4.2.1
+        env:
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
       - name: Compile
-        run: haxelib run lime build ${{ inputs.buildArgs }}
+        run: haxelib run lime build android -D NO_PRECOMPILED_HEADERS --app-version="4.0.0-${{ github.run_id}}"
 
-      - name: Make IPA
-        if: inputs.name == 'iOS'
-        run: |
-          cd export/release/ios/build/Release-iphoneos
-          mkdir Payload
-          mv *.app Payload
-          zip -r ${{ env.PROJECT_NAME }}.ipa Payload
-
-      - name: Upload Artifact
+      - name: Publish Artifact
         uses: actions/upload-artifact@main
         with:
-          name: ${{ inputs.artifactName }}
-          path: ${{ inputs.artifactPath }}
-          if-no-files-found: error
+          name: buildAndroid
+          path: export/release/android/bin/app/build/outputs/apk/debug
