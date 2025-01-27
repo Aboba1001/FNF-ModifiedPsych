@@ -92,3 +92,9 @@ jobs:
         with:
           name: buildAndroid
           path: export/release/android/bin/app/build/outputs/apk/debug
+
+      # Clean up (optional, if needed for large files)
+      - name: Clean up
+        run: |
+          rm -rf ~/.haxelib
+          rm -rf export/release/android/bin/app/build/outputs/apk/debug
