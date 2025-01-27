@@ -33,7 +33,7 @@ jobs:
         run: |
           sudo apt-get install libvlc-dev
           sudo apt-get install libvlccore-dev
-          haxelib setup ~/haxelib
+          haxelib setup /Users/runner/haxelib
           haxelib install hxcpp 4.2.1 > /dev/null
           haxelib install lime 7.9.0
           haxelib install openfl 9.1.0
@@ -131,7 +131,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Install Haxelib
         run: |
-          haxelib setup ~/haxelib
+          haxelib setup /Users/runner/haxelib
           haxelib install hxcpp 4.2.1 > /dev/null
           haxelib install lime 7.9.0
           haxelib install openfl 9.1.0
