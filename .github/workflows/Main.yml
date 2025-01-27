@@ -1,47 +1,34 @@
-# This is a basic workflow to help you get started with Actions
-
 name: RT Engine workflow
 
-# Controls when the action will run.
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
-
-  # Allows you to run this workflow manually from the Actions tab
+    branches: [main]
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   BuildLinux:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
       - uses: krdlab/setup-haxe@master
         with:
-          haxe-version: 4.2.5
-      # Runs a set of commands using the runners shell
+          haxe-version: 4.2.5  # Update to the compatible version for 0.6.3 if needed
+
       - name: Install Haxelib
         run: |
           sudo apt-get install libvlc-dev
           sudo apt-get install libvlccore-dev
-          haxelib setup /Users/runner/haxelib
+          haxelib setup ~/haxelib
           haxelib install hxcpp 4.2.1 > /dev/null
-          haxelib install lime 7.9.0
-          haxelib install openfl 9.1.0
+          haxelib install lime 7.9.0  # Ensure lime version is correct for 0.6.3
+          haxelib install openfl 9.1.0  # Update to correct version for Psych Engine
           haxelib --never install flixel 4.11.0
           haxelib run lime setup flixel
-          haxelib run lime setup
           haxelib install flixel-addons 2.11.0
-          haxelib install flixel-ui
           haxelib install tjson
           haxelib install hxjsonast
           haxelib install hxCodec 2.5.1
@@ -51,8 +38,10 @@ jobs:
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
           haxelib install hxcpp-debug-server
           haxelib list
+
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
+
       - name: Setup Lime
         run: |
           haxelib run lime setup -alias -y
@@ -61,24 +50,26 @@ jobs:
           haxelib set flixel 4.11.0
           haxelib set flixel-addons 2.11.0
           haxelib set hxCodec 2.5.1
+
       - name: Compile
         run: haxelib run lime build Project.xml linux --app-version="4.0.0-${{ github.run_id}}"
+
       - name: Publish Artifact
         uses: actions/upload-artifact@v3
         with:
           name: RT Engine Linux Build
           path: 'export/release/linux/bin'
+
   BuildWindows:
     runs-on: windows-latest
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2.3.0
 
       - uses: krdlab/setup-haxe@master
         with:
           haxe-version: 4.2.5
-      # Runs a set of commands using the runners shell
+
       - name: Install Haxelib
         run: |
           haxelib setup C:/haxelib
@@ -101,8 +92,10 @@ jobs:
           haxelib install hxcpp-debug-server
           haxelib list
         shell: cmd
+
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
+
       - name: Setup Lime
         run: |
           haxelib run lime setup -alias -y
@@ -111,27 +104,29 @@ jobs:
           haxelib set flixel 4.11.0
           haxelib set flixel-addons 2.11.0
           haxelib set hxCodec 2.5.1
+
       - name: Compile
         run: haxelib run lime build windows --app-version="4.0.0-${{ github.run_id}}"
+
       - name: Publish Artifact
         uses: actions/upload-artifact@v3
         with:
           name: RT Engine Windows Build
           path: export/release/windows/bin
+
   BuildMac:
     runs-on: macos-latest
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
       - uses: krdlab/setup-haxe@master
         with:
           haxe-version: 4.2.5
-      # Runs a set of commands using the runners shell
+
       - name: Install Haxelib
         run: |
-          haxelib setup /Users/runner/haxelib
+          haxelib setup ~/haxelib
           haxelib install hxcpp 4.2.1 > /dev/null
           haxelib install lime 7.9.0
           haxelib install openfl 9.1.0
@@ -150,6 +145,7 @@ jobs:
           haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
           haxelib install hxcpp-debug-server
           haxelib list
+
       - name: Setup Lime
         run: |
           haxelib run lime setup -alias -y
@@ -158,18 +154,23 @@ jobs:
           haxelib set flixel 4.11.0
           haxelib set flixel-addons 2.11.0
           haxelib set hxCodec 2.5.1
+
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
+
       - name: Compile
         run: haxelib run lime build mac --app-version="4.0.0-${{ github.run_id}}"
+
       - name: Publish Artifact
         uses: actions/upload-artifact@v3
         with:
           name: RT Engine Mac Build
           path: export/release/macos/bin
+
   BuildAndroid:
-    name: BuildAndroid
+    name: Build Android
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@main
@@ -212,6 +213,7 @@ jobs:
           haxelib --quiet git linc_luajit https://github.com/Sirox228/linc_luajit.git
           haxelib --quiet git extension-androidtools https://github.com/MaysLastPlay77/extension-androidtools
           haxelib list
+
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
 
@@ -227,15 +229,12 @@ jobs:
           haxelib set flixel 4.11.0
           haxelib set flixel-addons 2.11.0
           haxelib set hxcpp 4.2.1
-          haxelib list
-        env:
-          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
       - name: Compile
         run: haxelib run lime build android --app-version="4.0.0-${{ github.run_id}}"
 
       - name: Publish Artifact
-        uses: actions/upload-artifact@main
+        uses: actions/upload-artifact@v3
         with:
           name: RT Engine Android Build
           path: export/release/android/bin/app/build/outputs/apk/debug
