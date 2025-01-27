@@ -1,75 +1,73 @@
-name: Mobile Build
+name: Build
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-  workflow_dispatch:
+  workflow_call:
+    inputs:
+      name:
+        required: true
+        type: string
+      os:
+        required: true
+        type: string
+      buildArgs:
+        required: true
+        type: string
+      artifactName:
+        required: true
+        type: string
+      artifactPath:
+        required: true
+        type: string
+
+env:
+  HAXE_VERSION: 4.3.6
+  PROJECT_NAME: ModdedPsych
 
 jobs:
-  buildAndroid:
-    name: Build Android
-    runs-on: ubuntu-latest
+  build:
+    name: Build
+    runs-on: ${{ inputs.os }}
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Setup Android NDK
-        uses: nttld/setup-ndk@v1
-        id: setup-ndk
-        with:
-          ndk-version: r21e
-
-      - name: Setup Java JDK
-        uses: actions/setup-java@v3
-        with:
-          distribution: zulu
-          java-version: 11
+      - name: Checkout
+        uses: actions/checkout@main
 
       - name: Setup Haxe
         uses: krdlab/setup-haxe@master
         with:
-          haxe-version: 4.2.5
+          haxe-version: ${{ env.HAXE_VERSION }}
 
-      - name: Set Haxelib Repository and Install Dependencies
-        run: |
-          mkdir -p ~/haxelib_repo
-          haxelib setup ~/haxelib_repo
-          haxelib install hxcpp 4.2.1 --verbose
-          haxelib install lime 7.9.0 --verbose
-          haxelib install openfl 9.2.0 --verbose
-          haxelib --never install flixel 5.2.2
-          haxelib run lime setup flixel
-          haxelib --global update haxelib
-          haxelib install flixel-tools 1.5.1
-          haxelib install flixel-ui
-          haxelib install flixel-addons 3.0.2
-          haxelib install tjson
-          haxelib install hxjsonast
-          haxelib git SScript https://github.com/beihu235/Sscript4.1.0
-          haxelib git hxCodec https://github.com/SPLCoding/hxCodec-but-it-works-xd.git
-          haxelib git discord_rpc https://github.com/Aidan63/linc_discord-rpc
-          haxelib git linc_luajit https://github.com/Sirox228/linc_luajit
-          haxelib git extension-androidtools https://github.com/MaysLastPlay77/extension-androidtools
-          haxelib install hxcpp-debug-server
-          haxelib git androiddialogs https://github.com/beihu235/AndroidDialogs
-          haxelib git devicelanguage https://github.com/beihu235/devicelanguage
-        env:
-          HAXELIB_PATH: ~/haxelib_repo
+      - name: Install libVLC
+        if: inputs.name == 'Linux'
+        run: sudo apt install libvlc-dev libvlccore-dev
 
-      - name: Configure Android Environment
+      - name: Install Libraries
         run: |
-          haxelib run lime setup -alias -y
+          haxelib setup ~/haxelib
+          haxelib install hmm 
+          haxelib run hmm install
+          
+      - name: Configure Android
+        if: inputs.name == 'Android'
+        run: |
           haxelib run lime config ANDROID_SDK $ANDROID_HOME
-          haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_HOME
-          haxelib run lime config JAVA_HOME $JAVA_HOME
+          haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_LATEST_HOME
+          haxelib run lime config JAVA_HOME $JAVA_HOME_17_arm64
           haxelib run lime config ANDROID_SETUP true
-        env:
-          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
-      - name: Build Android APK
-        run: haxelib run lime build android -release
-        env:
-          cert_pass: nullfunni
-          cert_alias_pass: nullfunni
+      - name: Compile
+        run: haxelib run lime build ${{ inputs.buildArgs }}
+
+      - name: Make IPA
+        if: inputs.name == 'iOS'
+        run: |
+          cd export/release/ios/build/Release-iphoneos
+          mkdir Payload
+          mv *.app Payload
+          zip -r ${{ env.PROJECT_NAME }}.ipa Payload
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@main
+        with:
+          name: ${{ inputs.artifactName }}
+          path: ${{ inputs.artifactPath }}
+          if-no-files-found: error
