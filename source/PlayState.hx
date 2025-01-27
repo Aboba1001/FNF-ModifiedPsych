@@ -1267,7 +1267,7 @@ class PlayState extends MusicBeatState
 		  case 'Psych':
 		  scoreTxt.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		  scoreTxt.borderSize = 1.25;
-		  case 'RT'
+		  case 'RT':
 		  scoreTxt.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		  scoreTxt.borderSize = 1.25;
 		  case 'Kade'
