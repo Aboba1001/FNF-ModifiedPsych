@@ -22,6 +22,9 @@ jobs:
           sudo apt-get install libvlc-dev libvlccore-dev -y
           haxelib setup ~/haxelib
           haxelib install hxcpp > /dev/null --quiet
+          haxelib install lime 7.9.0 --quiet
+          haxelib run time setup
+          haxelib list
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
       - name: Compile
@@ -46,6 +49,9 @@ jobs:
           haxelib setup C:/haxelib
           haxelib install hxcpp > /dev/null --quiet
           .\"setup/windows.bat"
+          haxelib install lime 7.9.0 --quiet
+          haxelib run time setup
+          haxelib list
         shell: cmd
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
@@ -70,6 +76,9 @@ jobs:
         run: |
           haxelib setup ~/haxelib
           haxelib install hxcpp > /dev/null --quiet
+          haxelib install lime 7.9.0 --quiet
+          haxelib run time setup
+          haxelib list
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
       - name: Compile
@@ -118,8 +127,6 @@ jobs:
           haxelib install hscript
           haxelib install hxCodec
           haxelib install linc_luajit
-          haxelib install discord_rpc
-
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
 
