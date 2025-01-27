@@ -1,23 +1,6 @@
-
 # This is a basic workflow to help you get started with Actions
 
-name: Build
-
-# Controls when the action will run. 
-on:
-  # Triggers the workflow on push or pull request events but only for the master branch
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs: # This is a basic workflow to help you get started with Actions
-
-name: SB Engine workflow
+name: RT Engine workflow
 
 # Controls when the action will run.
 on:
@@ -83,7 +66,7 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@v2.2.4
         with:
-          name: SB Engine Linux Build
+          name: RT Engine Linux Build
           path: 'export/release/linux/bin'
   BuildWindows:
     runs-on: windows-latest
@@ -133,7 +116,7 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@v2.2.4
         with:
-          name: SB Engine Windows Build
+          name: RT Engine Windows Build
           path: export/release/windows/bin
   BuildMac:
     runs-on: macos-latest
@@ -182,7 +165,7 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@v2.2.4
         with:
-          name: SB Engine Mac Build
+          name: RT Engine Mac Build
           path: export/release/macos/bin
   BuildAndroid:
     name: BuildAndroid
@@ -254,5 +237,5 @@ jobs:
       - name: Publish Artifact
         uses: actions/upload-artifact@main
         with:
-          name: SB Engine Android Build
+          name: RT Engine Android Build
           path: export/release/android/bin/app/build/outputs/apk/debug
