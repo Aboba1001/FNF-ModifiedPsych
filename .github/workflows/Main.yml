@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2  # Updated version
+        uses: actions/checkout@v3  # Updated version
 
       - name: Setup Android NDK
         uses: nttld/setup-ndk@v1  # Updated version
@@ -77,7 +77,7 @@ jobs:
         run: haxelib run lime build android -D NO_PRECOMPILED_HEADERS --app-version="4.0.0-${{ github.run_id}}"
 
       - name: Publish Artifact
-        uses: actions/upload-artifact@v2  # Updated version
+        uses: actions/upload-artifact@v3  # Updated version
         with:
           name: buildAndroid
           path: export/release/android/bin/app/build/outputs/apk/debug
