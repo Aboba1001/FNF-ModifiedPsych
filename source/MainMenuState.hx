@@ -36,6 +36,7 @@ class MainMenuState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	private var camGame:FlxCamera;
 	private var camAchievement:FlxCamera;
+	private var bg:FlxSprite;
 	
 	var optionShit:Array<String> = [
 		'story_mode',
@@ -44,13 +45,13 @@ class MainMenuState extends MusicBeatState
 		'credits',
 		'options'
 	];
-
+	
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 	var txtBackground:FlxSprite;
 	var camFollowPos:FlxObject;
 	var debugKeys:Array<FlxKey>;
-
+	
 	override function create()
 	{
 		Paths.clearStoredMemory();
