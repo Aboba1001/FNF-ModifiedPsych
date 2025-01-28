@@ -16,10 +16,11 @@ jobs:
         uses: actions/checkout@main
 
       - name: Install Haxe
-        run: |
-          wget https://github.com/HaxeFoundation/haxe/releases/download/4.2.5/haxe-4.2.5-linux64.tar.gz
-          tar -xvzf haxe-4.2.5-linux64.tar.gz
-          sudo mv haxe /usr/local/bin
+      run: |
+       wget https://github.com/HaxeFoundation/haxe/releases/download/4.2.5/haxe-4.2.5-linux64.tar.gz
+       tar -xvzf haxe-4.2.5-linux64.tar.gz
+       sudo mv haxe-4.2.5/haxe /usr/local/bin/
+       rm -rf haxe-4.2.5
 
       - name: Setup Android NDK
         uses: nttld/setup-ndk@main
