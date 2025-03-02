@@ -152,8 +152,8 @@ class ClientPrefs {
 		FlxG.save.data.comboOffset = comboOffset;
 		FlxG.save.data.achievementsMap = Achievements.achievementsMap;
 		FlxG.save.data.henchmenDeath = Achievements.henchmenDeath;
-                FlxG.save.data.colorblindMode = colorblindMode;
-		
+    FlxG.save.data.colorblindMode = colorblindMode;
+
 		FlxG.save.data.ratingOffset = ratingOffset;
 		FlxG.save.data.perfectWindow = perfectWindow;
 		FlxG.save.data.sickWindow = sickWindow;
@@ -198,7 +198,7 @@ class ClientPrefs {
 		}
 		if(FlxG.save.data.longTimeBar != null) {
 			longTimeBar = FlxG.save.data.longTimeBar;
-	        }
+		}
 		if(FlxG.save.data.opponentStrums != null) {
 			opponentStrums = FlxG.save.data.opponentStrums;
 		}
