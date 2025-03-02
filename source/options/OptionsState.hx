@@ -44,7 +44,8 @@ class OptionsState extends MusicBeatState
 	  'Note Colors',
 	  'Visuals and UI',
 	  'Graphics',
-	  'Adjust Delay and Combo'];
+	  'Adjust Delay and Combo'
+	];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
 	public static var menuBG:FlxSprite;
