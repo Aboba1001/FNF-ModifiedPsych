@@ -48,16 +48,16 @@ jobs:
       - name: Install Haxelib
         run: |
           haxelib setup ~/haxelib
-          haxelib install flixel 5.2.2 --quiet
+          haxelib install flixel 5.2.2
           haxelib set flixel 5.2.2
           haxelib install flixel-addons 3.0.2 --quiet
           haxelib set flixel-addons 3.0.2
-          haxelib install flixel-ui --quiet
-          haxelib install lime 8.0.2 --quiet
+          haxelib install flixel-ui
+          haxelib install lime 8.0.2
           haxelib set lime 8.0.2
-          haxelib install openfl 9.2.2 --quiet
+          haxelib install openfl 9.2.2
           haxelib set openfl 9.2.2
-          haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp --quiet
+          haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp
           haxelib run lime rebuild hxcpp
           haxelib list
   
