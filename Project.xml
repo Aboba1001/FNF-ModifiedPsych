@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Friday Night Funkin': Modified" file="Psych Engine Modified" packageName="com.giogithub.modifiedpsychengine" package="com.giogithub.modifiedpsychengine" main="Main" version="0.6.3 (Modified)" company="GioGitHub" />
+	<app title="Friday Night Funkin': Modified" file="Psych Engine Modified" packageName=com.shadowmario.psychenginem" package="com.shadowmario.psychenginem" main="Main" version="0.6.3 (Modified)" company="GioGitHub" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 
