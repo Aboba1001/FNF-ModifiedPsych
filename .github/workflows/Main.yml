@@ -58,6 +58,7 @@ jobs:
           haxelib install openfl 9.4.1
           haxelib set openfl 9.4.1
           haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp
+          haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit.git
           haxelib run lime rebuild hxcpp
           haxelib list
   
