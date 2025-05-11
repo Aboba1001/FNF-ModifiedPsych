@@ -60,6 +60,7 @@ jobs:
           haxelib git hxcpp https://github.com/HaxeFoundation/hxcpp
           haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit.git
           haxelib run lime rebuild hxcpp
+          haxelib git hxCodec https://github.com/polybiusproxy/hxCodec.git
           haxelib list
   
       - name: Create Version Tag
