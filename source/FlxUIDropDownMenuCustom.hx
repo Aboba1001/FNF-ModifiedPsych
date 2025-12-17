@@ -20,7 +20,7 @@ import flixel.addons.ui.FlxUIAssets;
 import flixel.addons.ui.StrNameLabel;
 import flixel.addons.ui.FlxUI;
 
-class FlxUIDropDownMenuCustom extends FlxUIGroup implements IFlxUIWidget, IFlxUIClickable, IHasParams
+class FlxUIDropDownMenuCustom extends FlxUIGroup implements IFlxUIWidget implements IFlxUIClickable implements IHasParams
 {
 	public var skipButtonUpdate(default, set):Bool;
 	private function set_skipButtonUpdate(b:Bool):Bool
