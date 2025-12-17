@@ -11,7 +11,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Prevent cached Flixel 6.x from breaking builds
       - name: Clean Haxelib Cache
         run: rm -rf ~/.haxelib
 
@@ -37,11 +36,16 @@ jobs:
           haxelib setup ~/haxelib
           haxelib install hmm --quiet
           haxelib run hmm install --quiet
-
-      - name: Create Version Tag
-        run: echo "${{ github.run_id }}" > VERSION
-
-      - name: Setup Lime / OpenFL / Flixel (Psych Compatible)
+          haxelib install tjson
+          haxelib install hxjsonast
+          haxelib install hscript
+          haxelib git hxCodec https://github.com/SPLCoding/hxCodec-but-it-works-xd.git
+          haxelib git linc_luajit https://github.com/Sirox228/linc_luajit
+          haxelib git extension-androidtools https://github.com/MaysLastPlay77/extension-androidtools
+          haxelib install hxcpp-debug-server
+          haxelib list
+          
+      - name: Setup Lime / Flixel
         env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
         run: |
@@ -51,7 +55,6 @@ jobs:
           haxelib run lime config JAVA_HOME "$JAVA_HOME"
           haxelib run lime config ANDROID_SETUP true
 
-          # LOCK VERSIONS (DO NOT CHANGE)
           haxelib set lime 7.9.0
           haxelib set openfl 9.1.0
           haxelib set flixel 4.11.0
@@ -59,12 +62,7 @@ jobs:
           haxelib set flixel-ui 2.5.0
           haxelib set hxcpp 4.2.1
 
-          # Force rebuilds to avoid API mismatch
-          haxelib run lime rebuild flixel
-          haxelib run lime rebuild flixel-addons
-          haxelib run lime rebuild flixel-ui
-
-      - name: Compile Android
+      - name: Build
         run: |
           haxelib run lime build android \
             -D NO_PRECOMPILED_HEADERS \
@@ -74,44 +72,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Android-APK
-          path: export/release/android/bin/app/build/outputs/apk/debug          distribution: 'zulu'
-          java-version: 11
-
-      - name: Setup Haxe
-        uses: krdlab/setup-haxe@v1.2.0
-        with:
-          haxe-version: 4.2.5
-
-      - name: Install Haxelib
-        run: |
-          haxelib setup ~/haxelib
-          haxelib install hmm --quiet
-          haxelib run hmm install --quiet
-          haxelib git extension-androidtools https://github.com/MaysLastPlay77/extension-androidtools
-          
-      - name: Create Version Tag
-        run: echo "${{github.run_id}}" > VERSION
-
-      - name: Setup Lime
-        run: |
-          haxelib run lime setup -alias -y
-          haxelib run lime config ANDROID_SDK $ANDROID_HOME
-          haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_HOME
-          haxelib run lime config JAVA_HOME $JAVA_HOME
-          haxelib run lime config ANDROID_SETUP true
-          haxelib set lime 7.9.0
-          haxelib set openfl 9.1.0
-          haxelib set flixel 4.11.0
-          haxelib set flixel-addons 2.11.0
-          haxelib set hxcpp 4.2.1
-        env:
-          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
-
-      - name: Compile
-        run: haxelib run lime build android -D NO_PRECOMPILED_HEADERS --app-version="4.0.0-${{ github.run_id }}"
-
-      - name: Publish Artifact
-        uses: actions/upload-artifact@main
-        with:
-          name: buildAndroid
           path: export/release/android/bin/app/build/outputs/apk/debug
