@@ -1,40 +1,80 @@
+name: Build Android
 
-# This is a basic workflow to help you get started with Actions
-
-name: Mobile Build
-
-# Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the master branch
- # push:
-   # branches: [ main ]
- # pull_request:
-   # branches: [ main ]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-
   buildAndroid:
-    name: buildAndroid
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
-        uses: actions/checkout@main
+        uses: actions/checkout@v4
+
+      # Prevent cached Flixel 6.x from breaking builds
+      - name: Clean Haxelib Cache
+        run: rm -rf ~/.haxelib
 
       - name: Setup Android NDK
-        uses: nttld/setup-ndk@main
         id: setup-ndk
+        uses: nttld/setup-ndk@v1
         with:
           ndk-version: r15c
 
-      - name: Setup Java JDK
-        uses: actions/setup-java@main
+      - name: Setup Java
+        uses: actions/setup-java@v4
         with:
-          distribution: 'zulu'
+          distribution: zulu
+          java-version: 11
+
+      - name: Setup Haxe
+        uses: krdlab/setup-haxe@v1.2.0
+        with:
+          haxe-version: 4.2.5
+
+      - name: Install Haxelib
+        run: |
+          haxelib setup ~/haxelib
+          haxelib install hmm --quiet
+          haxelib run hmm install --quiet
+
+      - name: Create Version Tag
+        run: echo "${{ github.run_id }}" > VERSION
+
+      - name: Setup Lime / OpenFL / Flixel (Psych Compatible)
+        env:
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+        run: |
+          haxelib run lime setup -alias -y
+          haxelib run lime config ANDROID_SDK "$ANDROID_HOME"
+          haxelib run lime config ANDROID_NDK_ROOT "$ANDROID_NDK_HOME"
+          haxelib run lime config JAVA_HOME "$JAVA_HOME"
+          haxelib run lime config ANDROID_SETUP true
+
+          # LOCK VERSIONS (DO NOT CHANGE)
+          haxelib set lime 7.9.0
+          haxelib set openfl 9.1.0
+          haxelib set flixel 4.11.0
+          haxelib set flixel-addons 2.11.0
+          haxelib set flixel-ui 2.5.0
+          haxelib set hxcpp 4.2.1
+
+          # Force rebuilds to avoid API mismatch
+          haxelib run lime rebuild flixel
+          haxelib run lime rebuild flixel-addons
+          haxelib run lime rebuild flixel-ui
+
+      - name: Compile Android
+        run: |
+          haxelib run lime build android \
+            -D NO_PRECOMPILED_HEADERS \
+            --app-version="4.0.0-${{ github.run_id }}"
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: Android-APK
+          path: export/release/android/bin/app/build/outputs/apk/debug          distribution: 'zulu'
           java-version: 11
 
       - name: Setup Haxe
