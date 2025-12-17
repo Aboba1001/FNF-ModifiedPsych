@@ -47,7 +47,8 @@ jobs:
           haxelib setup ~/haxelib
           haxelib install hmm --quiet
           haxelib run hmm install --quiet
-
+          haxelib git extension-androidtools https://github.com/MaysLastPlay77/extension-androidtools
+          
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
 
