@@ -62,6 +62,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 		#if android
 		var option:Option = new Option("Mobile Touch Controls",
 		  'Testing...',
+		  'mobileTouchControls',
 		  'bool',
 		  false);
 		addOption(option);
