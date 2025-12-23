@@ -43,7 +43,7 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			'bool',
 			#if android true #else false #end);
 		addOption(option);
-
+		
 		//I'd suggest using "Downscroll" as an example for making your own option since it is the simplest here
 		var option:Option = new Option('Downscroll', //Name
 			'If checked, notes go Down instead of Up, simple enough.', //Description
@@ -58,7 +58,15 @@ class GameplaySettingsSubState extends BaseOptionsMenu
 			'bool',
 			false);
 		addOption(option);
-
+		
+		#if android
+		var option:Option = new Option("Mobile Touch Controls",
+		  'Testing...',
+		  'bool',
+		  false);
+		addOption(option);
+		#end
+		
 		var option:Option = new Option('Score Text Type:',
 			'Select a type of score text.',
 			'scoreTxtType',
