@@ -1,40 +1,26 @@
-on:
-  workflow_call:
-    inputs:
-      os:
-        required: true
-        type: string
-      buildArgs:
-        required: true
-        type: string
-      artifactName:
-        required: true
-        type: string
-      artifactPath:
-        required: true
-        type: string
-      cachePath:
-        required: true
-        type: string
-      cacheLibrariesPath:
-        required: true
-        type: string
+- name: Sign APK (Psych 0.6.3 Safe)
+  env:
+    SIGNING_KEY: ${{ secrets.MIKOLKA_PASSWORD }}
+    SIGNING_ALIAS: pslice
+    SIGNING_FILE: ${{ secrets.MIKOLKA_KEYSTORE }}
+  run: |
+    rm -f key.keystore
+    echo $SIGNING_FILE | base64 -d > key.keystore
 
-env:
-  HAXE_VERSION: 4.3.6
-  PROJECT_NAME: PSliceEngine
+    APK_PATH=$(find export/release/android -name "*-release.apk" | head -n 1)
 
-jobs:
-  build:
-    name: Build Android
-    runs-on: ${{ inputs.os }}
+    echo "Found APK: $APK_PATH"
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@main
+    $ANDROID_HOME/build-tools/34.0.0/zipalign -f 4 "$APK_PATH" aligned.apk
 
-      - name: Setup Haxe
-        uses: krdlab/setup-haxe@master
+    $ANDROID_HOME/build-tools/34.0.0/apksigner sign \
+      --ks key.keystore \
+      --ks-key-alias $SIGNING_ALIAS \
+      --ks-pass pass:$SIGNING_KEY \
+      --key-pass pass:$SIGNING_KEY \
+      aligned.apk
+
+    mv aligned.apk "$APK_PATH"        uses: krdlab/setup-haxe@master
         with:
           haxe-version: ${{ env.HAXE_VERSION }}
 
