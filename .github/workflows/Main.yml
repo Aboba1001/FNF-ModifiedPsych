@@ -1,13 +1,12 @@
-name: Android Build (Psych 0.6.3)
+name: Psych 0.6.3 Android Build (MaysLastPlay Port)
 
 on:
   workflow_dispatch:
-
-env:
-  HAXE_VERSION: 4.3.6
+  push:
+    branches: [ main ]
 
 jobs:
-  build:
+  buildAndroid:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,80 +17,91 @@ jobs:
         uses: actions/checkout@v4
 
       # ----------------------------
-      # Setup Haxe
+      # Setup Android NDK (r15c REQUIRED)
+      # ----------------------------
+      - name: Setup Android NDK
+        uses: nttld/setup-ndk@v1
+        id: setup-ndk
+        with:
+          ndk-version: r15c
+
+      # ----------------------------
+      # Setup Java 11 (REQUIRED)
+      # ----------------------------
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: zulu
+          java-version: 11
+
+      # ----------------------------
+      # Setup Android SDK
+      # ----------------------------
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      # ----------------------------
+      # Setup Haxe 4.2.0 (REQUIRED)
       # ----------------------------
       - name: Setup Haxe
         uses: krdlab/setup-haxe@v1
         with:
-          haxe-version: ${{ env.HAXE_VERSION }}
+          haxe-version: 4.2.0
 
       # ----------------------------
-      # Install Haxe Libraries
+      # Install EXACT Required Libraries
       # ----------------------------
-      - name: Install Haxe Libraries
+      - name: Install Haxelib Dependencies
         run: |
           haxelib setup ~/haxelib
 
-          # Core
-          haxelib install lime --quiet
-          haxelib install openfl --quiet
+          haxelib install hxcpp 4.2.1
+          haxelib install lime 7.9.0
+          haxelib install openfl 9.1.0
+          haxelib install flixel 4.11.0
+          haxelib install flixel-addons 2.11.0
+          haxelib install flixel-ui
+          haxelib install flixel-tools
+          haxelib install tjson
+          haxelib install hxjsonast
+          haxelib install hscript
+          haxelib install hxcpp-debug-server
 
-          # Psych dependencies
-          haxelib install flixel --quiet
-          haxelib install flixel-addons --quiet
-          haxelib install flixel-ui --quiet
+          # Required forks
+          haxelib git hxCodec https://github.com/SPLCoding/hxCodec-but-it-works-xd.git
+          haxelib git linc_luajit https://github.com/Sirox228/linc_luajit
+          haxelib git extension-androidtools https://github.com/MaysLastPlay77/extension-androidtools
 
-          haxelib run lime setup
+          haxelib list
 
       # ----------------------------
-      # Configure Android
+      # Setup Lime (PIN versions)
       # ----------------------------
-      - name: Configure Android
-        env:
-          PLAYSTORE_FIREBASE: ${{ secrets.PLAYSTORE_FIREBASE }}
+      - name: Configure Lime
         run: |
+          haxelib run lime setup -alias -y
+
           haxelib run lime config ANDROID_SDK $ANDROID_HOME
           haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_HOME
-          haxelib run lime config JAVA_HOME $JAVA_HOME_17_X64
+          haxelib run lime config JAVA_HOME $JAVA_HOME
           haxelib run lime config ANDROID_SETUP true
 
-          if [ -n "$PLAYSTORE_FIREBASE" ]; then
-            printf '%s' "$PLAYSTORE_FIREBASE" > ./setup/google-services.json
-          fi
-
-      # ----------------------------
-      # Build Release
-      # ----------------------------
-      - name: Build Android Release
-        run: haxelib run lime build android -release
-
-      # ----------------------------
-      # Sign APK (Auto-detect)
-      # ----------------------------
-      - name: Sign APK
+          haxelib set lime 7.9.0
+          haxelib set openfl 9.1.0
+          haxelib set flixel 4.11.0
+          haxelib set flixel-addons 2.11.0
+          haxelib set hxcpp 4.2.1
         env:
-          SIGNING_KEY: ${{ secrets.MIKOLKA_PASSWORD }}
-          SIGNING_ALIAS: pslice
-          SIGNING_FILE: ${{ secrets.MIKOLKA_KEYSTORE }}
+          ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
+
+      # ----------------------------
+      # Build
+      # ----------------------------
+      - name: Build Android
         run: |
-          echo "$SIGNING_FILE" | base64 -d > key.keystore
-
-          APK_PATH=$(find export/release/android -name "*-release.apk" | head -n 1)
-
-          echo "Found APK: $APK_PATH"
-
-          BUILD_TOOLS=$ANDROID_HOME/build-tools/34.0.0
-
-          $BUILD_TOOLS/zipalign -f 4 "$APK_PATH" aligned.apk
-
-          $BUILD_TOOLS/apksigner sign \
-            --ks key.keystore \
-            --ks-key-alias $SIGNING_ALIAS \
-            --ks-pass pass:$SIGNING_KEY \
-            --key-pass pass:$SIGNING_KEY \
-            aligned.apk
-
-          mv aligned.apk "$APK_PATH"
+          haxelib run lime build android \
+            -D NO_PRECOMPILED_HEADERS \
+            --app-version="4.0.0-${{ github.run_id }}"
 
       # ----------------------------
       # Upload APK
@@ -100,5 +110,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: psych-android-build
-          path: export/release/android/**/*.apk
-          if-no-files-found: error
+          path: export/release/android/bin/app/build/outputs/apk/debug/*.apk
