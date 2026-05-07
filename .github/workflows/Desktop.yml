@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Build Windows
 
 on:
@@ -24,9 +22,9 @@ jobs:
         uses: actions/cache@v3
         with:
           path: C:\haxelib
-          key: haxelib-v2-${{ runner.os }}-${{ hashFiles('haxelib.json', 'Project.xml') }}
+          key: haxelib-v3-${{ runner.os }}-${{ hashFiles('haxelib.json', 'Project.xml') }}
           restore-keys: |
-            haxelib-v2-${{ runner.os }}-
+            haxelib-v3-${{ runner.os }}-
 
       # Install Haxe
       - uses: krdlab/setup-haxe@master
@@ -55,7 +53,6 @@ jobs:
 
           haxelib install hxdiscord_rpc 1.3.0 --quiet
           haxelib install flxanimate 3.0.4 --quiet
-          haxelib install discord_rpc --quiet
           haxelib install hxcpp 4.2.1 --quiet
           haxelib install hxWindowColorMode 0.2.0 --quiet
           haxelib install android6permissions 0.2.1 --quiet
@@ -72,6 +69,7 @@ jobs:
           haxelib set flixel-demos 2.9.0
           haxelib set flixel-templates 2.6.6
           haxelib set lime-samples 7.0.0
+          haxelib set hxdiscord_rpc 1.3.0
 
           haxelib list
         shell: cmd
@@ -87,51 +85,6 @@ jobs:
         shell: cmd
 
       # Upload artifact
-      - name: Publish Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: windowsBuild
-          path: export/release/windows/bin      # Runs a set of commands using the runners shell
-      - name: Install Haxelib
-        run: |
-          haxelib setup C:\haxelib
-          haxelib install lime 8.0.1 --quiet
-          haxelib install openfl 9.2.1 --quiet
-          haxelib install flixel 4.11.0 --quiet
-          haxelib install flixel-tools 1.5.1 --quiet
-          haxelib install flixel-ui 2.5.0 --quiet
-          haxelib install flixel-addons 3.0.2 --quiet
-          haxelib install hscript 2.5.0 --quiet
-          haxelib install hxCodec 2.5.1 --quiet
-          haxelib install Brewscript --quiet
-          haxelib install flixel-demos 2.9.0 --quiet
-          haxelib install flixel-templates 2.6.6 --quiet
-          haxelib install lime-samples 7.0.0 --quiet
-          haxelib git linc_luajit https://github.com/superpowers04/linc_luajit
-          haxelib install hxdiscord_rpc 1.3.0 --quiet
-          haxelib install flxanimate 3.0.4 --quiet
-          haxelib install discord_rpc
-          haxelib install hxcpp 4.2.1 --quiet
-          haxelib install hxWindowColorMode 0.2.0 --quiet
-          haxelib install android6permissions 0.2.1 --quiet
-          haxelib set flixel-addons 3.0.2
-          haxelib set flixel-demos 2.9.0
-          haxelib set flixel-templates 2.6.6
-          haxelib set flixel-tools 1.5.1
-          haxelib set flixel-ui 2.5.0
-          haxelib set flixel 4.11.0
-          haxelib set flxanimate 3.0.4
-          haxelib set hxcpp 4.2.1
-          haxelib set hscript 2.5.0
-          haxelib set lime-samples 7.0.0
-          haxelib set lime 8.0.1
-          haxelib set openfl 9.2.1
-          haxelib list
-        shell: cmd
-      - name: Create Version Tag
-        run: echo "${{github.run_id}}" > VERSION
-      - name: Compile
-        run: haxelib run lime build windows --app-version=${{ github.run_id }}
       - name: Publish Artifact
         uses: actions/upload-artifact@v4
         with:
