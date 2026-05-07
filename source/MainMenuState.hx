@@ -226,8 +226,8 @@ class MainMenuState extends MusicBeatState
 			}
 			menuItems.forEach(function(spr:FlxSprite) // From Mic'd Up Engine
 			{
-			  FlxTween.tween(FlxG.camera, {zoom: 5}, 0.8, {ease: FlxEase.expoIn});
-			  FlxTween.tween(bg, {angle: 45}, 0.8, {ease: FlxEase.expoIn});
+			  //FlxTween.tween(FlxG.camera, {zoom: 5}, 0.8, {ease: FlxEase.expoIn});
+			  //FlxTween.tween(bg, {angle: 45}, 0.8, {ease: FlxEase.expoIn});
 			  FlxTween.tween(spr, {x: -600}, 0.6, {
 			    ease: FlxEase.backIn,
 			    onComplete: function(twn:FlxTween) {
